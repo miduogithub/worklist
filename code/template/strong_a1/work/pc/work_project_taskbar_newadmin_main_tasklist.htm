@@ -1,0 +1,217 @@
+
+<style>
+
+.input_display_none {
+	display:none;
+}
+
+.input_display_block {
+	display:block;
+}
+</style>
+<!--{loop $list[missionlist] $mlist}-->
+{eval $i++;}
+
+
+
+
+
+
+
+
+<!--                   <div  style="width: 400px;float: left;       position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;"> -->
+
+                  <div   style=" 
+margin:3px; 
+display:inline-block; vertical-align: top; width: 320px;padding-top:0px;white-space:normal; " >
+				
+                      <section class="panel ">
+                          <header class="panel-heading" >
+						  <!-- {eval echo cutstr($mlist[missionname], 27);} -->
+								<div class="btn-group" style="margin-right: 10px;">
+                                  <button data-toggle="dropdown" class="btn {if $mlist[status]=='0'}btn-primary{else}btn-default{/if} dropdown-toggle btn-xs" type="button"><span class="caret"></span></button>
+                                  <ul role="menu" class="dropdown-menu">
+										<li>
+											<a href="work.php?mod=workcp&ac=tasklist&op=tasklist&action=pushmissiontop&missionid={$mlist[missionid]}">提升</a>
+										</li>
+										
+										<!--{if $mlist[status] == '0'}-->
+										<li>
+											<a href="work.php?mod=workcp&ac=mission&op=goodslist&action=finish&missionid={$mlist[missionid]}&dateline={$_G[timestamp]}">完成</a>
+										</li>
+										<!--{elseif $mlist[status] == '1'}-->
+										<li>
+											<a href="work.php?mod=workcp&ac=mission&op=goodslist&action=unfinish&missionid={$mlist[missionid]}&dateline={$_G[timestamp]}">未完</a>
+										</li>
+										<!--{/if}-->
+
+										<li>
+											<a href="work.php?mod=project&view=editmission&missionid={$mlist[missionid]}&editorid={$mlist[editorid]}">编辑</a>
+										</li>
+										<li class="divider"></li>
+										<li>
+										
+											<a href="work.php?mod=workcp&ac=mission&op=goodslist&missionid={$mlist[missionid]}&action=delete&editorid={$mlist[editorid]}">删除</a>
+										</li>
+                                  </ul>
+                              </div><!-- /btn-group -->
+		<!--{eval $missionuserinfo = get_wx_userinfo_by_uid($mlist[editorid]);}-->
+		<!--{if $missionuserinfo[headimgurl]}-->
+			{eval $editoravatar = $missionuserinfo[headimgurl];}
+		<!--{else}-->
+			{eval $editoravatar = avatar($mlist[editorid], middle, true);}
+		<!--{/if}-->
+		<img src="{$editoravatar}" style="    width: 20px;">
+
+                              <span style="{if $mlist[status] == '1'} text-decoration:line-through; color: #D0D0D0;{/if}">$mlist[missionname]</span>
+
+
+									<!-- <div class="pull-right chat-features">
+                                          <a href="work.php?mod=workcp&ac=tasklist&op=tasklist&action=pushmissiontop&missionid={$mlist[missionid]}">
+                                              <i class="icon-indent-left"></i>
+                                          </a>
+                                      </div>   -->                        
+							</header>
+                          <div class="panel-body" style="max-height:450px;height: 80%;overflow-x: auto;">
+                              <div class="timeline-messages">
+
+									<!--{eval $tasklist = get_mission_tasklist_by_missionid($mlist[missionid]);}-->
+									<!--{loop $tasklist $tlist}-->
+
+
+
+                                  <div class="msg-time-chat" >
+									
+										
+									
+                                      <!-- <a href="work.php?mod=workcp&ac=tasklist&op=tasklist&action=finish&taskid={$tlist[taskid]}" class="message-img">
+										 <img class="avatar" src="{avatar($tlist[editorid], middle, true)}" alt="" >
+									</a> -->
+                                      <div class="message-body msg-in">
+                                          <span class="arrow"></span>
+											<script type="text/javascript">
+												$(document).ready(function() {
+													$('#task_message_show_{$tlist[taskid]}').hover(function(){
+														$('#task_message_showInner_{$tlist[taskid]}').show();
+													}, function(){
+														$('#task_message_showInner_{$tlist[taskid]}').hide();
+													});
+												});
+											</script>
+                                          <div class="text" style="{if $tlist[status] == '1'} text-decoration:line-through; color: #D0D0D0;{/if}" id="task_message_show_{$tlist[taskid]}">
+
+											<p>
+												<!--{if $_GET['action']=='edittask' && $_GET['taskid']==$tlist[taskid]}-->
+													<form method="post" action="work.php?mod=workcp&ac=tasklist&op=tasklist&action=edit" id="subform_{$tlist[taskid]}">
+													  <div class="chat-form">
+														  <div class="input-cont ">
+															   <textarea class="form-control" name="taskname" required="" >$tlist[taskname]</textarea>
+																 <input  type="hidden" name="taskid" value="{$tlist[taskid]}"/>
+																<input type="hidden" name="missionid" value="{$mlist[missionid]}">
+																<input type="hidden" name="projectid" value="{$_GET[projectid]}">
+														  </div>
+															
+														<!--{if $tlist[taskurl]}-->
+														  <div class="input-cont ">
+															  <input type="text" class="form-control col-lg-12 " name="taskurl" value="{$tlist[taskurl]}"/>
+														  </div>
+														<!--{/if}-->	
+								  
+															<div class="pull-right chat-features" style="margin-top: -7px;">
+																<a class="btn btn-success" href="#" name="submit" onclick="document.getElementById('subform_{$tlist[taskid]}').submit();return false" style="color:white;">更改</a>
+															</div>
+													  </div>
+													  </form>
+												<!--{else}-->
+													$tlist[taskname]
+													<!--{if $tlist[tid]}-->
+													&nbsp;
+														<a href="work.php?mod=taskpsot&fid=45&tid=$tlist[tid]&from=taskbar&taskid={$tlist[taskid]}&projectid={$_GET[projectid]}" target="_blank">
+															<i class="icon-paper-clip" style="margin-right: -10px;color:#797979;"></i>
+														</a>
+													<!--{/if}-->	
+													<!--{if $tlist[taskurl]}-->
+													&nbsp;
+														<a href="{$tlist[taskurl]}" target="_blank">
+															<i class="icon-plane" ></i>
+														</a>
+													<!--{/if}-->													
+												<!--{/if}-->
+											</p>
+												<br />
+												<div id="task_message_showInner_{$tlist[taskid]}" style="display: none;">
+													<div class="pull-left chat-features" style="    margin-top: -13px;    margin-left: -10px;">
+	
+														<!--{if !$tlist[tid]}-->
+														
+															<a href="work.php?mod=taskpsot&action=newthread&fid=45&from=taskbar&taskid={$tlist[taskid]}&projectid={$_GET[projectid]}">
+																<i class="icon-expand-alt" style="font-size:18px;margin-right: -10px;"></i>
+															</a>
+														<!--{/if}-->
+													 
+														  
+													  </div> 
+													<div class="pull-right chat-features" style="    margin-top: -13px;">
+														<a href="work.php?mod=taskbar&view=mission&projectid={$_GET[projectid]}&vieworder=alleditor&action=edittask&taskid={$tlist[taskid]}">
+															<i class="icon-edit" style="margin-right: -10px;"></i>
+														</a>
+														
+														<!-- <i class="icon-pencil"></i> -->
+														
+														
+														<!--{if $tlist[status]=='0'}-->
+															<!-- <a href="#"><i class="icon-edit" style="margin-right: -10px;"></i></a> -->
+															<a href="work.php?mod=workcp&ac=tasklist&op=tasklist&action=pushtop&taskid={$tlist[taskid]}"><i class="icon-upload-alt" style="margin-right: -10px;"></i></a>
+															<a href="work.php?mod=workcp&ac=tasklist&op=tasklist&action=finish&taskid={$tlist[taskid]}"><i class="icon-ok"  style="margin-right: -10px;"></i></a>
+															
+														<!--{/if}-->
+														<!--{if $tlist[status]=='1'}-->
+														
+															<a href="work.php?mod=workcp&ac=tasklist&op=tasklist&action=unfinish&taskid={$tlist[taskid]}"><i class="icon-remove"  style="margin-right: -10px;"></i></a>
+															<a href="work.php?mod=workcp&ac=tasklist&op=tasklist&action=delete&taskid={$tlist[taskid]}"><i class="icon-trash"  style="margin-right: -10px;"></i></a>
+														<!--{/if}-->
+														 
+														  
+													  </div> 
+												</div>											  
+                                          </div>
+                                      </div>
+
+                                  </div>
+								  <!--{/loop}-->
+
+                              </div>
+
+							<form method="post" action="work.php?mod=workcp&ac=tasklist&op=tasklist&action=add" id="subform_{$mlist[missionid]}">
+                              <div class="chat-form">
+                                  <div class="input-cont ">
+									  <textarea class="form-control col-lg-12" name="taskname" required="" ></textarea>
+									  <input type="hidden" name="missionid" value="{$mlist[missionid]}">
+                                  </div>
+                                  <div class="input-cont ">
+									  <input type="text" class="form-control col-lg-12 input_display_none" name="taskurl" id="get_url_input_missionid_{$mlist[missionid]}" placeholder="请输入URL"/>
+                                  </div>
+								  
+                                  <div class="form-group">
+                                      <div class="pull-right chat-features">
+                                          <a href="javascript:;">
+                                              <i class="icon-camera"></i>
+                                          </a>
+
+                                          <a href="javascript:;">
+                                              <i class="icon-link" id="get_url_button_missionid_{$mlist[missionid]}" onclick="$('#get_url_input_missionid_{$mlist[missionid]}').toggleClass('input_display_none');"></i>
+                                          </a>
+                                          <a class="btn btn-danger" href="#" name="submit" onclick="document.getElementById('subform_{$mlist[missionid]}').submit();return false" >保存</a>
+                                      </div>
+                                  </div>
+
+                              </div>
+							  </form>
+                          </div>
+                      </section>
+                  </div>
+<!--{/loop}-->
+

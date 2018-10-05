@@ -1,0 +1,40 @@
+
+	  <!--main content start-->
+      <section id="main-content">
+		
+
+
+          <header class="tab-head">
+              <ul class="nav nav-tabs">
+
+
+					<!--{loop $yearsarr $year}-->
+
+
+                  <li {if $checkyear == $year}class="active"{/if}>
+                      <a href="work.php?mod=financial&view=runningaccount{if $vieworder=='onlyproject'}&vieworder=$vieworder{/if}&checkyear=$year">$year</a>
+                  </li>
+				  <!--{/loop}-->
+
+              </ul>
+          </header>
+
+
+
+<!--{template work/pc/work_financial_runningaccount_newadmin_main_wrapper}-->
+
+
+
+
+<!--{template work/pc/work_financial_runningaccount_newadmin_main_order}-->
+
+
+<!--{template work/pc/work_financial_runningaccount_newadmin_main_projectlist}-->
+	
+
+
+
+
+
+      </section>
+      <!--main content end-->

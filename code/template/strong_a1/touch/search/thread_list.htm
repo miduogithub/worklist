@@ -1,0 +1,14 @@
+<div class="search_threadlist">
+	<h2 class="thread_tit">
+		<!--{if $keyword}-->
+			{echo $lang['search_result_keyword']}
+		<!--{/if}-->
+	</h2>
+	<!--{if empty($threadlist)}-->
+	<ul><li><a href="javascript:;">{lang search_nomatch}</a></li></ul>
+	<!--{else}-->
+		<!--{eval threadlist_format($threadlist);}-->		
+	<!--{/if}-->
+	$multipage
+</div>
+

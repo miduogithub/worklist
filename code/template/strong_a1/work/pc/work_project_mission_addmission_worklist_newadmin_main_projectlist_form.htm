@@ -1,0 +1,148 @@
+<section class="panel">
+
+
+
+							{eval $workinfo = get_worklist_info_by_workid($_GET[workid]);}
+                           <header class="panel-heading">
+                              请填写项目资料
+                          </header> 
+                          <div class="panel-body">
+                              <div class=" form">
+
+                                  <form class="cmxform form-horizontal tasi-form" id="commentForm" method="post" action="work.php?mod=workcp&ac=mission&op=mission&action=pushworklist" >
+									<input name="workid" type="hidden" value="{$_GET[workid]}">
+									<!--{if $_GET[projectid]}-->
+
+                                  <div class="form-group has-success">
+                                      <label class="col-lg-2 control-label">所属项目</label>
+
+									  <div class="col-sm-6" >
+
+											<input name="projectid"  type="text" value="$projectlist[$_GET[projectid]][projectname]"  class="form-control" readonly="" >
+											<input type="hidden" name="projectid"  value="$_GET[projectid]" >
+									  </div>
+
+                                  </div>
+
+								<!--{else}-->
+
+
+                                  <div class="form-group has-success">
+                                      <label class="col-lg-2 control-label">所属项目</label>
+
+
+								<!--{if $view=='addmission_worklist'}-->
+										<div class="col-lg-6">  
+											<!--{template work/pc/work_project_mission_addmission_worklist_newadmin_main_projectlist_form_select_myprojectlist}-->
+										</div>
+
+								<!--{/if}-->
+
+								{eval $changetype = $_GET[changetype];}
+								<!--{if $view=='editmission' && !$changetype}-->
+									  <div class="col-sm-6" >
+
+											<input name="projectid"  type="text" value="$projectlist[$mission[projectid]][projectname]"  class="form-control" readonly="" >
+											<input type="hidden" name="projectid"  value="$mission[projectid]" >
+											<p class="help-block"><a href="work.php?mod=project&view=editmission&missionid=$mission[missionid]&changetype=1">修改</a></p>
+									  </div>
+								<!--{elseif $changetype && $view=='editmission'}-->
+										<div class="col-lg-6">  
+											<!--{template work/pc/work_project_mission_addmission_worklist_newadmin_main_projectlist_form_select}-->
+										</div>
+								<!--{/if}-->
+
+
+
+                                  </div>
+
+								  <!--{/if}-->
+
+                                  <div class="form-group has-success">
+                                      <label class="col-lg-2 control-label">任务类型</label>
+										<div class="col-lg-6">  
+											<select name="project_typeid" id="birthyear" class="ps" tabindex="1" disabled="disabled">
+												<option value="worklist">项目日志</option>
+												<!--{loop $typelist $tlist}-->
+												<option value="$tlist['typeid']" {if $mission[projecttypeid] == $tlist['typeid']}selected = "selected"{/if}>$tlist['typename'] </option>
+												<!--{/loop}-->
+											</select>  
+										</div>
+                                  </div>
+
+                                  <div class="form-group has-success">
+                                          <label for="ccomment" class="control-label col-lg-2">日志内容</label>
+                                          <div class="col-lg-10">
+                                              <textarea class="form-control " id="ccomment" name="message" required="" style="    height: 100px;" readonly="">$workinfo[message]</textarea>
+                                          </div>
+                                  </div>
+
+
+
+                                         <div class="form-group">
+                                              <label class="col-lg-2 control-label">日志时间</label>
+                                              <div class="col-sm-6" data-date-format="yyyy-mm-dd">
+
+												<input name="worklist_datetime" id="dpYears" type="text" value="{date($workinfo[dateline],'Y-m-d')}" size="16" class="form-control" readonly="" data-date-format="yyyy-mm-dd">
+
+                                                 
+                                              </div>
+                                          </div>
+
+
+
+
+
+
+                        
+
+
+
+
+
+
+
+
+
+
+
+                                  <!-- <div class="form-group has-success">
+                                      <label class="col-lg-2 control-label">收支</label>
+                                      <div class="col-lg-10">
+                                          <input type="text" placeholder="" id="l-name" class="form-control"  name="price" value="$mission[Projectprice]">
+                                          <p class="help-block">Aha you gave a wrong info</p>
+                                      </div>
+                                  </div> -->
+
+                                      <div class="form-group">
+                                          <div class="col-lg-offset-2 col-lg-10">
+                                              <button class="btn btn-danger" type="submit" name="vote_button"  value="true">提交</button>
+
+												<!--{if $dateline < $todaydateline}-->
+												<input  type="hidden" name="submitdateline" value="{eval echo $thedatelinestart+86399}"/>
+												<!--{/if}-->
+
+												<!--{if $dateline >= $next1daydateline}-->
+												<input  type="hidden" name="submitdateline" value="$thedatelinestart"/>
+												<!--{/if}-->
+
+												<!--{if $_GET['editorid']}-->
+												<input  type="hidden" name="editorid" value="{$_GET['editorid']}"/>
+												<!--{/if}-->
+
+                                              <!-- <button class="btn btn-default" type="button">Cancel</button> -->
+                                          </div>
+										  
+											<div class="col-lg-offset-2 col-lg-10" style="height: 270px;"></div>
+                                      </div>
+									<!--{if $_GET['missionid']}-->
+										<input type="hidden" name="missionid" value="{$_GET['missionid']}">
+									<!--{/if}-->
+                                  </form>
+                              </div>
+
+                          </div>
+                      </section>
+
+
+

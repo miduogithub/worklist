@@ -1,0 +1,22 @@
+<!--{template common/header}-->
+<script src="./template/strong_a1/touch/TSlide.js"></script>
+<div class="nav">
+	<div class="nav_right"><a href="search.php?mod=forum"><i class="fa fa-search fa-1x"></i></a></div>
+	<div class="nav_center">
+		<a href="forum.php"><!--{eval echo showlogo('guide');}--></a>
+	</div>
+</div>
+<div class="tab_box">
+	<div class="tab_3">
+		<a {if $view=='newthread'}class="a"{/if} href="forum.php?mod=guide&view=newthread">{echo $lang['guide_newthread'];}</a>
+		<a {if $view=='new'}class="a"{/if} href="forum.php?mod=guide&view=new">{echo $lang['guide_new'];}</a>
+		<a {if $view=='digest'}class="a"{/if} href="forum.php?mod=guide&view=digest">{echo $lang['guide_digest'];}</a>   
+	</div>
+</div>
+<!--{eval threadlist_format($data[$view]['threadlist'],'guide');}-->
+<!--{eval page_format($data[$view][threadcount],$perpage,$multipage,'guide');}-->
+
+
+
+<div class="pullrefresha" style="display:none;"></div>
+<!--{template common/footer}-->

@@ -1,0 +1,71 @@
+<!--{if $threadlist}-->
+              <div class="row">
+                  <div class="col-lg-8">
+                      <!--timeline start-->
+                      <section class="panel">
+                          <div class="panel-body">
+                                  <div class="text-center mbot30">
+                                      <h3 class="timeline-title">签到记录</h3>
+                                      <p class="t-info">您最近一个月的签到记录</p>
+                                  </div>
+
+                                  <div class="timeline">
+										{eval $i='0';}
+										<!--{loop $threadlist $list}-->
+												{eval $i++;}
+												<!--{if $list[checktype]=='1'}-->
+													{eval $checklogtype = '外出';}
+												<!--{else}-->
+													{eval $checklogtype = '公司';}
+												<!--{/if}-->
+
+												<!--{if $list[checkaction]=='1'}-->
+													{eval $checklogaction = '签退';}
+												<!--{else}-->
+													{eval $checklogaction = '签到';}
+												<!--{/if}-->
+                                      <article class="timeline-item {if $i%2==0} {else}alt {/if}">
+                                          <div class="timeline-desk">
+                                              <div class="panel">
+                                                  <div class="panel-body">
+                                                      <span class="arrow"></span>
+                                                      <span class="timeline-icon green"></span>
+                                                      <span class="timeline-date">{date($list[dateline],'H:i:s')} {eval $time_range_name = get_time_range_name_by_dateline($list[dateline]);echo $time_range_name[dateline_time_range_name];}</span>
+                                                      <h1 class="green">{date($list[dateline],'m月d日')}  | 周{eval $qdweek = date('w',$list[dateline]);echo $weekarray[$qdweek];}</h1>
+                                                      <p>
+														<!--{if $checuidinfo[nickname]}-->
+														<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo_{$list[checkinid]}">{$checuidinfo[nickname]}</a>
+														<!--{else}-->
+														<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo_{$list[checkinid]}">{$list['editor']}</a>
+														<!--{/if}-->
+													  完成 {$checklogtype}  <span><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo_{$list[checkinid]}" class="green">{$checklogaction}</a></span></p>
+                                                  </div>
+													<div id="collapseTwo_{$list[checkinid]}" class="collapse ">
+														<!--{if $list[message]}-->
+															<div class="panel-body">
+															$list[message]
+															</div>
+														<!--{else}-->
+															<div class="panel-body">
+															...
+															</div>
+														<!--{/if}-->
+													</div>
+                                              </div>
+                                          </div>
+
+                                      </article>
+									  <!--{/loop}-->
+
+                                  </div>
+
+                                  <div class="clearfix">&nbsp;</div>
+                              </div>
+                      </section>
+                      <!--timeline end-->
+                  </div>
+
+<!--{else}-->
+暂时没有查询到您的签到记录，请尝试一下开始签到！
+<!--{/if}-->
+

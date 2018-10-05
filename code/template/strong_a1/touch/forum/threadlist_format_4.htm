@@ -1,0 +1,67 @@
+<div class="threadlist4">
+<!--{if $list}-->
+<ul>	<!-- more pagelist start -->
+    	<!--{loop $list $key $thread}-->
+        <!--{if !$thread['forumstick'] && $thread['closed'] > 1 && ($thread['isgroup'] == 1 || $thread['fid'] != $_G['fid'])}-->
+			<!--{eval $thread[tid]=$thread[closed];}-->
+		<!--{/if}-->
+		<!--{eval $attachlist = get_threadpic($thread[tid],3,260,260);}-->
+		
+        <li>
+		<a href="forum.php?mod=viewthread&tid=$thread[tid]&fromguid=hot&{if $_GET['archiveid']}archiveid={$_GET['archiveid']}&{/if}extra=$extra">
+			<div class="top">
+				<div class="avatar">
+					<!--{if $thread['authorid'] && $thread['author']}-->
+                    	<img src="<!--{avatar($thread[authorid], small, true)}-->">
+                        <!--{else}-->
+                        <img src="<!--{avatar(0, small, true)}-->">
+                    <!--{/if}-->
+				</div>
+				<p>
+					<em class="typename"><!--{eval echo returntypenmae($thread);}--></em>
+                    <!--{if $thread['authorid'] && $thread['author']}-->
+                        <span class="username">$thread[author]</span>
+                    <!--{else}-->
+						<span class="username">$_G[setting][anonymoustext]</span>
+					<!--{/if}-->
+                        <span class="datetime">$thread[dateline]</span>   
+						
+                </p>
+			</div>
+			<div class="middle">
+            
+				
+				<h3>
+				{$thread[subject]}</h3>
+                <div class="piclist">
+				<!--{loop $attachlist $attach}-->
+					<p><img class="imgdelay" src="./template/strong_a1/touch/images/b.jpg" data="$attach"></p>				
+                <!--{/loop}-->                                                         
+                </div>
+			
+			</div>
+			<div class="bottom">
+				<span class="replies">
+					
+                    <i class="fa fa-thumbs-up fa-1x "></i><em>{$thread[recommend_add]}</em>
+					
+                </span>  
+				<span class="">
+					<i class="fa fa-comments-o fa-1x mbl10"></i><em>{$thread[allreplies]}</em>
+				</span>
+				<span class="">
+					<i class="fa fa-eye fa-1x mbl10"></i><em>{$thread[views]}</em>
+				</span>
+			</div>
+		</a>	
+		</li>							
+		<!--{/loop}-->	
+		<!-- more pagelist end -->		
+        <div id="ajaxlist"></div>		
+	</ul>
+</div>
+<!--{else}-->
+	<p class="no_data">{lang guide_nothreads}</p>
+<!--{/if}-->
+
+

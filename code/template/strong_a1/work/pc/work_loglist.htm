@@ -1,0 +1,199 @@
+<!--{template common/header}-->
+
+<link rel="stylesheet" type="text/css" href="data/cache/style_4_forum_forumdisplay.css?AoW">
+<style>
+td {
+	text-align: center;
+}
+
+
+.tab1{width:100%px;border-top:#ccc solid 1px;border-bottom:#cccccc solid 1px;margin:50px auto 0 auto;}
+.menu li{float:left;width:11%;text-align:center;line-height:28px;height:28px;cursor:pointer;border-left:#ccc solid 1px;border-bottom:#ccc solid 1px;color:#666;overflow:hidden;background:#E0E2EB;}
+.menu li.off{background:#fff;color:#336699;font-weight:bold; border-bottom:none;}
+.menudiv{height:200px;border-left:#cccccc solid 0px;border-right:#cccccc solid 0px;border-top:0;background:#fefefe}
+
+
+
+
+
+
+
+
+.menu{
+	position: relative;
+}
+.menu .week1{
+	background:url("danheccstyle/tieba/tiebathreadlist/css/img/ico_week1.png");
+	width:20px;
+	height:20px;
+	position: absolute;
+	top: -20px;
+	margin-left: -20px;
+		 
+}
+.menu .week2{
+	background:url("danheccstyle/tieba/tiebathreadlist/css/img/ico_week2.png");
+	width:20px;
+	height:20px;
+	position: absolute;
+	top: -20px;
+	margin-left: -20px;
+		 
+}
+.menu .week3{
+	background:url("danheccstyle/tieba/tiebathreadlist/css/img/ico_week3.png");
+	width:20px;
+	height:20px;
+	position: absolute;
+	top: -20px;
+	margin-left: -20px;
+		 
+}
+.menu .week4{
+	background:url("danheccstyle/tieba/tiebathreadlist/css/img/ico_week4.png");
+	width:20px;
+	height:20px;
+	position: absolute;
+	top: -20px;
+	margin-left: -20px;
+		 
+}
+.menu .week5{
+	background:url("danheccstyle/tieba/tiebathreadlist/css/img/ico_week5.png");
+	width:20px;
+	height:20px;
+	position: absolute;
+	top: -20px;
+	margin-left: -20px;
+		 
+}
+.menu .week6{
+	background:url("danheccstyle/tieba/tiebathreadlist/css/img/ico_week6.png");
+	width:20px;
+	height:20px;
+	position: absolute;
+	top: -20px;
+	margin-left: -20px;
+		 
+}
+.menu .week7{
+	background:url("danheccstyle/tieba/tiebathreadlist/css/img/ico_week7.png");
+	width:20px;
+	height:20px;
+	position: absolute;
+	top: -20px;
+	margin-left: -20px;
+		 
+}
+</style>
+
+<!-- tab标签代码begin -->
+<div class="tab1" id="tab1">
+	<div class="menu">
+		<ul>
+			<li id="one1" {if $dateline == $PreviousSundaydateline}class="off"{/if}>
+				<a href="work.php?mod=loglist&dateline={$PreviousSundaydateline}" >$PreviousSunday <span class="week7"><span/></a>
+			</li>
+
+			<li id="one1" {if $dateline == $Mondaydateline}class="off"{/if}>
+				<a href="work.php?mod=loglist&dateline={$Mondaydateline}" >$Monday <span class="week1"><span/></a>
+			</li>
+
+			<li id="one2" {if $dateline == $Tuesdaydateline}class="off"{/if}>
+				<a href="work.php?mod=loglist&dateline={$Tuesdaydateline}" >$Tuesday <span class="week2"><span/></a>
+			</li>
+
+			<li id="one3" {if $dateline == $Wednesdaydateline}class="off"{/if}>
+				<a href="work.php?mod=loglist&dateline={$Wednesdaydateline}" >$Wednesday <span class="week3"><span/></a>
+			</li>
+
+			<li id="one4" {if $dateline == $Thursdaydateline}class="off"{/if}>
+				<a href="work.php?mod=loglist&dateline={$Thursdaydateline}" >$Thursday <span class="week4"><span/></a>
+			</li>
+
+			<li id="one5" {if $dateline == $Fridaydateline}class="off"{/if}>
+				<a href="work.php?mod=loglist&dateline={$Fridaydateline}" >$Friday <span class="week5"><span/></a>
+			</li>
+
+			<li id="one6" {if $dateline == $Saturdaydateline}class="off"{/if}>
+				<a href="work.php?mod=loglist&dateline={$Saturdaydateline}" >$Saturday <span class="week6"><span/></a>
+			</li>
+
+			<li id="one7" {if $dateline == $Sundaydateline}class="off"{/if}>
+				<a href="work.php?mod=loglist&dateline={$Sundaydateline}" >$Sunday <span class="week7"><span/></a>
+			</li>
+
+			<li id="one7" {if $dateline == $nextMondaydateline}class="off"{/if}>
+				<a href="work.php?mod=loglist&dateline={$nextMondaydateline}" >$nextMonday <span class="week1"><span/></a>
+			</li>
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+
+<!--{if $thedatelinestart < $todaydateline || $thedatelinestart > $todaydateline + 86399  || $_GET[check] == 'incomplete'}-->
+
+<div style="margin-top: 10px;float: right;">
+<form id="shopmanage" method="post" action="work.php?mod=workcp&ac=loglist&op=loglist&action=backtoday"  >
+		
+				<button type="submit" name="vote_button"  value="true" >
+					<strong>返回今天</strong>
+				</button>
+
+
+</form>
+
+	</div>
+
+
+<!--{/if}-->
+
+
+<!--{if $_G[adminid] == '1'}-->
+<a href="work.php?mod=worklist&check=incomplete"><div class="bm bw0 pgs cl" style="margin-top: 10px;margin-right: 5px;float: right;">
+				<button type="submit" name="vote_button"  value="true" >
+					<strong>查看全部</strong>
+				</button>
+</div></a>
+<!--{/if}-->
+
+
+<!--{if $count}-->
+{eval $count_status1 = $count - $count_status0;}
+<div class="bm bw0 pgs cl" style="margin-top: 10px;margin-right: 5px;float: right;">
+				<button type="submit" name="vote_button"  value="true" >
+					<strong>待办：{$count} - {$count_status1}</strong>
+				</button>
+</div>
+<!--{/if}-->
+
+
+
+
+	<div class="menudiv">
+		<!--{template work/pc/work_tloglist_list}-->
+
+	</div>
+
+</div>
+<!-- tab标签代码end -->
+
+
+
+
+
+
+
+
+
+<div class="wp" style="
+    padding-bottom: 530px;
+"></div>
+
+<!--{template common/footer}-->

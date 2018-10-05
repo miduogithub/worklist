@@ -1,0 +1,130 @@
+
+									<!--{eval $i = '0';}-->
+								  <!--{loop $Projectcountstatus0_threadlist_favicon_1 $list}-->
+								  <!--{eval $i++;}-->
+
+                        <section class="panel" id="accordion">
+                          <header class="panel-heading">
+							<span style="color:red;">
+								<a href="work.php?mod=workcp&ac=project&projectid={$list[projectid]}&action=RefreshProjectEndTimeLine" style="color:red;">{$i}</a>、
+
+
+
+								<a  data-toggle="collapse" data-parent="#accordion" href="#collapse_{$list[projectid]}" onclick="set_project_visit_setting({$list[projectid]},1);">
+									<span style="{if $list[favicon]=='1'}color: red;font-weight: bold;{/if}"> $list[projectname] </span>
+								</a>
+                             
+
+
+
+
+
+
+
+							  </span>
+									<div class="btn-group" >
+										<button data-toggle="dropdown" class="btn btn-white dropdown-toggle" style="border-color: rgba(150, 160, 180, 0);" type="button">
+											<i class="icon-star" style="color: red;"><!-- ({date($list[projectendtimeline],'m-d')}) --></i>
+										</button>
+										<!--{template work/pc/work_project_newadmin_main_projectlist_projectstatus_setlist}-->
+									</div>
+
+
+                          </header>
+
+                          <div class="panel-body">
+
+                              <div class="progress progress-striped active progress-sm" style="    height: 3px;">
+                                  <div alt="{$list[progress]}%" class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {$list[progress]}%">
+                                      <span class="sr-only">{$list[progress]}% Complete</span>
+                                  </div>
+                              </div>
+                          </div>	
+						  
+
+                          <div class="panel-body">
+						  
+                              <div id="collapse_{$list[projectid]}" class="timeline-messages {if $project_setting_list[$list[projectid]][favicon_status]==''}in collapse{/if}{if $project_setting_list[$list[projectid]][favicon_status]=='1'}in{else}collapse{/if} "   >
+								 <!--{loop $list[missionlist] $mlist}-->
+                                  <!-- Comment -->
+
+		<!--{eval $missionuserinfo = get_wx_userinfo_by_uid($mlist[editorid]);}-->
+		<!--{if $missionuserinfo[headimgurl]}-->
+			{eval $editoravatar = $missionuserinfo[headimgurl];}
+		<!--{else}-->
+			{eval $editoravatar = avatar($mlist[editorid], middle, true);}
+		<!--{/if}-->
+                                  <div class="msg-time-chat">
+                                      <a href="work.php?mod=taskbar&view=mission&projectid={$mlist[projectid]}&editorid=$mlist[editorid]" class="message-img"><img class="avatar" src="$editoravatar" alt=""></a>
+
+
+									<script type="text/javascript">
+										$(document).ready(function() {
+											$('#task_message_show_{$mlist[missionid]}').hover(function(){
+												$('#task_message_showInner_{$mlist[missionid]}').show();
+											}, function(){
+												$('#task_message_showInner_{$mlist[missionid]}').hide();
+											});
+										});
+									</script>
+                                      <div class="message-body msg-in" id="task_message_show_{$mlist[missionid]}">
+                                          <span class="arrow"></span>
+                                          <div class="text">
+                                              <p class="attribution"><a href="work.php?mod=taskbar&view=mission&projectid={$mlist[projectid]}&editorid=$mlist[editorid]">$mlist[editor]</a>  {date($mlist[missionstarttimeline],'m-d')}</p>
+                                              <p>
+												$mlist[missionname]
+												<!--{template work/pc/work_index_qk_project_newadmin_main_wrapper_Righttab_Projectcountstatus_0_list_favicon_1_chats_missioncount1_tasklist}-->
+											  </p>
+												<br />
+												<div id="task_message_showInner_{$mlist[missionid]}" style="display: none;">
+													<div class="pull-left chat-features" style="    margin-top: -13px;    margin-left: -10px;">
+	
+														
+															<a href="work.php?mod=taskbar&view=mission&projectid={$mlist[projectid]}&editorid=$mlist[editorid]">
+																<i class="icon-expand-alt" style="font-size:18px;margin-right: -10px;"></i>
+															</a>
+													 
+														  
+													  </div> 
+													<div class="pull-right chat-features" style="    margin-top: -13px;">
+														<a href="work.php?mod=project&view=editmission&missionid={$mlist[missionid]}">
+															<i class="icon-edit" style="margin-right: -10px;"></i>
+														</a>
+														<!--{if $mlist[status]=='0'}-->
+															<a href="work.php?mod=workcp&ac=mission&op=goodslist&action=finish&missionid=$mlist[missionid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}"><i class="icon-ok"  style="margin-right: -10px;"></i></a>
+															
+														<!--{/if}-->
+
+														  
+													  </div> 
+												</div>	
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <!-- /comment -->
+
+								  <!--{/loop}-->
+                              </div>
+                              <!-- <div class="chat-form">
+                                  <div class="input-cont ">
+                                      <input type="text" class="form-control col-lg-12" placeholder="Type a message here...">
+                                  </div>
+                                  <div class="form-group">
+                                      <div class="pull-right chat-features">
+                                          <a href="javascript:;">
+                                              <i class="icon-camera"></i>
+                                          </a>
+                                          <a href="javascript:;">
+                                              <i class="icon-link"></i>
+                                          </a>
+                                          <a class="btn btn-danger" href="javascript:;">Send</a>
+                                      </div>
+                                  </div>
+
+                              </div> -->
+                          </div>
+                      </section>
+
+<!--{/loop}-->
+
+

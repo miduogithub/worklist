@@ -1,0 +1,86 @@
+<!--{template common/header}-->
+<div class="nav">
+	<div class="nav_left"><a href="javascript:history.back();"><i class="fa fa-angle-left fa-15x"></i></a></div>
+	<div class="nav_right"><!--{if $strongset[portal_share]}--><a href="javascript:;" class="on-share"><i class="fa fa-share-alt fa-1x"></i></a><!--{/if}--></div>
+	<div class="nav_center">
+		<a href="forum.php">$cat[catname]</a>
+	</div>
+</div>
+<div class="g_mbx cl">
+	<div class="z">
+    	<a href="{$_G['siteurl']}" class="nvhm" title="{lang homepage}">{lang homepage}</a><em>&rsaquo;</em>
+		<!--{loop $cat[ups] $value}-->
+			<a href="{echo getportalcategoryurl($value[catid])}">$value[catname]</a><em>&rsaquo;</em>
+		<!--{/loop}-->
+		<a href="{echo getportalcategoryurl($cat[catid])}">$cat[catname]</a> <em>&rsaquo;</em>
+		{lang view_content}
+	</div>
+</div>
+<!--{ad/portal_content_top_mobile}-->
+<div class="s_portalviewbox">
+<div class="s-wztop">
+				<h1 >$article[title] <!--{if $article['status'] == 1}-->({lang moderate_need})<!--{elseif $article['status'] == 2}-->({lang ignored})<!--{/if}--></h1>
+				<div class="info"><a href="home.php?mod=space&uid=$article[uid]">$article[username]</a>
+                <span>$article[dateline]</span>
+					<div class="y">
+						<span>{lang view_views}<!--{if $article[viewnum] > 0}-->$article[viewnum]<!--{else}-->0<!--{/if}--></span>
+						<span>{lang view_comments}<!--{if $article[commentnum] > 0}-->$article[commentnum]<!--{else}-->0<!--{/if}--></span>
+					</div>
+             
+				<a href="home.php?mod=spacecp&ac=favorite&type=article&id=$article[aid]&handlekey=favoritearticlehk_{$article[aid]}" style="display:none;" class="dialog">{lang favorite}</a>
+				</div>
+				
+
+
+</div>
+<div class="pot-neirong">
+	<!--{if $article[summary] && empty($cat[notshowarticlesummay]) and $strongset[summary]}-->
+    	<div class="s_summary"><strong>{lang article_description}</strong>: $article[summary]	`		   		
+        <!--{hook/view_article_summary}--></div>
+    <!--{/if}-->
+	$content[content]
+</div>
+
+<!--{if $multi}-->$multi<!--{/if}-->
+
+
+
+{if $iffenxiang==1}
+<div class="mbl10">$fenxiangdaima</div>
+{/if}
+<div class="s-sxy">
+	<ul>
+	<!--{if $article['prearticle']}--><li><a href="{$article['prearticle']['url']}"><span style="color:#4c4c4c;">{lang pre_article}</span>&nbsp;&nbsp;{$article['prearticle']['title']}</a></li><!--{/if}-->
+	<!--{if $article['nextarticle']}--><li><a href="{$article['nextarticle']['url']}"><span style="color:#4c4c4c;">{lang next_article}</span>&nbsp;&nbsp;{$article['nextarticle']['title']}</a></li><!--{/if}-->
+	</ul>
+</div>
+<!--{ad/portal_content_page_mobile}-->
+		<!--{if $article['related']}-->
+		<div class="s-list-b" >
+
+				<h3><a href="javascript:;">{lang view_related}</a></h3>
+
+
+				<ul >
+				<!--{loop $article['related'] $raid $rvalue}-->
+
+					<li> <a href="{$rvalue[uri]}">{$rvalue[title]}</a></li>
+				<!--{/loop}-->
+				</ul>
+
+		</div>
+		<!--{/if}-->
+<!--{ad/portal_content_correlation_mobile}-->
+
+
+		<!--{if $article['allowcomment']==1}-->
+			<!--{eval $data = &$article}-->
+			<!--{subtemplate portal/portal_comment}-->
+		<!--{/if}-->
+<!--{ad/portal_content_bottom_mobile}-->
+</div>
+<!--{if $strongset[portal_share]}-->
+<!--{template forum/page_share}-->
+<!--{/if}-->
+<!--{eval $nob_nav=1;}-->
+<!--{template common/footer}-->

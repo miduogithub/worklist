@@ -1,0 +1,94 @@
+<!--{template common/header}-->
+<!--{if !$_G['inajax']}-->
+<div class="nav">
+	<div class="nav_left"><a href="home.php?mod=space&do=pm"><i class="fa fa-angle-left fa-15x"></i></a></div>
+	<div class="nav_right"></div>
+	<div class="nav_center">
+		<a href="forum.php">{lang send_pm}</a>
+	</div>
+</div>
+<!--{/if}-->
+
+
+<!--{if $op != ''}-->
+<div class="bm_c">{lang user_mobile_pm_error}</div>
+<!--{else}-->
+<!--{eval}-->
+    $language = 'language.'.currentlang().'.php';
+    include ("./template/strong_a1/".$language);
+<!--{/eval}-->
+<form id="pmform_{$pmid}" name="pmform_{$pmid}" method="post" autocomplete="off" action="home.php?mod=spacecp&ac=pm&op=send&touid=$touid&pmid=$pmid&mobile=2" >
+	<input type="hidden" name="referer" value="{echo dreferer();}" />
+	<input type="hidden" name="pmsubmit" value="true" />
+	<input type="hidden" name="formhash" value="{FORMHASH}" />
+
+<!-- header start -->
+ 
+
+
+
+<!-- header end -->
+<!-- main post_msg_box start -->
+<div class="wp">
+	<div class="post_msg_from">
+		<ul>
+			<!--{if !$touid}-->
+			<li ><input type="text" value="" tabindex="1" class="px" size="30" autocomplete="off" id="username" name="username" placeholder="{lang addressee}"></li>
+			<!--{/if}-->
+			<li class="bl_none area">
+				<textarea class="pt" tabindex="2" autocomplete="off" value="" id="sendmessage" name="message"   cols="80" rows="7"  placeholder="{lang thread_content}"></textarea>
+			</li>
+		</ul>
+		<div class="">
+			<button id="pmsubmit_btn" style="width: 96%;margin: 10px 2%;" class="btn_pn btn_pn_blue" disable="false"><span>{lang sendpm}</span></button>
+			<input type="hidden" name="pmsubmit_btns" value="yes" />
+		</div>	
+	</div>
+    
+</div>
+<!-- main postbox start -->
+</form>
+<script type="text/javascript">
+	function show_g_popup(t,s){
+		var popuphtml = '<div id="g_popupbox"><div class="g_popup"><p>'+t+'</p></div></div> ';
+		$('body').append(popuphtml);
+		$("#g_popupbox").fadeIn(0);
+		$("#g_popupbox").fadeOut(s);	
+		setTimeout(function(){$("#g_popupbox").remove();}, s);		
+	} 
+ 
+	(function() {
+		
+	 
+		var form = $('#pmform_{$pmid}');
+		$('#pmsubmit_btn').on('click', function() {
+			var obj = $(this);
+			if(obj.attr('disable') == 'true') {
+				return false;
+			}
+			$.ajax({
+				type:'POST',
+				url:form.attr('action') + '&handlekey='+form.attr('id')+'&inajax=1',
+				data:form.serialize(),
+				dataType:'xml'
+			})
+			.success(function(s) {
+				popup.open(s.lastChild.firstChild.nodeValue);
+				//popup.close();
+				//show_g_popup("{echo $lang['xiaoxifasongchenggong'];}",1500);
+			})
+			.error(function() {
+				popup.open('{lang networkerror}', 'alert');
+			});
+			return false;
+			});
+	 })();
+</script>
+{if $_GET['pmnames']!= ''}
+<script>$("#username").attr("value","$_GET['pmnames']");</script>
+{/if}
+<!--{/if}-->
+<!--{eval $nofooter = true;}-->
+<!--{eval $nob_nav=1;}-->
+<!--{template common/footer}-->
+

@@ -1,0 +1,72 @@
+
+<section class="panel">
+
+
+
+
+                           <header class="panel-heading">
+                              请填写项目资料
+                          </header> 
+                          <div class="panel-body">
+                              <div class=" form">
+
+                                  <form class="cmxform form-horizontal tasi-form" id="commentForm" method="post" action="work.php?mod=workcp&ac=projecttype&op=projecttype{if $_GET[projecttypeid]}&action=edit{else}&action=add{/if}" >
+
+
+                                  <div class="form-group has-success">
+                                      <label class="col-lg-2 control-label">类型名称</label>
+                                      <div class="col-lg-10">
+                                          <input type="text" placeholder="" id="l-name" class="form-control"  name="typename" value="$projecttype[typename]">
+                                          <!-- <p class="help-block">Aha you gave a wrong info</p> -->
+                                      </div>
+                                  </div>
+
+
+                                  <div class="form-group has-success">
+                                      <label class="col-lg-2 control-label">类型分类</label>
+										<div class="col-lg-6">  
+											<select name="classid" id="birthyear" class="ps" tabindex="1" >
+												<option value="">请选择</option>
+												<!--{loop $typeclassarr $clist}-->
+												<option value="$clist['classid']" {if $projecttype[classid] == $clist['classid']}selected = "selected"{/if}>$clist['classname'] </option>
+												<!--{/loop}-->
+											</select>  
+										</div>
+                                  </div>
+
+                                  <!-- <div class="form-group has-success">
+                                      <label class="col-lg-2 control-label">收支</label>
+                                      <div class="col-lg-10">
+                                          <input type="text" placeholder="" id="l-name" class="form-control"  name="price" value="$mission[Projectprice]">
+                                          <p class="help-block">Aha you gave a wrong info</p>
+                                      </div>
+                                  </div> -->
+
+                                      <div class="form-group">
+                                          <div class="col-lg-offset-2 col-lg-10">
+                                              <button class="btn btn-danger" type="submit" name="vote_button"  value="true">提交</button>
+
+												<!--{if $dateline < $todaydateline}-->
+												<input  type="hidden" name="submitdateline" value="{eval echo $thedatelinestart+86399}"/>
+												<!--{/if}-->
+
+												<!--{if $dateline >= $next1daydateline}-->
+												<input  type="hidden" name="submitdateline" value="$thedatelinestart"/>
+												<!--{/if}-->
+
+                                              <!-- <button class="btn btn-default" type="button">Cancel</button> -->
+                                          </div>
+										  
+											<div class="col-lg-offset-2 col-lg-10" style="height: 270px;"></div>
+                                      </div>
+									<!--{if $_GET['projecttypeid']}-->
+										<input type="hidden" name="projecttypeid" value="{$_GET['projecttypeid']}">
+									<!--{/if}-->
+                                  </form>
+                              </div>
+
+                          </div>
+                      </section>
+
+
+

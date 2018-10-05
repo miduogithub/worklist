@@ -1,0 +1,26 @@
+<!--{template common/header}-->
+<div class="global_dialogbox">
+	<div class="head"><h3>{lang rate_view}</h3></div>
+	<div class="content">
+		<ul class="rate_view">
+        <div>
+        	<!--{loop $loglist $log}-->
+        	<li>
+            	<div class="info"><a href="home.php?mod=space&uid=$log[uid]">$log[username]</a><span class="date">$log[dateline]</span></div>
+                <div class="score">{$_G['setting']['extcredits'][$log[extcredits]][title]}: <em>$log[score]</em> {$_G['setting']['extcredits'][$log[extcredits]][unit]}</div>
+               	{if $log[reason]}<div class="reason">{lang reason}: <em>$log[reason]</em></div>{/if}
+            </li>
+            <!--{/loop}-->
+        </div>    
+        </ul>
+	</div>
+    <div class="buttom">
+	{lang total}:
+	<!--{loop $logcount $id $count}-->
+	&nbsp;{$_G['setting']['extcredits'][$id][title]} <!--{if $count>0}-->+<!--{/if}-->$count {$_G['setting']['extcredits'][$id][unit]} &nbsp;
+	<!--{/loop}-->
+	</div>
+</div>
+
+
+<!--{template common/footer}-->

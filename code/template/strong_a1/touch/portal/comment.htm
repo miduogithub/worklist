@@ -1,0 +1,52 @@
+<!--{template common/header}-->
+<div class="nav">
+	<div class="nav_left"><a href="{$_G['siteurl']}portal.php?mod=view&aid=$csubject[aid]"><i class="fa fa-angle-left fa-15x"></i></a></div>
+	<div class="nav_center">
+		<a href="forum.php">{lang comment_view}</a>
+	</div>
+</div>
+ 
+<div class="g_mbx cl">
+	<div class="z">
+		<a href="{$_G['siteurl']}" class="nvhm" title="{lang homepage}">{lang homepage}</a><em>&rsaquo;</em>
+		 
+		{lang comment_view}
+	</div>
+</div>
+
+<div class="s_portalviewbox">
+<div class="s-wztop">
+
+		<h1>$csubject[title]</h1>
+		<span>{lang comment} ($csubject[commentnum])</span>
+</div>
+<div class="comment_list">
+			<!--{loop $commentlist $comment}-->
+				<!--{template portal/comment_li}-->
+			<!--{/loop}-->
+</div>
+			<!--{if $multi}--><div class="pgs cl mtm mbm">$multi</div><!--{/if}-->
+			<!--{if $csubject['allowcomment'] == 1}-->
+			<div class="potpl_from">
+				<form id="cform" name="cform" action="portal.php?mod=portalcp&ac=comment" method="post" autocomplete="off">
+
+					<textarea name="message"  rows="2" class="s-input-text" id="message" onfocus="if(this.innerHTML='{echo $lang['butubukuai'];}'){this.innerHTML=''};this.style.border='solid 1px #c0c0c0';">{echo $lang['butubukuai'];}</textarea>
+
+					<!--{if $secqaacheck || $seccodecheck}-->
+						<!--{block sectpl}--><sec> <span id="sec<hash>" onclick="showMenu(this.id);"><sec></span><div id="sec<hash>_menu" class="p_pop p_opt" style="display:none"><sec></div><!--{/block}-->
+						<div class="mtm"><!--{subtemplate common/seccheck}--></div>
+					<!--{/if}-->
+
+					<!--{if $idtype == 'topicid' }-->
+						<input type="hidden" name="topicid" value="$id">
+					<!--{else}-->
+						<input type="hidden" name="aid" value="$id">
+					<!--{/if}-->
+					<input type="hidden" name="formhash" value="{FORMHASH}">
+					<p class="ptn"><button type="submit" name="commentsubmit" value="true" style="width:100%; margin-top:10px;" class="button"><strong>{lang comment}</strong></button></p>
+				</form>
+			<!--{/if}-->
+			</div>
+</div>
+<!--{eval $nob_nav=1;}-->
+<!--{template common/footer}-->

@@ -1,0 +1,40 @@
+<style>
+.task-thumb img{
+	width: 90px;
+}
+</style>
+					<!--{loop $workuidlist $worklist}-->
+					
+
+                  <div class="col-lg-4">
+                      <!--user info table start-->
+                      <section class="panel">
+                          <div class="panel-body">
+                              <a href="#" class="task-thumb">
+										<!--{avatar($worklist[userinfo][uid],middle)}-->
+                              </a>
+                              <div class="task-thumb-details">
+                                  <h1><a href="#">$worklist[userinfo][username]</a></h1>
+                                  <p>Senior Architect（<a href="work.php?mod=worklist&check=incomplete&editorid=$worklist[userinfo][uid]" target="_blank">查看全部</a>）</p>
+                              </div>
+                          </div>
+                          <table class="table table-hover personal-task">
+                              <tbody>
+
+								<!--{loop $worklist[worklist] $workinfo}-->
+                                <tr>
+                                    <td>
+                                        <i class=" icon-tasks"></i>
+                                    </td>
+                                    <td> <span style=" {if $workinfo[status] == '1'} text-decoration:line-through; color: #D0D0D0;{/if}">$workinfo[message] <!-- echo cutstr($workinfo[message], 95) --></span></td>
+									<!--{eval $theisweek = date('w',$workinfo['dateline']);}-->
+                                    <td style="width: 105px;"> <!--{date($workinfo['dateline'], 'm-d')}-->（{$weekarray[$theisweek]}）</td>
+                                </tr>
+								<!--{/loop}-->
+
+                              </tbody>
+                          </table>
+                      </section>
+                      <!--user info table end-->
+                  </div>
+					<!--{/loop}-->

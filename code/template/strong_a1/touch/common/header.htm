@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb18030">
+<meta http-equiv="Cache-control" content="{if $_G['setting']['mobile'][mobilecachetime] > 0}{$_G['setting']['mobile'][mobilecachetime]}{else}no-cache{/if}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="format-detection" content="telephone=no" />
+<meta name="keywords" content="{if !empty($metakeywords)}{echo dhtmlspecialchars($metakeywords)}{/if}" />
+<meta name="description" content="{if !empty($metadescription)}{echo dhtmlspecialchars($metadescription)} {/if},$_G['setting']['bbname']" />
+<title><!--{if !empty($navtitle)}-->$navtitle - <!--{/if}--><!--{if empty($nobbname)}--> $_G['setting']['bbname'] - <!--{/if}--> {lang waptitle} - Powered by Discuz!</title>
+<link rel="stylesheet" href="{$_G['siteurl']}template/strong_a1/touch/style.css?v=2f34ddd" type="text/css" media="all"> 
+<link rel="stylesheet" href="{$_G['siteurl']}template/strong_a1/touch/font/css/font.min.css" type="text/css" media="all">
+<script src="{$_G['siteurl']}template/strong_a1/touch/jquery-1.8.3.min.js?{VERHASH}"></script>
+<script type="text/javascript">var STYLEID = '{STYLEID}', STATICURL = '{STATICURL}', IMGDIR = '{IMGDIR}', VERHASH = '{VERHASH}', charset = '{CHARSET}', discuz_uid = '$_G[uid]', cookiepre = '{$_G[config][cookie][cookiepre]}', cookiedomain = '{$_G[config][cookie][cookiedomain]}', cookiepath = '{$_G[config][cookie][cookiepath]}', showusercard = '{$_G[setting][showusercard]}', attackevasive = '{$_G[config][security][attackevasive]}', disallowfloat = '{$_G[setting][disallowfloat]}', creditnotice = '<!--{if $_G['setting']['creditnotice']}-->$_G['setting']['creditnames']<!--{/if}-->', defaultstyle = '$_G[style][defaultextstyle]', REPORTURL = '$_G[currenturl_encode]', SITEURL = '$_G[siteurl]', JSPATH = '$_G[setting][jspath]';</script>
+<script src="{$_G['siteurl']}{STATICURL}js/mobile/common.js?{VERHASH}" charset="{CHARSET}"></script>
+{if $_GET['from'] != 'album' && $_GET['index']!= "true"}<script src="{$_G['siteurl']}template/strong_a1/touch/swipe.js?{VERHASH}" charset="{CHARSET}"></script>{/if}
+</head> 
+<!--{eval}-->
+    $language = 'language.'.currentlang().'.php';
+    include ("./template/strong_a1/".$language);
+<!--{/eval}-->
+<!--{eval require_once './source/plugin/strong_a1/function/func.php';}-->
+<body class="bg" onscroll="bodyscroll();" >
+<div id="weipost_sortoptions"></div>
+<style>
+<!--{if $strongset['navbg']}-->.nav{background:$strongset['navbg']}<!--{/if}-->
+<!--{if $strongset['navfont']}-->.nav a,.nav a:link,.nav a i,.nav a:link i{color:$strongset['navfont']}<!--{/if}-->
+<!--{if $strongset['bnavbg']}-->.b_nav{background:$strongset['bnavbg']}<!--{/if}-->
+<!--{if $strongset['bnavfont']}-->.b_nav a,.b_nav a i{color:$strongset['bnavfont']}<!--{/if}-->
+<!--{if $strongset['bnavabg']}-->.b_nav a.a{background:$strongset['bnavabg']}<!--{/if}-->
+<!--{if $strongset['bnavafont']}-->.b_nav a.a,.b_nav a.a i{color:$strongset['bnavafont']}<!--{/if}-->
+<!--{if $strongset['buttoncolor']}-->.btn_pn_blue,.button,.button2,.g_button,.btn_login .pn, .btn_register .pn{background:$strongset['buttoncolor']}<!--{/if}-->
+<!--{if $strongset['djcolor']}-->.s_postthreadtypes ul .a a{color:$strongset['djcolor']}<!--{/if}-->
+<!--{if $strongset['djcolor']}-->.forumdisplay_type ul li.ontype a, .forumdisplay_type ul li.a a,.favorite_type .a,.prompt ul .a a{color:$strongset['djcolor']; border-bottom: solid 2px $strongset['djcolor'];}<!--{/if}-->
+<!--{if $strongset['fcolor']}-->.s_viewbottom a,.s_viewbottom a:link{color:$strongset['fcolor'];}<!--{/if}-->
+<!--{if $strongset['fixed_nav']}-->#wrap{margin-top:48px;}.nav{position: fixed; top: 0;left: 0;}<!--{/if}-->
+</style>
+<!--{hook/global_header_mobile}-->
+{if $_G['basescript']!='member'}
+<div id="wrap" >
+	<div class="c_mon" id="c_mon" >		
+        <div id="mcbox" onClick="warpmc();" style="display:none;"></div>     
+{/if}
+

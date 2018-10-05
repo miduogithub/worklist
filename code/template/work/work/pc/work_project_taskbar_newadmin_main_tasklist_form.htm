@@ -1,0 +1,55 @@
+
+                  <div   style=" 
+margin:3px; 
+display:inline-block; vertical-align: top; width: 320px;padding-top:0px;white-space:normal; " >
+
+                      <section class="panel ">
+                          <header class="panel-heading">
+                              新建任务列表
+                          </header>
+                          <div class="panel-body">
+
+
+							<form method="post" action="work.php?mod=workcp&ac=tasklist&op=tasklist&action=addmission" id="subform_addmission">
+                              <div class="chat-form">
+                                  <div class="input-cont ">
+                                      <input type="text" name="missionname" class="form-control col-lg-12" placeholder="列表名">
+									  <input type="hidden" name="projectid" value="{$_GET['projectid']}">
+                                  </div>
+                                  <div class="form-group">
+											<select name="project_typeid" id="birthyear" class="ps" tabindex="1" >
+												<option value="">请选择</option>
+												<!--{loop $typelist $tlist}-->
+												<option value="$tlist['typeid']" {if $mission[projecttypeid] == $tlist['typeid']}selected = "selected"{/if}>$tlist['typename'] </option>
+												<!--{/loop}-->
+											</select>  
+
+								<!--{if $_G['adminid'] == '1'}-->
+											<select name="project_editorid" id="birthyear" class="ps" tabindex="1" >
+												<option value="">请选择</option>
+
+												<!--{if $mission[editorid]}-->
+													<!--{loop $memberlist $mlist}-->
+													<option value="{$mlist['uid']}" {if $mission[editorid] == $mlist['uid']}selected = "selected"{/if}>$mlist['username'] </option>
+													<!--{/loop}-->
+												<!--{else}-->
+													<option value="{$_G['uid']}" selected = "selected">$_G['username'] </option>
+													<!--{loop $project_memberlist $mlist}-->
+													{if $mlist['uid'] == $_G['uid']}{eval continue;}{/if}
+													<option value="{$mlist['uid']}" {if $mission[editorid] == $mlist['uid']}selected = "selected"{/if}>$mlist['username'] </option>
+													<!--{/loop}-->
+												<!--{/if}-->
+											</select>  
+								<!--{/if}-->
+                                      <div class="pull-right chat-features">
+
+
+                                          <a class="btn btn-danger" href="#" name="submit" onclick="document.getElementById('subform_addmission').submit();return false" >保存</a>
+                                      </div>
+                                  </div>
+
+                              </div>
+							  </form>
+                          </div>
+                      </section>
+                  </div>

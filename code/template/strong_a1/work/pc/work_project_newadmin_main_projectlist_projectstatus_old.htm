@@ -1,0 +1,16 @@
+												<!--{if $list[status] == '0'}-->
+													
+														<a href="work.php?mod=workcp&ac=project&op=goodslist&action=finish1&projectid=$list[projectid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}" >
+															<span class="label label-success label-mini">进行中</span>
+														</a>
+												<!--{elseif $list[status] == '1'}-->
+														<a href="work.php?mod=workcp&ac=project&op=goodslist&action=finish9&projectid=$list[projectid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}" >
+															<span class="label label-danger label-mini">结算中</span>
+														</a>
+												<!--{elseif $list[status] == '9'}-->
+
+														<a href="work.php?mod=workcp&ac=project&op=goodslist&action=unfinish&projectid=$list[projectid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}" >
+															<span class="label label-default label-mini">已结算</span>
+														</a>
+													
+												<!--{/if}-->

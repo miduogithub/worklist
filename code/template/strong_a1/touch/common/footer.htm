@@ -1,0 +1,112 @@
+<!--{hook/global_footer_mobile}-->
+{if $_G['basescript']!='member'}
+<!--{if $strongset[global_nav_switch]}-->
+<div class="global_nav" href="javascript:;" onclick="global_nav_show('global_nav_box');"><span><i class="fa fa-bars fa-1x "></i></span></div>
+<div class="space_mc" onclick="global_nav_hide('global_nav_box');" id="global_nav_box">
+	<ul class="space_mc_top_menu">
+		<em class="angle"></em>
+		$strongset[global_nav]
+	</ul>
+</div>  
+<script>
+	function global_nav_show(k){
+		$(".space_mc").fadeOut();	
+		$("#"+k).show();			 
+	}
+
+	function global_nav_hide(k){	
+		$("#"+k).fadeOut();		
+	}	
+</script>
+<!--{/if}-->
+<div class="scroll" id="scroll" style="display:none;"><span><i class="fa fa-angle-up fa-1x "></i></span></div>
+<script src="{$_G['siteurl']}template/strong_a1/touch/scroll.js"></script>
+<!--{if !$nofooter and $strongset['footer']}-->
+	<div class="footer">
+		<div>
+			<!--{if !$_G[uid] && !$_G['connectguest']}-->
+			<a href="forum.php">{lang mobilehome}</a> | <a href="member.php?mod=logging&action=login" title="{lang login}">{lang login}</a> | <a href="<!--{if $_G['setting']['regstatus']}-->member.php?mod={$_G[setting][regname]}<!--{else}-->javascript:;" style="color:#D7D7D7;<!--{/if}-->" title="{$_G['setting']['reglinkname']}">{lang register}</a>
+			<!--{else}-->
+			<a href="home.php?mod=space&uid={$_G[uid]}&do=profile&mycenter=1">{$_G['member']['username']}</a> , <a href="member.php?mod=logging&action=logout&formhash={FORMHASH}" title="{lang logout}" class="dialog">{lang logout}</a>
+			<!--{/if}-->
+		</div>
+	    <div>
+			<a href="{$_G['setting']['mobile']['simpletypeurl'][0]}">{lang no_simplemobiletype}</a> 
+			<a href="javascript:;"  class="a">{lang mobile2version}</a> 
+			<a href="{$_G['setting']['mobile']['nomobileurl']}">{lang nomobiletype}</a>
+	    </div>
+		<p>{$mobilestatistics}&nbsp;&nbsp;   &copy; Comsenz Inc.</p>
+	</div>
+<!--{/if}-->
+
+	</div>
+</div>
+
+<!--{if !$nob_nav}-->
+<div class="b_nav">
+	<a href="{$_G['siteurl']}" <!--{if ($_GET[mod]=='index' and $strongset['homeset'] == "1") or ($_GET[mod]=='guide' and $strongset['homeset'] == "2") }-->class="a"<!--{/if}-->><i class="fa fa-home fa-2x"></i><span><!--{if $strongset['homeset']=="2"}-->{echo $lang['guide'];}<!--{else}-->{echo $lang['home'];}<!--{/if}--></span></a>
+	<a href="{$_G['siteurl']}forum.php?forumlist=1" <!--{if $_GET[forumlist]=='1'}-->class="a"<!--{/if}-->><i class="fa fa-comments fa-2x"></i><span>{echo $lang['forum'];}</span></a>
+	<a href="{$_G['siteurl']}forum.php?mod=misc&action=nav&mobile=" <!--{if $_GET[action]=='nav'}-->class="a"<!--{/if}-->><i class="fa fa-plus fa-2x"></i><span>{echo $lang['post'];}</span></a>
+	<!--{if $_G['cache']['plugin']['strong_find']}-->
+		<a href="{$_G['siteurl']}plugin.php?id=strong_find"><i class="fa fa-tint fa-2x"></i><span>{echo $lang['find'];}</span></a>
+	<!--{else}-->
+		<a href="<!--{if $_G[member][newpm]}-->{$_G['siteurl']}home.php?mod=space&do=pm<!--{else}-->{$_G['siteurl']}home.php?mod=space&do=notice&mobile=2<!--{/if}-->" <!--{if $_GET[do]=='notice'}-->class="a"<!--{/if}-->><i class="fa fa-envelope fa-2x"></i><span>{echo $lang['message'];}</span><!--{if $_G[member][newprompt] or $_G[member][newpm]}--><em class="new">NEW</em><!--{/if}--></a>
+	<!--{/if}-->
+	<a href="{$_G['siteurl']}home.php?mod=space&do=profile&mycenter=1&mobile=2" <!--{if $_GET[do]=='profile'}-->class="a"<!--{/if}-->><i class="fa fa-user fa-2x"></i><span>{echo $lang['my'];}</span><!--{if ($_G[member][newprompt] or $_G[member][newpm]) and $_G['cache']['plugin']['strong_find']}--><em class="new">NEW</em><!--{/if}--></a>
+</div>
+<style>#c_mon{padding-bottom: 51px;}</style>
+<!--{/if}-->
+<!--{if $_G[uid] && !isset($_G['cookie']['checkpm'])}-->
+<script type="text/javascript" src="home.php?mod=spacecp&ac=pm&op=checknewpm&rand=$_G[timestamp]"></script>
+<!--{/if}-->
+
+
+<div id="mask" style="display:none;"></div>
+<script>
+	function menu_toogle(a,s){
+
+		$("#mcbox").fadeIn(0); 		
+		$("#"+a).siblings(0).fadeOut(0);
+		$("#"+a).fadeToggle(0);
+		
+		if($("#main_menu").css('display')=='none'){
+			$("#main_menuid").attr("src","./template/strong_a1/touch/images/s_plus.png");			
+			}else{
+			$("#main_menuid").attr("src","./template/strong_a1/touch/images/s_minus.png");	
+			}
+		if($("#"+a).css('display')=='none' && $("#"+s).css('display')=='none'){warpmc();} 
+		}
+
+	
+	
+	function warpmc(){ $("#mcbox").fadeOut(0); $("#main_menu").fadeOut(0);$("#user_menu").fadeOut(0); 
+		if($("#main_menu").css('display')=='none'){
+			$("#main_menuid").attr("src","./template/strong_a1/touch/images/s_plus.png");			
+			}else{
+			$("#main_menuid").attr("src","./template/strong_a1/touch/images/s_minus.png");	
+			} 
+		}
+	function bodyscroll(){	if ($('body').scrollTop()<=50){	$(".s_dbdh").fadeIn();}}
+	
+	function imgdelay() {
+		var document_top = $(document).scrollTop();
+		$(".imgdelay").each(function () {		
+			var img_top = $(this).offset().top;	
+			var img = $(this).attr("data");
+			$(this).attr("src", img).removeClass("imgdelay");
+		});
+	}
+
+	imgdelay();
+</script>
+{/if}
+</body>
+
+</html>
+<!--{eval updatesession();}-->
+<!--{if defined('IN_MOBILE')}-->
+	<!--{eval output();}-->
+<!--{else}-->
+	<!--{eval output_preview();}-->
+<!--{/if}-->
+

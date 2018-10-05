@@ -1,0 +1,137 @@
+<section class="panel">
+
+
+                           <header class="panel-heading">
+                              请填写项目资料
+                          </header> 
+                          <div class="panel-body">
+                              <div class=" form">
+
+                                  <form class="cmxform form-horizontal tasi-form" id="commentForm" method="post" action="work.php?mod=workcp&ac=project&op=project{if $_GET[projectid]}&action=edit{else}&action=add{/if}" >
+
+
+                                  <div class="form-group has-success">
+                                      <label class="col-lg-2 control-label">甲方单位</label>
+										<div class="col-lg-6">  
+											<select name="Organizationid" id="birthyear" class="ps" tabindex="1" >
+												<option value="">请选择</option>
+												<!--{loop $organizationlist $olist}-->
+												<option value="$olist['Organizationid']" {if $project[Organizationid] == $olist['Organizationid']}selected = "selected"{/if}>$olist['Organizationname'] </option>
+												<!--{/loop}-->
+											</select>  
+										</div>
+                                  </div>
+
+                                  <div class="form-group has-success">
+                                      <label class="col-lg-2 control-label">名称</label>
+                                      <div class="col-lg-10">
+                                          <input type="text" placeholder="" id="l-name" class="form-control"  name="projectname" value="$project[projectname]">
+                                          <!-- <p class="help-block">Aha you gave a wrong info</p> -->
+                                      </div>
+                                  </div>
+
+
+                                  <div class="form-group has-success">
+                                      <label class="col-lg-2 control-label">收支</label>
+                                      <div class="col-lg-10">
+                                          <input type="text" placeholder="" id="l-name" class="form-control"  name="price" value="$project[Projectprice]">
+                                          <!-- <p class="help-block">Aha you gave a wrong info</p> -->
+                                      </div>
+                                  </div>
+
+                                          <!--date picker start-->
+
+                                         <div class="form-group">
+                                              <label class="col-lg-2 control-label">项目开始时间</label>
+                                              <div class="col-sm-6" data-date-format="yyyy-mm-dd">
+
+											  <!--{if $project[projectstarttimeline]}-->
+												<input name="projectstarttime" id="dpYears" type="text" value="{date($project[projectstarttimeline],'Y-m-d')}" size="16" class="form-control" readonly="" data-date-format="yyyy-mm-dd">
+												<!--{else}-->
+												 <input name="projectstarttime" id="dpYears" type="text" value="{date($_G[timestamp],'Y-m-d')}" size="16" class="form-control" readonly="" data-date-format="yyyy-mm-dd">
+												<!--{/if}-->
+                                                 
+                                              </div>
+                                          </div>
+
+                                         <div class="form-group">
+                                              <label class="col-lg-2 control-label">项目结束时间</label>
+                                              <div class="col-sm-6" data-date-format="yyyy-mm-dd">
+
+											  <!--{if $project[projectendtimeline]}-->
+												<input name="projectendtime" id="projectendtime" type="text" value="{date($project[projectendtimeline],'Y-m-d')}" size="16" class="form-control" readonly="" data-date-format="yyyy-mm-dd"> 
+												<!--{else}-->
+												 <input name="projectendtime" id="projectendtime" type="text" value="{date($_G[timestamp],'Y-m-d')}" size="16" class="form-control" readonly="" data-date-format="yyyy-mm-dd">
+												<!--{/if}-->
+                                                 
+                                              </div>
+                                          </div>
+                                          <!--  <div class="form-group">
+                                              <label class="col-lg-2 control-label">Starts with years view</label>
+                                              <div class="col-sm-6">
+
+
+                                                  <div class="input-append date" id="dpYears" data-date="2017-8-26" data-date-format="yyyy-mm-dd" data-date-viewmode="years">
+                                                      <input class="form-control" size="16" type="text" value="2017-8-26" readonly="">
+                                                      <span class="add-on"><i class="icon-calendar"></i></span>
+                                                  </div>
+                                              </div>
+                                          </div> -->
+
+                                          <!--date picker end-->
+
+										<!--{if $_GET[projectid]}-->
+
+											 <div class="form-group">
+												  <label class="col-lg-2 control-label">项目状态</label>
+												  <div class="col-sm-6" data-date-format="yyyy-mm-dd">
+														  <div class="input-cont ">
+																<select name="status" id="birthyear" class="form-control col-lg-12" tabindex="1" >
+																	<option value="">请选择</option>
+																		<option value="0" {if $project[status] == '0'}selected = "selected"{/if}>进行中 </option>
+																		<option value="1" {if $project[status] == '1'}selected = "selected"{/if}>结算中 </option>
+																		<option value="9" {if $project[status] == '9'}selected = "selected"{/if}>已结算 </option>
+																</select> 
+														  </div>
+                                              
+												  </div>
+											  </div>
+
+											 <div class="form-group">
+												  <label class="col-lg-2 control-label">项目成员</label>
+												  <div class="col-sm-6" data-date-format="yyyy-mm-dd">
+
+														<!--{template work/pc/work_addproject_newadmin_main_projectlist_form_flowlist}-->                                                 
+												  </div>
+											  </div>
+
+
+										<!--{/if}-->
+
+
+                                      <div class="form-group">
+                                          <div class="col-lg-offset-2 col-lg-10">
+                                              <button class="btn btn-danger" type="submit" name="vote_button"  value="true">提交</button>
+											  <button class="btn btn-default" type="submit" name="vote_button"  value="true">删除</button>
+
+												<!--{if $dateline < $todaydateline}-->
+												<input  type="hidden" name="submitdateline" value="{eval echo $thedatelinestart+86399}"/>
+												<!--{/if}-->
+
+												<!--{if $dateline >= $next1daydateline}-->
+												<input  type="hidden" name="submitdateline" value="$thedatelinestart"/>
+												<!--{/if}-->
+
+                                              <!-- <button class="btn btn-default" type="button">Cancel</button> -->
+                                          </div>
+										  
+											<div class="col-lg-offset-2 col-lg-10" style="height: 270px;"></div>
+                                      </div>
+									<!--{if $_GET['projectid']}-->
+										<input type="hidden" name="projectid" value="{$_GET['projectid']}">
+									<!--{/if}-->
+                                  </form>
+                              </div>
+
+                          </div>
+                      </section>

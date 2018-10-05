@@ -1,0 +1,33 @@
+<div class="search_threadlist">
+	<h2 class="thread_tit">
+		<!--{if $keyword}-->
+			{echo $lang['search_result_keyword']}
+		<!--{/if}-->
+	</h2>
+	<!--{ad/search/y mtw}-->
+	<!--{if empty($articlelist)}-->
+		<ul><li><a href="javascript:;">{lang search_nomatch}</a></li></ul>
+	<!--{else}-->		
+		<div class="threadlist1">
+			<ul>
+		<!--{loop $articlelist $key $article}-->
+			<li>
+				<a href="{echo fetch_article_url($article);}">
+					<h3>$article[title]</h3>				
+					<p>		
+					
+						<span class="datetime">$article[dateline]</span>
+					
+						<span class="replies">
+							<i class="fa fa-comments-o fa-1x "></i>  {$article[commentnum]}<i class="fa fa-eye fa-1x mbl10"></i>  {$article[viewnum]} 
+							
+						</span>   
+					</p>
+				</a>	
+			</li>
+		<!--{/loop}-->		
+			</ul>
+		</div>
+	<!--{/if}-->
+	<!--{if !empty($multipage)}--><div class="pgs cl mbm">$multipage</div><!--{/if}-->
+</div>

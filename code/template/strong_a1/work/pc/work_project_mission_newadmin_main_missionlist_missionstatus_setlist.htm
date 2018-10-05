@@ -1,0 +1,42 @@
+														<ul role="menu" class="dropdown-menu">
+															<li>
+																<a href="work.php?mod=taskbar&view=mission&projectid={$list[projectid]}&missionid=$mlist[missionid]">
+																	任务详情
+																</a>
+															</li>
+															<li class="divider"></li>
+															<!--{if $_G[adminid] == '1'}-->
+
+
+																<!--{if $mlist[status] != '0'}-->
+																<li>
+																	<a href="work.php?mod=workcp&ac=mission&op=goodslist&action=unfinish&missionid=$mlist[missionid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}">
+																		进行中
+																	</a>
+																</li>
+																<!--{/if}-->
+
+																<!--{if $mlist[status] != '1'}-->
+																<li>
+																	<a href="work.php?mod=workcp&ac=mission&op=goodslist&action=finish&missionid=$mlist[missionid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}">
+																		已完成
+																	</a>
+																</li>
+																<!--{/if}-->
+																
+																<!--{if $mlist[status] != '2'}-->
+																<li>
+																	<a href="work.php?mod=workcp&ac=mission&op=goodslist&action=status2&missionid=$mlist[missionid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}">
+																		未通过
+																	</a>
+																</li>
+																<!--{/if}-->
+																
+
+															<!--{/if}-->
+													
+														</ul>
+
+
+
+

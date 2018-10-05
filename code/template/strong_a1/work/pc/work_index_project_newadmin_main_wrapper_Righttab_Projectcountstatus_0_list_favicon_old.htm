@@ -1,0 +1,9 @@
+													<!--{if $list[favicon]=='1'}-->
+														<a href="work.php?mod=workcp&ac=project&op=goodslist&action=favicon0&projectid=$list[projectid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}">
+															<i class="icon-star" style="color: red;">({date($list[projectendtimeline],'m-d')})</i>
+														</a>
+													<!--{else}-->
+														<a href="work.php?mod=workcp&ac=project&op=goodslist&action=favicon1&projectid=$list[projectid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}">
+															<i class="icon-star-empty"></i>
+														</a>
+													<!--{/if}-->

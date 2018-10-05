@@ -1,0 +1,103 @@
+<style>
+.task-thumb img{
+	width: 90px;
+}
+</style>
+					<!--{loop $membermissioninfo $missionlist}-->
+					
+
+                  <div class="col-lg-{if $_G[adminid]=='1'}3{else}6{/if}">
+                      <!--user info table start-->
+                      <section class="panel">
+                          <div class="panel-body">
+							 
+                              <a href="work.php?mod=project&view=mission&editorid={$missionlist[userinfo][uid]}" class="task-thumb">
+										<!--{eval $missionuserinfo = get_wx_userinfo_by_uid($missionlist[userinfo][uid]);}-->
+										<!--{if $missionuserinfo[headimgurl]}-->
+											<img src="{$missionuserinfo[headimgurl]}">
+										<!--{else}-->
+											<!--{avatar($missionlist[userinfo][uid],middle)}-->
+										<!--{/if}-->
+                              </a>
+                              <div class="task-thumb-details">
+                                  <h1><a href="work.php?mod=project&view=mission&editorid={$missionlist[userinfo][uid]}">$missionlist[userinfo][username]</a></h1>
+                                  <p>今天有{$missionlist['missionstatus1count']}个待办任务
+									<div class="btn-group">
+									  <button data-toggle="dropdown" class="btn btn-success dropdown-toggle btn-xs" type="button">查看全部 <span class="caret"></span></button>
+									  <ul role="menu" class="dropdown-menu">
+										  <li><a href="work.php?mod=project&view=mission&editorid={$missionlist[userinfo][uid]}" target="_blank">全部任务</a></li>
+										  <li><a href="work.php?mod=worklist&check=incomplete&editorid={$missionlist[userinfo][uid]}" target="_blank">全部日志</a></li>
+										  <li class="divider"></li>
+										  <li><a href="#">导出excel</a></li>
+									  </ul>
+									</div>								  
+								  </p>
+														
+                              </div>
+                          </div>
+                          <table class="table table-hover personal-task">
+                              <tbody>
+								<!--{eval $umi = '0';}-->
+								<!--{loop $missionlist[missionlist] $missioninfo}-->
+								<!--{eval $umi++;}-->
+                                <tr>
+                                    <td><!--{template work/pc/work_mywork_index_main_user_missionlist_missionstatus}--></td>
+                                    <td> 
+										<span style=" {if $missioninfo[favicon] == '1'}font-weight: bold; color: red;{/if}{if $missioninfo[status] == '1'} text-decoration:line-through; color: #D0D0D0;{/if}">$missioninfo[missionname]</span>
+										<!--{template work/pc/work_mywork_index_main_user_missionlist_missioncount1_tasklist}-->
+									</td>
+
+
+
+
+
+
+									<!--{if $missioninfo[favicon] == '1'}-->
+										<td class="hidden-phone">
+											<a href="work.php?mod=project&view=mission&projectid={$missioninfo[projectid]}&vieworder=alleditor" target="_blank">
+												<span class="label label-danger label-mini">加急中</span>
+											</a>
+										</td>
+
+									<!--{else}-->
+
+										<!--{if $missioninfo[status] == '0'}-->
+											<td class="hidden-phone">
+												<a href="work.php?mod=project&view=mission&projectid={$missioninfo[projectid]}&vieworder=alleditor" target="_blank">
+													<span class="label label-success label-mini">进行中</span>
+												</a>
+											</td>
+										<!--{elseif $missioninfo[status] == '1'}-->
+											<td class="hidden-phone">
+												<a href="work.php?mod=workcp&ac=mission&op=goodslist&action=status2&missionid=$missioninfo[missionid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}" >
+													<span class="label label-default label-mini">已完成</span>
+												</a>
+											</td>
+										<!--{elseif $missioninfo[status] == '2'}-->
+
+											<td class="hidden-phone">
+												<a href="work.php?mod=workcp&ac=mission&op=goodslist&action=unfinish&missionid=$missioninfo[missionid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}" >
+													<span class="label label-default label-mini">未通过</span>
+												</a>
+											</td>
+										<!--{/if}-->
+
+									<!--{/if}-->
+							
+
+
+
+
+
+
+
+
+                                </tr>
+								<!--{/loop}-->
+
+                              </tbody>
+                          </table>
+                      </section>
+                      <!--user info table end-->
+                  </div>
+					<!--{/loop}-->

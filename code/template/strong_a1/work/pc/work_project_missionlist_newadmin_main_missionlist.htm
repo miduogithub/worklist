@@ -1,0 +1,376 @@
+    
+	
+<style>
+.wrapper {
+	margin-top: 0px;
+}
+</style>
+
+
+          <section class="wrapper">
+              <!-- page start-->
+
+              <div class="row">
+
+<div class="col-lg-12">
+<div class="col-lg-12">
+                          <div class="panel panel-default">
+
+							  <header class="panel-heading" >
+									<img alt="{$organizationlist[$project[Organizationid]][Organizationname]}" src="{$organizationlist[$project[Organizationid]][avatar]}" style="width: 28px;">
+								  <span  style="color:blue;font-weight: bold; "><!--{echo cutstr($project[projectname], 55)}--></span>
+
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse_projectid_{$projectid}">
+											<button class="btn btn-primary btn-xs" alt="项目介绍">
+												<i id="p_m_tasklist_folder_switch_missionid_{$projectid}" onclick="open_close_tasklist_folder({$projectid});"class="icon-folder-close"></i>
+											</button>
+								  </a>
+
+
+
+
+									<!--{if $_G[adminid] == '1'}-->
+										<a href="work.php?mod=project&view=editproject&projectid=$projectid">
+											<button class="btn btn-primary btn-xs" alt="编辑">
+												<i class="icon-pencil"></i>
+											</button>
+										</a>
+
+									<!--{/if}-->
+
+									<a href="work.php?mod=taskbar&view=mission&projectid={$projectid}&vieworder=alleditor" target="_blank">
+										<button class="btn btn-primary btn-xs" alt="TASK模式">
+											<i class="icon-pause"></i>
+										</button>
+									</a>
+
+									<div class="btn-group">
+											<i alt="TASK模式" class="icon-share" data-toggle="dropdown" style="margin-right: -10px;"></i>
+										<ul role="menu" class="dropdown-menu">
+											<li>
+												<a href="work.php?mod=workcp&ac=project_to_excel&editorid=$editorid&projectid={$projectid}&view=ing">
+													导出进行中
+												</a>
+											</li>
+											<li>
+												<a href="work.php?mod=workcp&ac=project_to_excel&editorid=$editorid&projectid={$projectid}&view=all">
+													导出全部
+												</a>
+											</li>
+										</ul>
+									</div>
+
+
+
+
+							  </header>
+
+                              <div id="collapse_projectid_{$projectid}" class="panel-collapse collapse">
+                                  <div class="panel-body">
+
+				<div class="col-lg-12">
+                      <section class="panel">
+                          <div class="bio-graph-heading" style="    font-style: normal;padding: 10px;">
+                             项目说明
+                          </div>
+                          <div class="panel-body bio-graph-info">
+								
+                              <h1>$project[projectname]</h1>
+                              <div class="row">
+                                  <div class="bio-row">
+                                      <p>
+										<span>甲方单位 </span>：
+										<a href="work.php?mod=project&view=statistics&organizationid={$project[Organizationid]}&vieworder=onlyproject" target="_blank">{$organizationlist[$project[Organizationid]][Organizationname]}</a>
+										<!--{if $_G[adminid] == '1'}-->
+											<a href="work.php?mod=project&view=editOrganizationid&Organizationid={$project[Organizationid]}" target="_blank">
+												<i class="icon-pencil"></i>
+											</a>
+										<!--{/if}-->
+									  </p>
+                                  </div>
+                                  <div class="bio-row">
+                                      <p><span>项目状态 </span>：{if $project[status]=='0'}进行中{elseif $project[status]=='1'}结算中{elseif $project[status]=='9'}已结算{elseif $project[status]=='99'}难产中{/if}</p>
+                                  </div>
+                                  <div class="bio-row">
+                                      <p><span>开始时间 </span>：{date($project[projectstarttimeline],'Y年m月d日')}</p>
+                                  </div>
+                                  <div class="bio-row">
+                                      <p><span>结束时间</span>：{date($project[projectendtimeline],'Y年m月d日')}</p>
+                                  </div>
+
+								<!--{if $_G[adminid] == '1'}-->
+                                  <div class="bio-row">
+                                      <p><span>报价</span>：
+										<font style="{if $project[status] == '9'}color: green;{elseif $project[status] == '1'}color: blue;{else} color: #D0D0D0;{/if}">
+											{if $project[status] == '9'}+{/if}$project[Projectprice] 
+										</font>
+										</p>
+                                  </div>
+                                  <div class="bio-row">
+                                      <p><span>支出</span>：
+										<font style="{if $project[status] == '9'}color: red;{elseif $project[status] == '1'}color: red;{else} color: red;{/if}">-<!--{eval echo get_work_project_payout_count($projectid);}-->&nbsp;</font><a href="work.php?mod=financial&view=work_project_payout&work_project_projectid={$projectid}" target="_blank"><i class="icon-jpy" alt="收支"></i></a>
+									  </p>
+                                  </div>
+								  <!--{/if}-->		
+											<!--{eval $pflist = get_project_followlist($projectid);}-->
+											
+												  <div class="bio-row">
+													  <p><span >项目成员</span>：
+																<!--{loop $pflist $flist}-->
+															  <a href="work.php?mod=project&view=mission&editorid={$flist['uid']}" target="_blank">
+																<!--{if $flist['weixinmemberinfo']['headimgurl']}-->
+																<img alt="{$flist['weixinmemberinfo'][nickname]}" src="{$flist['weixinmemberinfo']['headimgurl']}" style="width: 32px;">
+															  <!--{else}-->
+																<img alt="{$flist['username']}" src="<!--{avatar($flist[uid], middle, true)}-->" style="width: 32px;">
+															  <!--{/if}-->
+															  </a>
+															  <!--{/loop}-->
+														  </p>
+												  </div>
+																										
+									
+                              </div>
+
+
+
+
+
+                          </div>
+
+
+
+                      </section>
+					</div>
+
+
+
+
+
+                              </div>
+
+
+
+
+
+                          </div>
+
+							  <div class="panel-body ">
+								  <div class="progress progress-striped active progress-sm" style="    height: 4px;">
+									  <div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {$progress}%">
+										  <span class="sr-only">{$progress}% Complete</span>
+									  </div>
+								  </div>
+									<div style="    position: relative;    text-align: center;">进度：{$progress}%</div>
+							  </div>
+
+ </div>
+
+
+ </div>
+
+                  <div class="col-lg-7">
+
+
+                      <section class="panel">
+                          <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
+                              <ul class="nav nav-tabs pull-right">
+                                  <li class="active">
+                                      <a data-toggle="tab" href="#home-3">
+											
+                                          <i class="icon-flag"></i>
+										  进行中
+                                      </a>
+                                  </li>
+                                  <li class="">
+                                      <a data-toggle="tab" href="#about-3">
+                                          <i class=" icon-check"></i>
+                                          已完成
+                                      </a>
+                                  </li>
+                                  <li class="">
+                                      <a data-toggle="tab" href="#contact-3">
+                                          <i class="icon-ban-circle"></i>
+                                          未通过
+                                      </a>
+                                  </li>
+                              </ul>
+                              <span class="hidden-sm wht-color hidden-phone">任务列表</span>
+                          </header>
+                          <div class="panel-body">
+                              <div class="tab-content">
+                                  <div id="home-3" class="tab-pane active">
+
+									<!--{template work/pc/work_project_missionlist_newadmin_main_missionlist_status_0_project}-->
+                                  </div>
+                                  <div id="about-3" class="tab-pane"><!--{template work/pc/work_project_missionlist_newadmin_main_missionlist_status_1}--></div>
+                                  <div id="contact-3" class="tab-pane"><!--{template work/pc/work_project_missionlist_newadmin_main_missionlist_status_2}--></div>
+                              </div>
+                          </div>
+                      </section>
+
+
+
+                      <section class="panel">
+
+						
+						<!-- template work/pc/work_loglist_newadmin_main_worklist_multi -->
+
+
+
+
+                      </section>
+                  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-lg-5">
+                      <!--tab nav start-->
+                      <section class="panel">
+                          <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
+                              <ul class="nav nav-tabs pull-right">
+                                  <li class="active">
+                                      <a data-toggle="tab" href="#xiangguanziliao_home-3">
+                                          <i class="icon-book"></i>
+										  资料
+                                      </a>
+                                  </li>
+                                  <li class="">
+                                      <a data-toggle="tab" href="#xiangguanziliao_about-3">
+                                          <i class="icon-user"></i>
+                                          对接人
+                                      </a>
+                                  </li>
+                                  <li class="">
+                                      <a data-toggle="tab" href="#xiangguanziliao_contact-3">
+                                          <i class="icon-pencil"></i>
+                                          日志
+                                      </a>
+                                  </li>
+
+                                  <li class="">
+                                      <a data-toggle="tab" href="#results-3">
+                                          <i class="icon-envelope"></i>
+                                          验收
+                                      </a>
+                                  </li>
+                              </ul>
+                              <span class="hidden-sm wht-color hidden-phone" >资料列表</span>
+                          </header>
+                          <div class="panel-body">
+                              <div class="tab-content">
+                                  <div id="xiangguanziliao_home-3" class="tab-pane active">
+									<!--{if $mission_data_list}-->
+										<!--{template work/pc/work_project_missionlist_newadmin_main_missionlist_datalist}-->
+									<!--{else}-->
+										暂无相关资料
+									<!--{/if}-->
+                                  </div>
+                                  <div id="xiangguanziliao_about-3" class="tab-pane">
+
+									<!--{if $mission_data_list}-->
+										<!--{template work/pc/work_project_missionlist_newadmin_main_missionlist_Contacts}-->
+									<!--{else}-->
+										暂无对接人
+									<!--{/if}-->
+
+
+									</div>
+                                  <div id="xiangguanziliao_contact-3" class="tab-pane">
+
+									<!--{if $project_worklist}-->
+										<!--{template work/pc/work_project_missionlist_newadmin_main_missionlist_worklist}-->
+									<!--{else}-->
+									
+									  <section class="panel">
+										  <header class="panel-heading">
+											  日志列表
+										  </header>
+										  <div class="panel-body">
+											  <div class="timeline-messages">
+
+
+											  </div>	
+												<!--{template work/pc/work_project_missionlist_newadmin_main_missionlist_worklist_form}-->
+										
+
+
+
+										  </div>
+									  </section>
+
+									<!--{/if}-->
+								</div>
+								  <div id="results-3" class="tab-pane">
+
+
+									<!--{if $mission_results_list}-->
+										<!--{template work/pc/work_project_missionlist_newadmin_main_missionlist_results}-->
+									<!--{else}-->
+										暂无验收报告
+									<!--{/if}-->
+
+								</div>
+                              </div>
+                          </div>
+                      </section>
+                      <!--tab nav start-->
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </div>
+              <!-- page end-->
+
+
+
+
+
+          </section>

@@ -1,0 +1,20 @@
+
+<thead id="collapsem_jiesuan_{$p0list[projectid]}" class=" {if $vieworder == 'onlyproject'}collapse{else}in{/if}">
+									{eval $j = '0';}
+									<!--{loop $p0list[missionlist] $mlist}-->
+									{eval $j++;}
+<tr>
+	<td><input type="checkbox" class="checkboxes" value="1" /></td>
+									 <td class="hidden-phone"></td>
+	<td class="hidden-phone"><span ><!-- $organizationlist[$mlist[Organizationid]][Organizationname] --> </span></td>
+	<td class="hidden-phone">$j.<span >$typelist[$mlist[projecttypeid]][typename] </span></td>
+	<td ><span >$mlist[missionname] </span></td>
+	<td class="hidden-phone"><span >$mlist[editor] </span></td>
+	<td class="hidden-phone"><span >{date($mlist[missionstarttimeline],Y年m月d日)} </span></td>
+	<td ></td>
+	<td ></td>
+	<td class="hidden-phone"></td>
+	<td ></td>
+</tr>
+									<!--{/loop}-->
+</thead>

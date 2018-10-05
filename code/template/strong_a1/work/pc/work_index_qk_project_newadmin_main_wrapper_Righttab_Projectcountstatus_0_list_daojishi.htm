@@ -1,0 +1,139 @@
+<link href="static/miduo/Countdownprogressbar/css/jquery-ui-1.8.16.custom_for_work.css" rel="stylesheet" type="text/css"/>
+<link href="static/miduo/Countdownprogressbar/css/main_for_work.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="static/miduo/Countdownprogressbar/js/jquery-ui-1.8.16.custom.min.js"></script> 
+<!-- <script type="text/javascript" src="static/miduo/Countdownprogressbar/js/script.js"></script> -->
+
+
+<style>
+.daojishi_num_red {
+    font-weight: bold;
+    color: red;
+}
+
+.daojishi_num_green {
+    font-weight: bold;
+    color: green;
+}
+</style>
+
+<script type="text/javascript" >
+$(document).ready(function(){
+    jQuery.fn.anim_progressbar = function (aOptions) {
+        // def values
+        var iCms = 1000;
+        var iMms = 60 * iCms;
+        var iHms = 3600 * iCms;
+        var iDms = 24 * 3600 * iCms;
+
+        // def options
+        var aDefOpts = {
+            start: new Date(), // now
+            finish: new Date().setTime(new Date().getTime() + 60 * iCms), // now + 60 sec
+            interval: 100
+        }
+
+        var aOpts = jQuery.extend(aDefOpts, aOptions);
+        var vPb = this;
+
+        // each progress bar
+        return this.each(
+            function() {
+                var iDuration = aOpts.finish - aOpts.start;
+
+                // calling original progressbar
+                $(vPb).children('.pbar').progressbar();
+
+                // looping process
+                var vInterval = setInterval(
+                    function(){
+                        var iLeftMs = aOpts.finish - new Date(); // left time in MS
+                        var iElapsedMs = new Date() - aOpts.start, // elapsed time in MS
+                            iDays = parseInt(iLeftMs / iDms), // elapsed days
+                            iHours = parseInt((iLeftMs - (iDays * iDms)) / iHms), // elapsed hours
+                            iMin = parseInt((iLeftMs - (iDays * iDms) - (iHours * iHms)) / iMms), // elapsed minutes
+                            iSec = parseInt((iLeftMs - (iDays * iDms) - (iMin * iMms) - (iHours * iHms)) / iCms), // elapsed seconds
+                            iPerc = (iElapsedMs > 0) ? iElapsedMs / iDuration * 100 : 0; // percentages
+
+                        // display current positions and progress
+                        $(vPb).children('.percent').html('<b><span class="daojishi_num_green">'+iPerc.toFixed(1)+'%</span></b>');
+                        $(vPb).children('.elapsed').html('<span class="daojishi_num_red">'+iDays+' 天 '+iHours+'小时:'+iMin+'分钟:'+iSec+'秒</span></b>');
+                        $(vPb).children('.pbar').children('.ui-progressbar-value').css('width', iPerc+'%');
+
+                        // in case of Finish
+                        if (iPerc >= 100) {
+                            clearInterval(vInterval);
+                            $(vPb).children('.percent').html('<b>100%</b>');
+                            $(vPb).children('.elapsed').html('时间到');
+                        }
+                    } ,aOpts.interval
+                );
+            }
+        );
+    }
+
+
+
+    // from second #5 till 15
+
+
+
+    var iNow = new Date().setTime(new Date().getTime() - 600 * 1000); // now plus 5 secs
+    var iEnd = new Date().setTime(new Date().getTime() + 60 * 1000); // now plus 15 secs
+    $('#progress').anim_progressbar({start: iNow, finish: iEnd, interval: 100});
+
+<!--{eval $daojishiarr = get_daojishi_data($editorid); $daoshijilist = $daojishiarr['list'];}-->
+<!--{loop $daoshijilist $dlist}-->
+{eval $startjstime = $_G[timestamp] - $dlist[starttimedateline];$endtjstime = $dlist[endtimedateline] - $_G[timestamp];}
+    var iNow{$dlist[workid]} = new Date().setTime(new Date().getTime() - {$startjstime} * 1000); // now plus 5 secs
+    var iEnd{$dlist[workid]} = new Date().setTime(new Date().getTime() + {$endtjstime} * 1000); // now plus 15 secs
+    $('#progress{$dlist[workid]}').anim_progressbar({start: iNow{$dlist[workid]}, finish: iEnd{$dlist[workid]}, interval: 100});
+	
+<!--{/loop}-->
+
+});
+
+
+
+
+
+
+</script>
+
+
+
+
+
+					  
+ <section class="panel">
+	<header class="panel-heading">
+	共：{$daojishiarr[count]} 个倒计时
+	</header>
+	<div class="panel-body">
+
+        <div id="progress" style="display:none;">
+                              <p class="text-muted">
+                                 $dlist[message]
+                              </p>
+            <div class="percent"></div>
+
+            <div class="pbar"></div>
+
+            <div class="elapsed"></div>
+
+        </div>
+
+		<!--{loop $daoshijilist $dlist}-->
+			<div id="progress{$dlist[workid]}">
+								  <p class="text-muted">
+									 $dlist[message]
+								  </p>
+				<div class="percent"></div>
+
+				<div class="pbar"></div>
+
+				<div class="elapsed"></div>
+
+			</div>
+		<!--{/loop}-->
+	</div>
+</section>

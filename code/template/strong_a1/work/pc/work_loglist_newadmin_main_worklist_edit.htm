@@ -1,0 +1,52 @@
+										<form id="shopmanage" method="post" action="work.php?mod=workcp&ac=loglist&op=loglist&action=edit&workid=$list[workid]"  >
+										  <tr>
+											  <td class="hidden-phone"><a href="work.php?mod=worklist&check=incomplete&editorid={$list[editorid]}" target="_blank">{$list[editor]}</a></td>
+											  <td class="hidden-phone">
+
+												<!--{date($list[dateline], 'Y-m-d')}-->
+													<!--{template work/pc/work_loglist_newadmin_main_worklist_edit_time}-->
+												{if $_GET[check] == 'incomplete'}
+												（周<!--{eval echo $weekarray[date(w,$list[dateline])]}-->）
+												{/if}
+
+												</td>
+											  <td>
+
+												<textarea class="form-control " id="ccomment" name="message" required="" style="    height: 100px;">{$list[message]}</textarea>
+												{if $list['workurl']}
+												<input type="text" class="form-control input_display_none" STYLE="MARGIN-top: 5PX;" name="workurl" id="get_url_input_workurl" placeholder="请输入URL" value="{$list['workurl']}"/>
+												{/if}
+												
+
+												</td>
+
+												<!--{if $list[status] == '0'}-->
+													<td class="hidden-phone">
+														<a href="work.php?mod=workcp&ac=loglist&op=loglist&action=finish&workid=$list[workid]{if $dateline}&dateline=$dateline{/if}" target="_balnk">
+															<span class="label label-success label-mini">未完</span>
+														</a>
+													</td>
+												<!--{else}-->
+
+													<td class="hidden-phone">
+														<a href="work.php?mod=workcp&ac=loglist&op=loglist&action=unfinish&workid=$list[workid]{if $dateline}&dateline=$dateline{/if}" target="_balnk">
+															<span class="label label-danger label-mini">完成</span>
+														</a>
+													</td>
+												<!--{/if}-->
+											  <td>
+
+												<input  type="hidden" name="submitdateline" value="$thedatelinestart"/>
+													<button type="submit" name="checkdateline_button"  value="true" class="btn btn-shadow btn-success">保存</button>	
+													
+													
+												 <span  class="hidden-phone">|  </span>
+													<a href="work.php?mod=loglist{if $dateline}&dateline=$dateline{/if}"><button type="submit" class="btn btn-shadow btn-default">返回</button></a>
+													
+												</td>
+											  </td>
+										  </tr>
+
+
+											<input type="hidden" name="id" value="{$maclist[id]}">
+										</form>

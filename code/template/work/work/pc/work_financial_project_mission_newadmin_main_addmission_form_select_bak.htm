@@ -1,0 +1,143 @@
+
+<!--    <select id="province"> 
+   	   <option>----请选择分类----</option> 
+       <option>办公费</option> 
+       <option>汽车费</option> 
+       <option>福利费</option> 
+	   <option>人力资源费</option> 
+	   <option>业务费</option> 
+	   <option>咨询费</option> 
+	   <option>基础设施费</option> 
+	   <option>交通费</option> 
+	   <option>差旅费</option> 
+	   <option>科研费</option> 
+	   <option>销售维护费</option> 
+	   <option>广告费用</option> 
+	   <option>固定资产及无形资产</option> 
+		<option>人工费</option> 
+   </select> 
+   <select class="city"> 
+   		<option>----请选择科目----</option> 
+   </select> 
+   <select class="city" name="project_typeid"> 
+		<option>办公用品</option>
+		<option>低值易耗品</option>
+		<option>图书资料费</option>
+		<option>网络费用</option>
+		<option>IT费用</option>
+		<option>移动电话费</option>
+		<option>邮寄费</option>
+		<option>税金/印花税等</option>
+		<option>其他办公费用</option>
+   </select>  
+   <select class="city" name="project_typeid"> 
+		<option>员工用餐费用</option>
+		<option>旅游费用</option>
+		<option>重大节日费用</option>
+		<option>员工体检费用</option>
+		<option>其他费用</option>
+   </select> 
+   <select class="city" name="project_typeid"> 
+		<option>部门团队经费</option>
+		<option>培训费用</option>
+		<option>招聘广告费</option>
+		<option>签证费用</option>
+		<option>其他人力资源费</option>
+   </select> 
+   <select class="city" name="project_typeid"> 
+		<option>会务费</option>
+		<option>业务招待费</option>
+		<option>礼品费</option>
+		<option>董事会经费</option>
+   </select> 
+   <select class="city" name="project_typeid"> 
+		<option>赞助费</option>
+		<option>公益费用</option>
+		<option>专家聘请费</option>
+		<option>业务代理费</option>
+		<option>审计费用</option>
+		<option>咨询服务费</option>
+   </select> 
+   <select class="city" name="project_typeid"> 
+       <option>南京</option> 
+       <option>镇江</option> 
+       <option>苏州</option> 
+       <option>南通</option> 
+       <option>扬州</option> 
+   </select> 
+   <select class="city" name="project_typeid"> 
+		<option>办公房租</option>
+		<option>办公固定电话费</option>
+		<option>水电费</option>
+		<option>物业费</option>
+		<option>修缮费</option>
+		<option>网站建设及维护费</option>
+   </select> 
+   <select class="city" name="project_typeid"> 
+		<option>工作地交通费</option>
+		<option>工作地出租车费</option>
+   </select> 
+   <select class="city" name="project_typeid"> 
+		<option>交通费</option>
+		<option>出租车费</option>
+		<option>住宿费</option>
+		<option>差旅补助</option>
+		<option>海外差旅费</option>
+   </select> 
+   <select class="city" name="project_typeid"> 
+		<option>科研物料</option>
+		<option>低耗摊销</option>
+		<option>技术图书资料费</option>
+		<option>样机购置费</option>
+		<option>样机试制费</option>
+		<option>委托开发费</option>
+		<option>检测费</option>
+		<option>模具费</option>
+		<option>专利费用</option>
+		<option>项目奖</option> 
+   </select> 
+   <select class="city" name="project_typeid"> 
+		<option>维护翻新材料费</option>
+		<option>销售材料费</option>
+		<option>出口商检代理费</option>
+		<option>出口运费</option>
+		<option>快递费</option>
+		<option>运费</option>
+		<option>杂项费</option>
+   </select> 
+   <select class="city" name="project_typeid"> 
+		<option>业务宣传费</option>
+		<option>广告费</option>
+		<option>展会费</option>
+   </select> 
+   <select class="city" name="project_typeid"> 
+		<option>A2-机器设备</option>
+		<option>A3-计量设备</option>
+		<option>A4-IT设备</option>
+		<option>A5-运输设备</option>
+		<option>A6-办公设备</option>
+		<option>再建工程</option>
+		<option>软件</option> 
+   </select> 
+   <select class="city" name="project_typeid"> 
+		<option>工资</option>
+		<option>奖金</option>
+		<option>四金</option>
+		<option>综合保险</option>
+   </select> 
+ -->
+
+   <select id="province" name="project_province"> 
+		<!--{loop $typelist['fuplist'] $fuplist}-->
+       <option value="$fuplist['typecode']" {if $typelist['ttypelist'][$mission['projecttypeid']][typecode] == $fuplist['typecode']}selected = "selected"{/if}>$fuplist[typename]</option> 
+	   <!--{/loop}-->
+   </select> 
+
+   <!--{loop $typelist['typelist'] $typelist}-->
+   <select class="city" name="project_typeid"> 
+		<option>----请选择城市----</option>
+		<!--{loop $typelist $type}-->
+       <option value="$type['typecode']" {if $mission[projecttypeid] == $type['typecode']}selected = "selected"{/if}>$type[typename]</option>  
+	   <!--{/loop}-->
+   </select>  
+   <!--{/loop}-->

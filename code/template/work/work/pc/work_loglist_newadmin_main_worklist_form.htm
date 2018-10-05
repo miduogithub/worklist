@@ -1,0 +1,76 @@
+<section class="panel">
+                           <header class="panel-heading">
+                              请填写日志内容
+                          </header> 
+                          <div class="panel-body">
+                              <div class=" form">
+
+                                  <form class="cmxform form-horizontal tasi-form" id="commentForm" method="post" action="work.php?mod=workcp&ac=loglist&op=loglist&action=add" >
+
+                                      <div class="form-group ">
+									 
+                                          <label for="ccomment" class="control-label col-lg-2"><!--{date($_G[timestamp], 'Y-m-d H:i:s')}--></label>
+                                          <div class="col-lg-10">
+                                              <textarea class="form-control " id="ccomment" name="message" required="" style="    height: 100px;"></textarea>
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <div class="col-lg-offset-2 col-lg-10">
+                                              <button class="btn btn-danger" type="submit" name="vote_button"  value="true">保存日志</button>
+
+												<!--{if $dateline < $todaydateline}-->
+												<input  type="hidden" name="submitdateline" value="{eval echo $thedatelinestart+86399}"/>
+												<!--{/if}-->
+
+												<!--{if $dateline >= $next1daydateline}-->
+												<input  type="hidden" name="submitdateline" value="$thedatelinestart"/>
+												<!--{/if}-->
+
+                                              <!-- <button class="btn btn-default" type="button">Cancel</button> -->
+                                          </div>
+										  
+											<!-- <div class="col-lg-offset-2 col-lg-10" style="height: 270px;"></div> -->
+                                      </div>
+
+
+
+
+
+
+
+
+
+                                  </form>
+                              </div>
+
+                          </div>
+                      </section>
+
+                      <section class="panel">
+                           <header class="panel-heading">
+                              请填写日志内容
+                          </header> 
+                          <form id="commentForm" method="post" action="work.php?mod=workcp&ac=loglist&op=loglist&action=add" >
+                              <textarea placeholder="你今天做了什么事情？" rows="2" class="form-control input-lg p-text-area" name="message" style="height: 100px;"></textarea>
+								
+                          
+                          <footer class="panel-footer">
+                              <button class="btn btn-danger pull-right">保存</button>
+                              <ul class="nav nav-pills">
+                                  <li>
+                                      <a href="#"><i class="icon-map-marker"></i></a>
+                                  </li>
+                                  <li>
+                                      <a href="#"><i class="icon-camera"></i></a>
+                                  </li>
+                                  <li>
+                                      <a href="#"><i class=" icon-film"></i></a>
+                                  </li>
+                                  <li>
+                                      <a href="#"><i class="icon-microphone"></i></a>
+                                  </li>
+                              </ul>
+                          </footer>
+
+						  </form>
+                      </section>

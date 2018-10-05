@@ -1,0 +1,51 @@
+<style>
+#sidebar {
+    width: 60px;
+}
+</style>
+      <!--sidebar start-->
+      <aside >
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu">
+
+				<!--{loop $groups $gforum}-->
+					<!--{if $gforum[status]=='1'}-->
+
+						<!--{if check_work_forum_spviewperm($gforum)}-->
+							<!--{if $gforum[modtype] == 'mod+mod'}-->
+								<li {if $mod == $gforum[modcode] || in_array($mod, $domainlist[$gforum[fid]])}class="sub-menu active open"{else}class="sub-menu"{/if}>
+									  <a href="javascript:;" class="">
+										   <i class="{$gforum[iconcode]}"></i>
+									  </a>
+
+								  </li>
+							<!--{elseif $gforum[modtype] == 'mod+view'}-->
+
+								<li {if $mod == $gforum[modcode] }class="sub-menu active open"{else}class="sub-menu"{/if}>
+									  <a href="javascript:;" class="">
+										   <i class="{$gforum[iconcode]}"></i>
+									  </a>
+								  </li>
+							<!--{/if}-->
+						<!--{/if}-->
+					<!--{/if}-->
+				<!--{/loop}-->
+
+
+                  <li >
+                      <a class="" href="member.php?mod=logging&action=logout&formhash={FORMHASH}">
+                          <i class="icon-signout"></i>
+                      </a>
+                  </li>
+                  <!-- <li>
+                      <a class="" href="#">
+                          <i class="icon-user"></i>
+                          <span>Login Page</span>
+                      </a>
+                  </li> -->
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->

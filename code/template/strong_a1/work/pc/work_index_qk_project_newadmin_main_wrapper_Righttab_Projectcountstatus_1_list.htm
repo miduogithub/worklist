@@ -1,0 +1,112 @@
+
+                          <table class="table table-striped table-advance table-hover">
+                              <thead>
+                              <tr>
+								<th class="hidden-phone" style="width: 60px;"><i class="icon-sort-by-order"></i></th>
+
+								<th ><i class="icon-bookmark"></i>&nbsp;名称</th>
+								  <th class="hidden-phone"><i class="icon-user"></i>&nbsp;负责人</th>
+								  <th class="hidden-phone"><i class="icon-time"></i>&nbsp;时间</th>
+								  
+                                  <th class="hidden-phone"><i class=" icon-bookmark"></i> 状态</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+									<!--{eval $i = '0';}-->
+								  <!--{loop $Projectcountstatus1_threadlist $list}-->
+										<!--{eval $i++;}-->
+
+
+									  <!--{if $_GET['action'] == 'edit' && $_GET['goodsid'] == $list[goodsid]}-->
+
+											<!--{template work/pc/work_goodslist_newadmin_main_shoplist_edit}-->
+
+									  <!--{else}-->
+										  <tr>
+											<td class="hidden-phone" >{$i}</td>		
+											  										  
+
+												<td ><a data-toggle="collapse" data-parent="#accordion" href="#collapsem_{$list[projectid]}"><span style="font-size: 14px; font-weight: bold;">$list[projectname] </span></a></td>
+											  
+											  <td class="hidden-phone"><a href="work.php?mod=goodslist&check=incomplete&editorid={$list[editorid]}" target="_blank">{$list[editor]}</a></td>	
+												<td class="hidden-phone">{date($list[projectstarttimeline],'m-d')} </td>
+
+<!-- label label-danger label-mini	红色
+label label-default label-mini	灰色
+label label-success label-mini	绿色
+									 -->	
+											<td>
+												<!--{template work/pc/work_project_newadmin_main_projectlist_projectstatus}-->
+
+											</td>
+
+
+
+
+										  </tr>
+									  <!--{/if}-->
+
+<!--{if $vieworder != 'onlyproject'}-->
+<thead id="collapsem_{$list[projectid]}" class="  collapse">
+									{eval $j = '0';}
+									<!--{loop $list[missionlist] $mlist}-->
+									{eval $j++;}
+<tr >
+									 <td class="hidden-phone"></td>
+	<td ><span >┗→　$mlist[missionname] </span></td>
+	<td class="hidden-phone"><span >$mlist[editor] </span></td>
+	<td class="hidden-phone"><span >{date($mlist[missionstarttimeline],'m-d')} </span></td>
+									 <!--{if $mlist[status] == '0'}-->
+													<td>
+														<a href="work.php?mod=workcp&ac=mission&op=goodslist&action=finish&missionid=$mlist[missionid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}" >
+															<span class="label label-success label-mini">进行中</span>
+														</a>
+													</td>
+												<!--{elseif $mlist[status] == '1'}-->
+
+													<td>
+														<a href="work.php?mod=workcp&ac=mission&op=goodslist&action=unfinish&missionid=$mlist[missionid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}" >
+															<span class="label label-default label-mini">已完成</span>
+														</a>
+													</td>
+	
+												<!--{/if}-->
+</tr>
+									<!--{/loop}-->
+</thead>
+<!--{/if}-->
+
+
+
+<!-- </tbody>
+</table>
+
+<table class="table table-striped table-advance table-hover">
+                              <thead>
+                              <tr>
+								<th style="    width: 10%;"><i class="icon-bookmark"></i> 项目序号</th>
+                                  <th ><i class="icon-bookmark"></i> 甲方单位</th>								  
+								  <th ><i class="icon-bookmark"></i> 项目类型</th>
+
+								<th style="    width: 35%;"><i class="icon-bookmark"></i> 项目名称</th>
+
+								  <th style="    width: 10%;"><i class="icon-bookmark"></i> 项目负责人</th>
+								  <th><i class="icon-bookmark"></i> 项目时间</th>
+								  
+                                  <th><i class=" icon-bookmark"></i> 项目状态</th>
+								  <th><i class=" icon-bookmark"></i> 项目价格</th>
+								  <th><i class=" icon-edit"></i> 操作</th>
+                              </tr>
+                              </thead> -->
+
+
+
+								  <!--{/loop}-->
+
+
+
+
+
+
+                              </tbody>
+                          </table>

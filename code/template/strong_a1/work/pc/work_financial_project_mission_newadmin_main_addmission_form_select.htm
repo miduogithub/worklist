@@ -1,0 +1,136 @@
+   <select id="province" name="c" style="    height: 30px;"> 
+
+   </select> 
+   <select id="city" class="city" name="project_typeid" style="    height: 30px;"> 
+   		<option value="">选择单位</option> 
+   </select> 
+<script>
+  window.onload = function () {
+    // 创建两个下拉列表
+   // var sel1 = document.createElement("select");
+    //var sel2 = document.createElement("select");
+    // 添加到body中
+    //document.body.appendChild(sel1);
+    //document.body.appendChild(sel2);
+	var city1 = ["选择分类","c"];
+
+    var arr =  [
+				"选择科目",
+				"c",
+				<!--{loop $typelist_post['fuplist'] $fuplist}-->
+				"$fuplist[typename]",
+				"c",
+				<!--{/loop}-->
+			];
+
+	<!--{eval $i = '0';}-->
+	<!--{loop $typelist_post['typelist'] $typelist}-->
+	<!--{eval $i++;}-->
+
+    var arr$i = [
+
+				<!--{loop $typelist $type}-->
+					"$type[typename]",
+					<!--{if $type[work_projectid]}-->
+
+						"$type['typecode']"+","+"$type[work_projectid]",
+
+					<!--{else}-->
+
+						"$type['typecode']",
+
+					<!--{/if}-->
+				<!--{/loop}-->
+
+				];
+	<!--{/loop}-->
+
+ 
+    function addChild(abj, arr) {
+      for (var i = 0; i < arr.length; i=i+2) {
+        // 循环创建opt元素
+        var opt = document.createElement("option");
+        // 设置option元素的内容，内容为传入的数组内容
+        opt.innerText = arr[i];
+		opt.value = arr[i+1];
+        // 把option添加到select中
+        abj.appendChild(opt);
+      }
+    }
+
+    // 给第一个下拉列表添加数据
+    addChild(province, arr);
+	
+    // 给第一个下拉列表添加改变值得方法
+    province.onchange = function () {
+      remoOpt();
+//      console.log(sel1.selectedIndex)
+      switch (province.selectedIndex){
+		case 0:
+			addChild(city,city1);
+			break;
+        case 1:
+          addChild(city,arr1);
+          break;
+        case 2:
+          addChild(city,arr2);
+          break;
+        case 3:
+          addChild(city,arr3);
+          break;
+        case 4:
+          addChild(city,arr4);
+          break;
+        case 5:
+          addChild(city,arr5);
+          break;
+        case 6:
+          addChild(city,arr6);
+          break;
+        case 7:
+          addChild(city,arr7);
+          break;
+        case 8:
+          addChild(city,arr8);
+          break;
+        case 9:
+          addChild(city,arr9);
+          break;
+        case 10:
+          addChild(city,arr10);
+          break;
+        case 11:
+          addChild(city,arr11);
+          break;
+        case 12:
+          addChild(city,arr12);
+          break;
+        case 13:
+          addChild(city,arr13);
+          break;
+        case 14:
+          addChild(city,arr14);
+          break;
+        case 15:
+          addChild(city,arr15);
+          break;
+        case 16:
+          addChild(city,arr16);
+          break;
+        case 17:
+          addChild(city,arr17);
+          break;
+		 
+
+
+
+      }
+    };
+    //删除函数
+    function remoOpt() {
+      for(var i = city.children.length-1;i>=0;i--){
+        city.children[i].remove();
+      }
+    }
+  }
+</script>

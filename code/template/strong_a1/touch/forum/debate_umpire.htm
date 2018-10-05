@@ -1,0 +1,75 @@
+<!--{template common/header}-->
+<!--{if empty($_GET['infloat'])}-->
+<div class="nav">
+	<div class="nav_left"><a href="forum.php?mod=viewthread&tid=$_G['tid']&page=$_G['page']"><i class="fa fa-angle-left fa-15x"></i></a></div>
+	<div class="nav_right"><a href="javascript:;"></a></div>
+	<div class="nav_center">
+		<a href="forum.php">{lang debate_umpirecomment}</a>
+	</div>
+</div>
+<!--{/if}-->
+
+<form method="post" autocomplete="off" id="postform" action="forum.php?mod=misc&action=debateumpire&tid=$_G[tid]&umpiresubmit=yes&infloat=yes{if !empty($_GET['from'])}&from=$_GET['from']{/if}"{if !empty($_GET['infloat'])} onsubmit="ajaxpost('postform', 'return_$_GET['handlekey']', 'return_$_GET['handlekey']', 'onerror');return false;"{/if}>
+	<div class="debate_umpire">
+
+		<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
+		<!--{if !empty($_GET['infloat'])}--><input type="hidden" name="handlekey" value="$_GET['handlekey']" /><!--{/if}-->
+		<div class="debate_winner">
+			<div class="title-flex">{echo $lang['triumph'];}</div>
+			<div class="rightbox">
+				<ul>
+					<li><label class="lb"><input type="radio" name="winner" value="1" class="pr" $winnerchecked[1] id="winner1" /><i class="fa fa-check-square-o fa-1x"></i>{lang debate_square}</label></li>
+					<li><label class="lb"><input type="radio" name="winner" value="2" class="pr" $winnerchecked[2] id="winner2" /><i class="fa fa-check-square-o fa-1x"></i>{lang debate_opponent}</label></li>
+					<li><label class="lb"><input type="radio" name="winner" value="3" class="pr" $winnerchecked[3] id="winner3" /><i class="fa fa-check-square-o fa-1x"></i>{lang debate_draw}</label></li>
+				</ul>
+			
+			</div>
+		</div>
+		<div class="debate_bestdebater">
+			<div class="title-flex">{lang debate_bestdebater}</div>
+			<div class="input-flex flex">				
+				<input type="text" name="bestdebater" id="bestdebater" class="pxs" value="$debate[bestdebater]" />							
+			</div>
+		</div>
+		<div class="debate_bestdebater">
+			<div class="title-flex">{lang debate_recommend_list}</div>
+			<div class="input-flex flex">	
+			<select onchange="$('#bestdebater').val(this.options[this.options.selectedIndex].value)" class="select">
+					<option value=""><strong>{lang debate_recommend_list}</strong></option>					
+					<!--{loop $candidates $candidate}-->
+						<option value="$candidate[username]"{if $candidate[username] == $debate[bestdebater]} selected="selected"{/if}>$candidate[username] ( $candidate[voters] {lang debate_poll}, <!--{if $candidate[stand] == 1}-->{lang debate_square}<!--{elseif $candidate[stand] == 2}-->{lang debate_opponent}<!--{/if}-->)</option>
+					<!--{/loop}-->
+				</select>
+				<i class="fa fa-sort-desc fa-15x "></i>	
+			
+			</div>
+		</div>
+		
+		<div class="debate_umpirepoint">
+			<textarea id="umpirepoint" placeholder="{lang debate_umpirepoint}" name="umpirepoint" class="pt" style="height: 100px;">$debate[umpirepoint]</textarea>
+		</div>
+
+	</div>
+	<div class="o pns">
+		<button class="btn_pn btn_pn_blue" style="width: 96%;margin: 20px 2%;" type="submit" name="umpiresubmit" value="true" class="submit"><span>{lang submit}</span></button>
+	</div>
+</form>
+
+<!--{if !empty($_GET['infloat'])}-->
+<script type="text/javascript" reload="1">
+function succeedhandle_$_GET['handlekey'](locationhref) {
+	<!--{if !empty($_GET['from'])}-->
+		location.href = locationhref;
+	<!--{else}-->
+		ajaxget('forum.php?mod=viewthread&tid=$_G[tid]&viewpid=$_GET[pid]', 'post_$_GET[pid]');
+		hideWindow('$_GET['handlekey']');
+	<!--{/if}-->
+}
+</script>
+<!--{/if}-->
+
+<!--{if empty($_GET['infloat'])}-->
+<!--{/if}-->
+<!--{eval $nob_nav=1;}-->
+<!--{eval $nofooter = true;}-->
+<!--{template common/footer}-->

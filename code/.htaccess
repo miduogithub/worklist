@@ -1,0 +1,22 @@
+RewriteEngine On 
+RewriteBase /
+# Rewrite 系统规则请勿修改
+RewriteRule ^(.*/)*topic-(.+)\.html$ $1portal.php?mod=topic&topic=$2
+RewriteRule ^(.*/)*article-([0-9]+)\.html$ $1portal.php?mod=article&articleid=$2
+RewriteRule ^(.*/)*forum-([0-9]+)-([0-9]+)\.html$ $1forum.php?mod=forumdisplay&fid=$2&page=$3
+RewriteRule ^(.*/)*thread-([0-9]+)-([0-9]+)-([0-9]+)\.html$ $1forum.php?mod=viewthread&tid=$2&extra=page\%3D$4&page=$3
+RewriteRule ^(.*/)*group-([0-9]+)-([0-9]+)\.html$ $1forum.php?mod=group&fid=$2&page=$3
+RewriteRule ^(.*/)*space-(username|uid)-(.+)\.html$ $1home.php?mod=space&$2=$3
+RewriteRule ^(.*/)*([a-z]+)-(.+)\.html$ $1$2.php?rewrite=$3
+RewriteRule ^(.*/)*forum-([0-9]+)-([0-9]+)\.html$ $1forum.php?mod=forumdisplay&fid=$2&page=$3
+RewriteRule ^(.*/)*010([0-9]+)$ $1dashijian.php?cid=$2
+RewriteRule ^(.*/)*dashijian$ $1dashijian.php$2
+RewriteRule ^(.*/)*reping$ $1reping.php$2
+RewriteRule ^(.*)/*0356([0-9]+)$ $1forum.php?mod=viewthread&tid=$2
+RewriteRule ^(.*/)*index$ $1work.php$2
+RewriteRule ^(.*/)*admin$ $1admin.php$2
+RewriteRule ^(.*/)*0140581([0-9]+)$ $1dagaoping.php?mod=user&uid=$2
+RewriteRule ^(.*)/*channel-([0-9]+)$ $1yizhong.php?mod=channel&fid=$2
+RewriteRule ^(.*)/*channel-([0-9]+)-([a-z]+||[0-9]+)$ $1yizhong.php?mod=channel&gid=$2&fid=$3
+RewriteRule ^(.*/)*work$ $1work.php?mod=worklist$2
+

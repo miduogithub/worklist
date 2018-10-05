@@ -1,0 +1,79 @@
+
+      <!--sidebar start-->
+      <aside >
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu">
+
+				<!--{loop $groups $gforum}-->
+					<!--{if $gforum[status]=='1'}-->
+
+						<!--{if check_work_forum_spviewperm($gforum)}-->
+							<!--{if $gforum[modtype] == 'mod+mod'}-->
+								<li {if $mod == $gforum[modcode] || in_array($mod, $domainlist[$gforum[fid]])}class="sub-menu active open"{else}class="sub-menu"{/if}>
+									  <a href="javascript:;" class="">
+										   <i class="{$gforum[iconcode]}"></i>
+										  <span>$gforum[name]</span>
+										  <span class="arrow"></span>
+									  </a>
+
+									  <ul class="sub">
+											<!--{loop $forums[$gforum[fid]] $forum}-->
+
+												<!--{if check_work_forum_spviewperm($forum)}-->
+												  <li {if $mod==$forum['modcode']}class="active"{/if}>
+													  <a class="" href="{$forum[redirect]}" {if $forum[targetblank]=='1'}target="_blank"{/if}>
+														  <span>$forum[name]</span>
+													  </a>
+												  </li>
+												<!--{/if}-->
+
+											<!--{/loop}-->
+
+									  </ul>
+								  </li>
+							<!--{elseif $gforum[modtype] == 'mod+view'}-->
+
+								<li {if $mod == $gforum[modcode] }class="sub-menu active open"{else}class="sub-menu"{/if}>
+									  <a href="javascript:;" class="">
+										   <i class="{$gforum[iconcode]}"></i>
+										  <span>$gforum[name]</span>
+										  <span class="arrow"></span>
+									  </a>
+					
+									  <ul class="sub">
+											<!--{loop $forums[$gforum[fid]] $forum}-->
+												<!--{if check_work_forum_spviewperm($forum)}-->
+													<li {if $view==$forum['modcode']}class="active"{/if}>
+														<a class="" href="{$forum[redirect]}" {if $forum[targetblank]=='1'}target="_blank"{/if}>
+														<span>$forum[name]</span>
+													</a>
+													</li>
+												<!--{/if}-->
+											<!--{/loop}-->
+
+									  </ul>
+								  </li>
+							<!--{/if}-->
+						<!--{/if}-->
+					<!--{/if}-->
+				<!--{/loop}-->
+
+
+                  <li >
+                      <a class="" href="member.php?mod=logging&action=logout&formhash={FORMHASH}">
+                          <i class="icon-signout"></i>
+                          <span>退出</span>
+                      </a>
+                  </li>
+                  <!-- <li>
+                      <a class="" href="#">
+                          <i class="icon-user"></i>
+                          <span>Login Page</span>
+                      </a>
+                  </li> -->
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->

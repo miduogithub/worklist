@@ -1,0 +1,76 @@
+      <!--main content start-->
+      <section id="main-content">
+		
+
+
+		<section class="wrapper">
+					  <!-- page start-->
+
+					  <div class="row">
+						  <div class="col-lg-6" style="width: 100%;">
+							  <section class="panel">
+								  <header class="panel-heading">
+									   导入移动支付记录
+								  </header>
+								  <div class="panel-body">
+										<form enctype="multipart/form-data" action="work.php?mod=workcp&ac=excel2mysql&action=mobilepaylogs" method="POST" role="form" NAME="debugFORM">  
+
+
+                                  <div class="form-group ">
+                                    <label for="exampleInputFile">导入平台</label>
+									<div class="col-lg-12">  
+										<select name="payplatform" >
+											<option value="">请选择</option>
+											<option value="alipay">支付宝</option>
+											<option value="wxpay">微信支付</option>
+										</select>
+
+                                     </div>
+                                  </div>
+
+                                   <div class="form-group has-success">
+                                      <label class="col-lg-2 control-label">平台帐号</label>
+                                      <div class="col-lg-12">
+                                          <input type="text" placeholder="" id="f-name" class="form-control" name="payplatform_username">
+                                      </div>
+                                  </div>
+
+										  <div class="form-group">
+											  <label for="exampleInputFile">选择文件</label>
+
+											  <div class="col-lg-12">  
+											  <input type="file" id="debugInputFile" NAME="exampleInputFile">
+											  <p class="help-block" style="font-size:14px;color:red">
+													<br />
+													说明：请上传需要对比查错的excel表格，导入的excel表格必须严格按照以下字段排序
+													<br />
+													<a  href="static\miduo\work\PC\admin\img/debugmuban.xlsx" target="_blank" style="font-weight: bold;">
+														光伏项目登记查错表excel模版（点击下载查看）
+													</a>
+												</p>
+												 </div>
+										  </div>
+										  <!-- <div class="checkbox">
+											  <label>
+												  <input type="checkbox"> Check me out
+											  </label>
+										  </div> -->
+										  <button type="submit" class="btn btn-info">提交</button>
+										  <input type="hidden" name="debugsubmit" value="1">
+									  </form>
+
+								  </div>
+							  </section>
+						  </div>
+
+					  </div>
+
+					  <!-- page end-->
+				  </section>
+
+
+
+
+
+      </section>
+      <!--main content end-->

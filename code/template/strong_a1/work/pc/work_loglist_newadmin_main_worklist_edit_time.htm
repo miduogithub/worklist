@@ -1,0 +1,55 @@
+
+<link rel="stylesheet" type="text/css" href="static/miduo/time/datedropper.css">
+<link rel="stylesheet" type="text/css" href="static/miduo/time/timedropper.min.css">
+<style type="text/css">
+.input{WIDTH: 60PX;border:1px solid #d3d3d3}
+</style>
+
+	<span id="worklist_time_Hi_{$list[workid]}">{date($list[dateline], 'H:i')}</span>
+	<span id="worklist_time_Hi_input_{$list[workid]}" style="display:none;">
+		<input type="text" class="input" id="picktime" name="worklist_datetime_Hi_new" />
+	</span>
+
+<input type="hidden" name="worklist_datetime_Ymd" value="{date($list[dateline], 'Y-m-d')}"/>
+
+<input type="hidden" name="changetime" id="worklist_time_Hi_changetime_{$list[workid]}" value=""/>
+
+<script type="text/javascript" src="static/miduo/time/jquery-1.12.3.min.js"></script>
+
+<script src="static/miduo/time/datedropper.min.js"></script>
+
+<script src="static/miduo/time/timedropper.min.js"></script>
+
+<script>
+/*
+$("#pickdate").dateDropper({
+	animate: false,
+	format: 'Y-m-d',
+	maxYear: '2020'
+});
+*/
+
+
+var newH = {date($list[dateline], 'H')};
+var newm = {date($list[dateline], 'i')};
+
+$("#picktime").timeDropper({
+	format: 'HH:mm',
+	//format: ''+newH+':'+newm+'',
+	meridians: false,
+	autoswitch: false,
+
+});
+
+$("#worklist_time_Hi_{$list[workid]}").click(function(){
+	
+  $("#worklist_time_Hi_{$list[workid]}").hide();
+  $("#worklist_time_Hi_input_{$list[workid]}").show();
+  $("#worklist_time_Hi_changetime_{$list[workid]}").val('1');
+});
+
+</script>
+
+
+
+

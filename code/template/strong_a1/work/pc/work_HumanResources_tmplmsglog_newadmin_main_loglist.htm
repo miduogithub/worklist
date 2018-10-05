@@ -1,0 +1,102 @@
+    
+	
+<style>
+.wrapper {
+	margin-top: 0px;
+}
+</style>
+          <section class="wrapper">
+              <!-- page start-->
+
+
+              <div class="row">
+                  <div class="col-lg-12">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              提醒发送记录
+                          </header>
+                          <table class="table table-striped table-advance table-hover">
+                              <thead>
+                              <tr>
+								<th class="hidden-phone"><i class="icon-bookmark"></i> msgid</th>
+									<th ><i class="icon-bookmark"></i> 时间</th>
+                                  <th ><i class="icon-bookmark"></i> 姓名</th>
+								  <th class="hidden-phone"><i class="icon-bookmark"></i> openid</th>
+								  <th class="hidden-phone"><i class="icon-bookmark"></i> 消息标题</th>
+								  <th><i class="icon-bookmark"></i> 消息内容</th>
+								  <th ><i class="icon-bookmark"></i> 状态</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+
+								  <!--{loop $threadlist $list}-->
+
+
+
+									  <!--{if $_GET['action'] == 'edit' && $_GET['workid'] == $list[workid]}-->
+
+											<!--{template work/pc/work_loglist_newadmin_main_worklist_edit}-->
+
+									  <!--{else}-->
+										  <tr>
+												<td class="hidden-phone">{$list[msgid]}</td>
+											  <td><!--{date($list[dateline], 'Y-m-d H:i:s')}--></td>
+											  <td >{$list[editor]}</td>
+											  <td class="hidden-phone">$list[openid]</td>
+											  <td class="hidden-phone">{$list[msgtype]}</td>
+											  <td >{$list[message]}</td>
+<!-- label label-danger label-mini	红色
+label label-default label-mini	灰色
+label label-success label-mini	绿色
+									 -->
+											  <!-- <td class="hidden-phone">{$list[uagent]}</td> -->
+											  
+
+												<!--{if empty($list[status])}-->
+													<td>
+														
+															<span class="label label-default label-mini">未读</span>
+													</td>
+												<!--{else}-->
+
+													<td>
+															<span class="label label-success label-mini">已读</span>
+													</td>
+												<!--{/if}-->
+											  <td>
+
+
+											  </td>
+										  </tr>
+									  <!--{/if}-->
+								  <!--{/loop}-->
+
+
+
+
+
+
+                              </tbody>
+                          </table>
+
+
+						
+						<!-- template work/pc/work_loglist_newadmin_main_worklist_multi -->
+
+
+
+
+
+
+
+
+
+                      </section>
+                  </div>
+              </div>
+              <!-- page end-->
+
+
+
+
+          </section>

@@ -1,0 +1,84 @@
+      <!--main content start-->
+      <section id="main-content">
+		
+
+
+          <header class="tab-head">
+              <ul class="nav nav-tabs">
+
+
+              </ul>
+          </header>
+
+
+<!--{if $thedatelinestart < $todaydateline || $thedatelinestart > $todaydateline + 86399  || $_GET[check] == 'incomplete'}-->
+
+
+
+<div style="margin-top: 10px;margin-right: 10px;float: right;">
+<form id="shopmanage" method="post" action="work.php?mod=workcp&ac=shop&op=goodslist&action=backtoday"  >
+		
+
+				<button class="btn btn-shadow btn-danger" type="submit" value="true">返回今天</button>
+
+
+</form>
+
+	</div>
+<!--{/if}-->
+
+
+<!--{if $_G[adminid] == '1'}-->
+
+	<!--{if $_GET[projectid] || $view == addproject}-->
+
+		<a href="javascript:history.go(-1);">
+			<div class="bm bw0 pgs cl" style="margin-top: 10px;margin-right: 5px;float: right;">
+
+							<button class="btn btn-shadow btn-primary" type="submit" value="true">返回</button>
+			</div>
+		</a>
+	<!--{else}-->
+
+		<a href="work.php?mod=project&view=addproject">
+			<div class="bm bw0 pgs cl" style="margin-top: 10px;margin-right: 5px;float: right;">
+
+							<button class="btn btn-shadow btn-primary" type="submit" value="true">添加项目</button>
+			</div>
+		</a>
+	<!--{/if}-->
+
+
+<!--{/if}-->
+
+
+<!--{if $_G[adminid] == '1' && $_GET['check']!='incomplete'}-->
+<a href="work.php?mod=project&view=mission&projectid={$_GET[projectid]}&vieworder=alleditor">
+	<div class="bm bw0 pgs cl" style="margin-top: 10px;margin-right: 5px;float: right;">
+
+					<button class="btn btn-shadow btn-primary" type="submit" value="true">进入项目</button>
+	</div>
+</a>
+<!--{/if}-->
+
+
+
+
+<!--{if $count}-->
+{eval $count_status1 = $count - $count_status0;}
+<div class="bm bw0 pgs cl" style="margin-top: 10px;margin-right: 5px;float: right;">
+
+				<button type="submit" class="btn btn-shadow btn-success" value="true">待办：{$count} - {$count_status1}</button>
+</div>
+<!--{/if}-->
+
+
+
+<!--{template work/pc/work_addproject_newadmin_main_projectlist_form}-->
+
+
+
+
+
+      </section>
+      <!--main content end-->

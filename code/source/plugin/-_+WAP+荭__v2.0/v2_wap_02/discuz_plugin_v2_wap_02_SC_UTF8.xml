@@ -1,0 +1,1088 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Version"><![CDATA[X3,X3.1,X3.2,X3.3,F1.0]]></item>
+	<item id="Time"><![CDATA[2015-11-26 14:20]]></item>
+	<item id="From"><![CDATA[CAOGEN8 (http://www.cgzz8.com/)]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[1]]></item>
+			<item id="adminid"><![CDATA[0]]></item>
+			<item id="name"><![CDATA[威兔WAP管理插件]]></item>
+			<item id="identifier"><![CDATA[v2_wap_02]]></item>
+			<item id="description"><![CDATA[草.根.吧版权所有]]></item>
+			<item id="datatables"><![CDATA[]]></item>
+			<item id="directory"><![CDATA[v2_wap_02/]]></item>
+			<item id="copyright"><![CDATA[草根吧 www.caogen8.co]]></item>
+			<item id="version"><![CDATA[2.0]]></item>
+			<item id="__modules">
+				<item id="0">
+					<item id="name"><![CDATA[n1]]></item>
+					<item id="param"><![CDATA[]]></item>
+					<item id="menu"><![CDATA[模板功能]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[3]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[1]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="1">
+					<item id="name"><![CDATA[n2]]></item>
+					<item id="param"><![CDATA[]]></item>
+					<item id="menu"><![CDATA[聚合页面及论坛列表]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[3]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[2]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="2">
+					<item id="name"><![CDATA[n3]]></item>
+					<item id="param"><![CDATA[]]></item>
+					<item id="menu"><![CDATA[图文主题]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[3]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[3]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="3">
+					<item id="name"><![CDATA[n4]]></item>
+					<item id="param"><![CDATA[]]></item>
+					<item id="menu"><![CDATA[图片墙]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[3]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[4]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="4">
+					<item id="name"><![CDATA[n5]]></item>
+					<item id="param"><![CDATA[]]></item>
+					<item id="menu"><![CDATA[论坛广告]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[3]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[5]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="5">
+					<item id="name"><![CDATA[n6]]></item>
+					<item id="param"><![CDATA[]]></item>
+					<item id="menu"><![CDATA[频道广告]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[3]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[6]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="6">
+					<item id="name"><![CDATA[n7]]></item>
+					<item id="param"><![CDATA[]]></item>
+					<item id="menu"><![CDATA[一般广告及其他]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[3]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[7]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="7">
+					<item id="name"><![CDATA[mobile]]></item>
+					<item id="param"><![CDATA[]]></item>
+					<item id="menu"><![CDATA[]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[28]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[8]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="version"><![CDATA[X3,X3.1,X3.2,X3.3,F1.0]]></item>
+		<item id="var">
+			<item id="0">
+				<item id="displayorder"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[模板key]]></item>
+				<item id="description"><![CDATA[请联系QQ 32-77558-32 或访问网站 www.v2my.com 查看联系方式, 提供网站地址等相关资料后, 索取模板key]]></item>
+				<item id="variable"><![CDATA[tplkey]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[0000]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="1">
+				<item id="displayorder"><![CDATA[2]]></item>
+				<item id="title"><![CDATA[风格CSS文件]]></item>
+				<item id="description"><![CDATA[文件名称格式为 style.default.css , 只需填写 default 即可]]></item>
+				<item id="variable"><![CDATA[tplstylecss]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[default]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="2">
+				<item id="displayorder"><![CDATA[3]]></item>
+				<item id="title"><![CDATA[模板配色]]></item>
+				<item id="description"><![CDATA[在此输入或选择颜色代码，如：#353b44]]></item>
+				<item id="variable"><![CDATA[tplcolorcssa]]></item>
+				<item id="type"><![CDATA[color]]></item>
+				<item id="value"><![CDATA[#353b44]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="3">
+				<item id="displayorder"><![CDATA[4]]></item>
+				<item id="title"><![CDATA[高亮配色]]></item>
+				<item id="description"><![CDATA[在此输入或选择颜色代码，如：#4078c0]]></item>
+				<item id="variable"><![CDATA[tplcolorcssb]]></item>
+				<item id="type"><![CDATA[color]]></item>
+				<item id="value"><![CDATA[#4078c0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="4">
+				<item id="displayorder"><![CDATA[5]]></item>
+				<item id="title"><![CDATA[自定义CSS]]></item>
+				<item id="description"><![CDATA[在此加入自定义CSS，如 body {}; .f_2 {}; .p_30 {};]]></item>
+				<item id="variable"><![CDATA[tplcssdiy]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="5">
+				<item id="displayorder"><![CDATA[6]]></item>
+				<item id="title"><![CDATA[默认首页]]></item>
+				<item id="description"><![CDATA[在此填入首页地址,留空默认为论坛地址]]></item>
+				<item id="variable"><![CDATA[tplwapurl]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="6">
+				<item id="displayorder"><![CDATA[7]]></item>
+				<item id="title"><![CDATA[广播版块 fid]]></item>
+				<item id="description"><![CDATA[无广播功能可留空]]></item>
+				<item id="variable"><![CDATA[tplfollows]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[10000]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="7">
+				<item id="displayorder"><![CDATA[8]]></item>
+				<item id="title"><![CDATA[无刷新分页]]></item>
+				<item id="description"><![CDATA[使用ajax的方式替代传统的分页功能, 页面无刷新加载内容]]></item>
+				<item id="variable"><![CDATA[tplpages]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="8">
+				<item id="displayorder"><![CDATA[9]]></item>
+				<item id="title"><![CDATA[浮动导航右侧链接]]></item>
+				<item id="description"><![CDATA[默认论坛选择"是", 默认搜索选择"否"]]></item>
+				<item id="variable"><![CDATA[tpltrbutton]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="9">
+				<item id="displayorder"><![CDATA[10]]></item>
+				<item id="title"><![CDATA[侧栏导航]]></item>
+				<item id="description"><![CDATA[按格式增加或替换代码即可]]></item>
+				<item id="variable"><![CDATA[tplmenus]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[<li><a href="#"><img src="template/v2_mbl20121009/touch_plus/image/menu/nv_ico_1.png" />手机门户</a>
+<ul>
+<li><a href="#">下级菜单</a></li>
+<li><a href="#">下级菜单</a>
+<ul>
+<li><a href="#">下级菜单</a></li>
+<li><a href="#">下级菜单</a></li>
+</ul>
+</li>
+</ul>                      
+</li>
+<li><a href="forum.php?forumlist=1"><img src="template/v2_mbl20121009/touch_plus/image/menu/nv_ico_2.png" />论坛</a>
+<ul>
+<li><a href="#"><img src="template/v2_mbl20121009/touch_plus/image/menu/nv_ico_7.png" />下级菜单</a></li>
+<li><a href="#"><img src="template/v2_mbl20121009/touch_plus/image/menu/nv_ico_7.png" />下级菜单</a></li>
+</ul>
+</li>
+<li><a href="forum.php?mod=guide&view=newthread"><img src="template/v2_mbl20121009/touch_plus/image/menu/nv_ico_3.png" />导读</a></li>
+<li><a href="search.php?mod=forum"><img src="template/v2_mbl20121009/touch_plus/image/menu/nv_ico_4.png" />搜索</a></li>
+<li><a href="misc.php?mod=tag"><img src="template/v2_mbl20121009/touch_plus/image/menu/nv_ico_5.png" />标签</a></li>
+<li><a href="home.php?mod=follow"><img src="template/v2_mbl20121009/touch_plus/image/menu/nv_ico_6.png" />广播</a></li>
+<li><a href="portal.php?mod=list&catid=1"><img src="template/v2_mbl20121009/touch_plus/image/menu/nv_ico_7.png" />频道</a></li>]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="10">
+				<item id="displayorder"><![CDATA[11]]></item>
+				<item id="title"><![CDATA[家园背景图片]]></item>
+				<item id="description"><![CDATA[填入数字1-8, 0或留空为8张图片随机显示]]></item>
+				<item id="variable"><![CDATA[tplhomebg]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="11">
+				<item id="displayorder"><![CDATA[12]]></item>
+				<item id="title"><![CDATA[家园是否显示背景图片]]></item>
+				<item id="description"><![CDATA[页面包括:好友,动态,日志,记录,相册,留言板等]]></item>
+				<item id="variable"><![CDATA[tplhomebgopen]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="12">
+				<item id="displayorder"><![CDATA[13]]></item>
+				<item id="title"><![CDATA[登录及注册页是否自定义背景]]></item>
+				<item id="description"><![CDATA[请选择是或者否]]></item>
+				<item id="variable"><![CDATA[tpluserbg]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="13">
+				<item id="displayorder"><![CDATA[14]]></item>
+				<item id="title"><![CDATA[登录及注册页自定义背景style表 (选择使用自定义背景后才有效)]]></item>
+				<item id="description"><![CDATA[自定义背景css代码]]></item>
+				<item id="variable"><![CDATA[tpluserstyle]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[html, body { height:100%; background: #f0f0f0; }
+.userfrom input, .userfrom .questionli, .userfrom .user_seccode { background:#fff; }
+.userfrom .questionli:after { border-color:#ddd; }
+.userfrom li { color:#999; }
+.usertop a { color:#999; }
+.userplus, .userplus a { color:#777; }]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="14">
+				<item id="displayorder"><![CDATA[15]]></item>
+				<item id="title"><![CDATA[登录及注册页背景图片]]></item>
+				<item id="description"><![CDATA[填入数字1-3, 0或留空为3张图片随机显示 (非自定义背景时有效)]]></item>
+				<item id="variable"><![CDATA[tpluserimgbg]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="15">
+				<item id="displayorder"><![CDATA[16]]></item>
+				<item id="title"><![CDATA[登录及注册页提示语]]></item>
+				<item id="description"><![CDATA[可按格式替换文字, 可以插入图片, 可自定义代码]]></item>
+				<item id="variable"><![CDATA[tpluserhi]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[<h1>站名</h1>
+<p>hi 欢迎访问本站 ... ...</p>]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="16">
+				<item id="displayorder"><![CDATA[17]]></item>
+				<item id="title"><![CDATA[站外分享]]></item>
+				<item id="description"><![CDATA[添加第三方的站外分享代码, 如百度分享]]></item>
+				<item id="variable"><![CDATA[tplshare]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="17">
+				<item id="displayorder"><![CDATA[18]]></item>
+				<item id="title"><![CDATA[统计代码]]></item>
+				<item id="description"><![CDATA[添加第三方的网站统计代码]]></item>
+				<item id="variable"><![CDATA[tplstat]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="18">
+				<item id="displayorder"><![CDATA[19]]></item>
+				<item id="title"><![CDATA[聚合页面ID(频道catid)]]></item>
+				<item id="description"><![CDATA[聚合信息页面所在的频道ID,多个频道用半角逗号分开]]></item>
+				<item id="variable"><![CDATA[tplcatid]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[1,2,3]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="19">
+				<item id="displayorder"><![CDATA[20]]></item>
+				<item id="title"><![CDATA[图文模式板块(1)]]></item>
+				<item id="description"><![CDATA[选择使用图文模式的板块 (左侧图片右侧文字),不设置请留空]]></item>
+				<item id="variable"><![CDATA[tplfidsa]]></item>
+				<item id="type"><![CDATA[forums]]></item>
+				<item id="extra"><![CDATA[]]></item>
+				<item id="__value">
+					<item id="0"><![CDATA[1]]></item>
+				</item>
+			</item>
+			<item id="20">
+				<item id="displayorder"><![CDATA[21]]></item>
+				<item id="title"><![CDATA[图文模式板块(2)]]></item>
+				<item id="description"><![CDATA[选择使用图文模式的板块 (上面文字下面3图片,如百度贴吧),不设置请留空]]></item>
+				<item id="variable"><![CDATA[tplfidsb]]></item>
+				<item id="type"><![CDATA[forums]]></item>
+				<item id="extra"><![CDATA[]]></item>
+				<item id="__value">
+					<item id="0"><![CDATA[1]]></item>
+				</item>
+			</item>
+			<item id="21">
+				<item id="displayorder"><![CDATA[22]]></item>
+				<item id="title"><![CDATA[调用的版块]]></item>
+				<item id="description"><![CDATA[选择图文主题要调用的板块]]></item>
+				<item id="variable"><![CDATA[tpdyfids]]></item>
+				<item id="type"><![CDATA[forums]]></item>
+				<item id="extra"><![CDATA[]]></item>
+				<item id="__value">
+					<item id="0"><![CDATA[1]]></item>
+				</item>
+			</item>
+			<item id="22">
+				<item id="displayorder"><![CDATA[23]]></item>
+				<item id="title"><![CDATA[指定N条幻灯主题]]></item>
+				<item id="description"><![CDATA[填入主题tid, 如（1,2,3）多个用半角逗号分开, 填写顺序影响显示顺序]]></item>
+				<item id="variable"><![CDATA[tpdytids]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[1,2,3]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="23">
+				<item id="displayorder"><![CDATA[24]]></item>
+				<item id="title"><![CDATA[排序方式]]></item>
+				<item id="description"><![CDATA[选择主题排序方式]]></item>
+				<item id="variable"><![CDATA[tporderby]]></item>
+				<item id="type"><![CDATA[select]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[1=回复顺序
+2=发帖时间
+3=热门帖子
+4=精华帖子
+5=浏览数量
+6=回复数量]]></item>
+			</item>
+			<item id="24">
+				<item id="displayorder"><![CDATA[25]]></item>
+				<item id="title"><![CDATA[时间范围]]></item>
+				<item id="description"><![CDATA[单位为天,选择要调用的主题范围 (以主题帖发布时间为准),留空不限时间]]></item>
+				<item id="variable"><![CDATA[tpday]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[365]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="25">
+				<item id="displayorder"><![CDATA[26]]></item>
+				<item id="title"><![CDATA[图文数量]]></item>
+				<item id="description"><![CDATA[每页显示调用的图文主题数量]]></item>
+				<item id="variable"><![CDATA[tppagenum]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[16]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="26">
+				<item id="displayorder"><![CDATA[27]]></item>
+				<item id="title"><![CDATA[防刷缓存时间]]></item>
+				<item id="description"><![CDATA[单位为秒,防止不间断的恶意刷新页面]]></item>
+				<item id="variable"><![CDATA[tpcachetime]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="27">
+				<item id="displayorder"><![CDATA[28]]></item>
+				<item id="title"><![CDATA[主题分类]]></item>
+				<item id="description"><![CDATA[设置调用某个或多个分类下的主题,如(1,2,3),留空则不限]]></item>
+				<item id="variable"><![CDATA[tptypeids]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="28">
+				<item id="displayorder"><![CDATA[29]]></item>
+				<item id="title"><![CDATA[分类信息]]></item>
+				<item id="description"><![CDATA[设置调用某个或多个分类信息下的主题,如(1,2,3),留空则不限]]></item>
+				<item id="variable"><![CDATA[tpsortids]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="29">
+				<item id="displayorder"><![CDATA[30]]></item>
+				<item id="title"><![CDATA[内容字节数]]></item>
+				<item id="description"><![CDATA[设置缩略文字数量,2个字节等于1个汉字]]></item>
+				<item id="variable"><![CDATA[tpmsgnum]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="30">
+				<item id="displayorder"><![CDATA[31]]></item>
+				<item id="title"><![CDATA[调用的版块]]></item>
+				<item id="description"><![CDATA[选择图片墙要调用的板块]]></item>
+				<item id="variable"><![CDATA[picdyfids]]></item>
+				<item id="type"><![CDATA[forums]]></item>
+				<item id="extra"><![CDATA[]]></item>
+				<item id="__value">
+					<item id="0"><![CDATA[1]]></item>
+				</item>
+			</item>
+			<item id="31">
+				<item id="displayorder"><![CDATA[32]]></item>
+				<item id="title"><![CDATA[排序方式]]></item>
+				<item id="description"><![CDATA[选择主题排序方式]]></item>
+				<item id="variable"><![CDATA[picorderby]]></item>
+				<item id="type"><![CDATA[select]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[1=默认(回复顺序)
+2=穿越(发帖时间)
+3=热门帖子
+4=精华帖子
+5=浏览数量
+6=回复数量]]></item>
+			</item>
+			<item id="32">
+				<item id="displayorder"><![CDATA[33]]></item>
+				<item id="title"><![CDATA[时间范围]]></item>
+				<item id="description"><![CDATA[单位为天,选择要调用的主题范围 (以主题帖发布时间为准),留空不限时间]]></item>
+				<item id="variable"><![CDATA[picday]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[365]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="33">
+				<item id="displayorder"><![CDATA[34]]></item>
+				<item id="title"><![CDATA[图片数量]]></item>
+				<item id="description"><![CDATA[每页显示调用的图片主题数量]]></item>
+				<item id="variable"><![CDATA[picpagenum]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[16]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="34">
+				<item id="displayorder"><![CDATA[35]]></item>
+				<item id="title"><![CDATA[防刷缓存时间]]></item>
+				<item id="description"><![CDATA[单位为秒,防止不间断的恶意刷新页面]]></item>
+				<item id="variable"><![CDATA[piccachetime]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="35">
+				<item id="displayorder"><![CDATA[36]]></item>
+				<item id="title"><![CDATA[主题分类]]></item>
+				<item id="description"><![CDATA[设置调用某个或多个分类下的主题,如(1,2,3),留空则不限]]></item>
+				<item id="variable"><![CDATA[pictypeids]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="36">
+				<item id="displayorder"><![CDATA[37]]></item>
+				<item id="title"><![CDATA[分类信息]]></item>
+				<item id="description"><![CDATA[设置调用某个或多个分类信息下的主题,如(1,2,3),留空则不限]]></item>
+				<item id="variable"><![CDATA[picsortids]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="37">
+				<item id="displayorder"><![CDATA[38]]></item>
+				<item id="title"><![CDATA[论坛首页版块广告(1)]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adforuma]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="38">
+				<item id="displayorder"><![CDATA[39]]></item>
+				<item id="title"><![CDATA[论坛首页版块广告(1)所在分区]]></item>
+				<item id="description"><![CDATA[广告所在的分区gid, 如(1,2,3), 多个分区用半角逗号分开]]></item>
+				<item id="variable"><![CDATA[adforumida]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>				
+			</item>
+			<item id="39">
+				<item id="displayorder"><![CDATA[40]]></item>
+				<item id="title"><![CDATA[论坛首页版块广告(2)]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adforumb]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="40">
+				<item id="displayorder"><![CDATA[41]]></item>
+				<item id="title"><![CDATA[论坛首页版块广告(2)所在分区]]></item>
+				<item id="description"><![CDATA[广告所在的分区gid, 如(1,2,3), 多个分区用半角逗号分开]]></item>
+				<item id="variable"><![CDATA[adforumidb]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="41">
+				<item id="displayorder"><![CDATA[42]]></item>
+				<item id="title"><![CDATA[论坛列表页广告(1)]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adforumdisplaya]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="42">
+				<item id="displayorder"><![CDATA[43]]></item>
+				<item id="title"><![CDATA[论坛列表页广告(1)所在版块]]></item>
+				<item id="description"><![CDATA[选择广告所在的版块]]></item>
+				<item id="variable"><![CDATA[adforumdisplayida]]></item>
+				<item id="type"><![CDATA[forums]]></item>
+				<item id="extra"><![CDATA[]]></item>
+				<item id="__value">
+					<item id="0"><![CDATA[1]]></item>
+				</item>
+			</item>
+			<item id="43">
+				<item id="displayorder"><![CDATA[44]]></item>
+				<item id="title"><![CDATA[论坛列表页广告(1)所在主题]]></item>
+				<item id="description"><![CDATA[设置在第几个主题下面显示广告 (图片模式的板块请填写偶数)]]></item>
+				<item id="variable"><![CDATA[adforumdisplaytha]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="44">
+				<item id="displayorder"><![CDATA[45]]></item>
+				<item id="title"><![CDATA[论坛列表页广告(2)]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adforumdisplayb]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="45">
+				<item id="displayorder"><![CDATA[46]]></item>
+				<item id="title"><![CDATA[论坛列表页广告(2)所在版块]]></item>
+				<item id="description"><![CDATA[选择广告所在的版块]]></item>
+				<item id="variable"><![CDATA[adforumdisplayidb]]></item>
+				<item id="type"><![CDATA[forums]]></item>
+				<item id="extra"><![CDATA[]]></item>
+				<item id="__value">
+					<item id="0"><![CDATA[1]]></item>
+				</item>
+			</item>
+			<item id="46">
+				<item id="displayorder"><![CDATA[47]]></item>
+				<item id="title"><![CDATA[论坛列表页广告(2)所在主题]]></item>
+				<item id="description"><![CDATA[设置在第几个主题下面显示广告 (图片模式的板块请填写偶数)]]></item>
+				<item id="variable"><![CDATA[adforumdisplaythb]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="47">
+				<item id="displayorder"><![CDATA[48]]></item>
+				<item id="title"><![CDATA[论坛列表页广告(3)]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adforumdisplayc]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="48">
+				<item id="displayorder"><![CDATA[49]]></item>
+				<item id="title"><![CDATA[论坛列表页广告(3)所在版块]]></item>
+				<item id="description"><![CDATA[选择广告所在的版块]]></item>
+				<item id="variable"><![CDATA[adforumdisplayidc]]></item>
+				<item id="type"><![CDATA[forums]]></item>
+				<item id="extra"><![CDATA[]]></item>
+				<item id="__value">
+					<item id="0"><![CDATA[1]]></item>
+				</item>
+			</item>
+			<item id="49">
+				<item id="displayorder"><![CDATA[50]]></item>
+				<item id="title"><![CDATA[论坛列表页广告(3)所在主题]]></item>
+				<item id="description"><![CDATA[设置在第几个主题下面显示广告 (图片模式的板块请填写偶数)]]></item>
+				<item id="variable"><![CDATA[adforumdisplaythc]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="50">
+				<item id="displayorder"><![CDATA[51]]></item>
+				<item id="title"><![CDATA[论坛列表页广告(4)]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adforumdisplayd]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="51">
+				<item id="displayorder"><![CDATA[52]]></item>
+				<item id="title"><![CDATA[论坛列表页广告(4)所在版块]]></item>
+				<item id="description"><![CDATA[选择广告所在的版块]]></item>
+				<item id="variable"><![CDATA[adforumdisplayidd]]></item>
+				<item id="type"><![CDATA[forums]]></item>
+				<item id="extra"><![CDATA[]]></item>
+				<item id="__value">
+					<item id="0"><![CDATA[1]]></item>
+				</item>
+			</item>
+			<item id="52">
+				<item id="displayorder"><![CDATA[53]]></item>
+				<item id="title"><![CDATA[论坛列表页广告(4)所在主题]]></item>
+				<item id="description"><![CDATA[设置在第几个主题下面显示广告 (图片模式的板块请填写偶数)]]></item>
+				<item id="variable"><![CDATA[adforumdisplaythd]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="53">
+				<item id="displayorder"><![CDATA[54]]></item>
+				<item id="title"><![CDATA[论坛贴内广告(上)(1)]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adviewthreada]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="54">
+				<item id="displayorder"><![CDATA[55]]></item>
+				<item id="title"><![CDATA[论坛贴内广告(上)(1)所在版块]]></item>
+				<item id="description"><![CDATA[选择广告所在的版块]]></item>
+				<item id="variable"><![CDATA[adviewthreadida]]></item>
+				<item id="type"><![CDATA[forums]]></item>
+				<item id="extra"><![CDATA[]]></item>
+				<item id="__value">
+					<item id="0"><![CDATA[1]]></item>
+				</item>
+			</item>
+			<item id="55">
+				<item id="displayorder"><![CDATA[56]]></item>
+				<item id="title"><![CDATA[论坛贴内广告(上)(2)]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adviewthreadb]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="56">
+				<item id="displayorder"><![CDATA[57]]></item>
+				<item id="title"><![CDATA[论坛贴内广告(上)(2)所在版块]]></item>
+				<item id="description"><![CDATA[选择广告所在的版块]]></item>
+				<item id="variable"><![CDATA[adviewthreadidb]]></item>
+				<item id="type"><![CDATA[forums]]></item>
+				<item id="extra"><![CDATA[]]></item>
+				<item id="__value">
+					<item id="0"><![CDATA[1]]></item>
+				</item>
+			</item>
+			<item id="57">
+				<item id="displayorder"><![CDATA[58]]></item>
+				<item id="title"><![CDATA[论坛贴内广告(上)(3)]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adviewthreadc]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="58">
+				<item id="displayorder"><![CDATA[59]]></item>
+				<item id="title"><![CDATA[论坛贴内广告(上)(3)所在版块]]></item>
+				<item id="description"><![CDATA[选择广告所在的版块]]></item>
+				<item id="variable"><![CDATA[adviewthreadidc]]></item>
+				<item id="type"><![CDATA[forums]]></item>
+				<item id="extra"><![CDATA[]]></item>
+				<item id="__value">
+					<item id="0"><![CDATA[1]]></item>
+				</item>
+			</item>
+			<item id="59">
+				<item id="displayorder"><![CDATA[60]]></item>
+				<item id="title"><![CDATA[论坛贴内广告(下)(1)]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adviewthreadd]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="60">
+				<item id="displayorder"><![CDATA[61]]></item>
+				<item id="title"><![CDATA[论坛贴内广告(下)(1)所在版块]]></item>
+				<item id="description"><![CDATA[选择广告所在的版块]]></item>
+				<item id="variable"><![CDATA[adviewthreadidd]]></item>
+				<item id="type"><![CDATA[forums]]></item>
+				<item id="extra"><![CDATA[]]></item>
+				<item id="__value">
+					<item id="0"><![CDATA[1]]></item>
+				</item>
+			</item>
+			<item id="61">
+				<item id="displayorder"><![CDATA[62]]></item>
+				<item id="title"><![CDATA[论坛贴内广告(下)(2)]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adviewthreade]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="62">
+				<item id="displayorder"><![CDATA[63]]></item>
+				<item id="title"><![CDATA[论坛贴内广告(下)(2)所在版块]]></item>
+				<item id="description"><![CDATA[选择广告所在的版块]]></item>
+				<item id="variable"><![CDATA[adviewthreadide]]></item>
+				<item id="type"><![CDATA[forums]]></item>
+				<item id="extra"><![CDATA[]]></item>
+				<item id="__value">
+					<item id="0"><![CDATA[1]]></item>
+				</item>
+			</item>
+			<item id="63">
+				<item id="displayorder"><![CDATA[64]]></item>
+				<item id="title"><![CDATA[论坛贴内广告(下)(3)]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adviewthreadf]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="64">
+				<item id="displayorder"><![CDATA[65]]></item>
+				<item id="title"><![CDATA[论坛贴内广告(下)(3)所在版块]]></item>
+				<item id="description"><![CDATA[选择广告所在的版块]]></item>
+				<item id="variable"><![CDATA[adviewthreadidf]]></item>
+				<item id="type"><![CDATA[forums]]></item>
+				<item id="extra"><![CDATA[]]></item>
+				<item id="__value">
+					<item id="0"><![CDATA[1]]></item>
+				</item>
+			</item>
+			<item id="65">
+				<item id="displayorder"><![CDATA[66]]></item>
+				<item id="title"><![CDATA[频道列表页广告(1)]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adlista]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="66">
+				<item id="displayorder"><![CDATA[67]]></item>
+				<item id="title"><![CDATA[频道列表页广告(1)所在频道]]></item>
+				<item id="description"><![CDATA[填写频道ID,多个id请用半角逗号隔开, 如(1,2,3)]]></item>
+				<item id="variable"><![CDATA[adlistida]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="67">
+				<item id="displayorder"><![CDATA[68]]></item>
+				<item id="title"><![CDATA[频道列表页广告(1)所在主题]]></item>
+				<item id="description"><![CDATA[设置在第几个主题下面显示广告]]></item>
+				<item id="variable"><![CDATA[adlisttha]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="68">
+				<item id="displayorder"><![CDATA[69]]></item>
+				<item id="title"><![CDATA[频道列表页广告(2)]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adlistb]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="69">
+				<item id="displayorder"><![CDATA[70]]></item>
+				<item id="title"><![CDATA[频道列表页广告(2)所在频道]]></item>
+				<item id="description"><![CDATA[填写频道ID,多个id请用半角逗号隔开, 如(1,2,3)]]></item>
+				<item id="variable"><![CDATA[adlistidb]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="70">
+				<item id="displayorder"><![CDATA[71]]></item>
+				<item id="title"><![CDATA[频道列表页广告(2)所在主题]]></item>
+				<item id="description"><![CDATA[设置在第几个主题下面显示广告]]></item>
+				<item id="variable"><![CDATA[adlistthb]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="71">
+				<item id="displayorder"><![CDATA[72]]></item>
+				<item id="title"><![CDATA[频道列表页广告(3)]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adlistc]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="72">
+				<item id="displayorder"><![CDATA[73]]></item>
+				<item id="title"><![CDATA[频道列表页广告(3)所在频道]]></item>
+				<item id="description"><![CDATA[填写频道ID,多个id请用半角逗号隔开, 如(1,2,3)]]></item>
+				<item id="variable"><![CDATA[adlistidc]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="73">
+				<item id="displayorder"><![CDATA[74]]></item>
+				<item id="title"><![CDATA[频道列表页广告(3)所在主题]]></item>
+				<item id="description"><![CDATA[设置在第几个主题下面显示广告]]></item>
+				<item id="variable"><![CDATA[adlistthc]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="74">
+				<item id="displayorder"><![CDATA[75]]></item>
+				<item id="title"><![CDATA[文章页广告(上)(1)]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adviewa]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="75">
+				<item id="displayorder"><![CDATA[76]]></item>
+				<item id="title"><![CDATA[文章页广告(上)(1)所在频道]]></item>
+				<item id="description"><![CDATA[填写频道ID,多个id请用半角逗号隔开, 如(1,2,3)]]></item>
+				<item id="variable"><![CDATA[adviewida]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="76">
+				<item id="displayorder"><![CDATA[77]]></item>
+				<item id="title"><![CDATA[文章页广告(上)(2)]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adviewb]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="77">
+				<item id="displayorder"><![CDATA[78]]></item>
+				<item id="title"><![CDATA[文章页广告(上)(2)所在频道]]></item>
+				<item id="description"><![CDATA[填写频道ID,多个id请用半角逗号隔开, 如(1,2,3)]]></item>
+				<item id="variable"><![CDATA[adviewidb]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="78">
+				<item id="displayorder"><![CDATA[79]]></item>
+				<item id="title"><![CDATA[文章页广告(上)(3)]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adviewc]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="79">
+				<item id="displayorder"><![CDATA[80]]></item>
+				<item id="title"><![CDATA[文章页广告(上)(3)所在频道]]></item>
+				<item id="description"><![CDATA[填写频道ID,多个id请用半角逗号隔开, 如(1,2,3)]]></item>
+				<item id="variable"><![CDATA[adviewidc]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="80">
+				<item id="displayorder"><![CDATA[81]]></item>
+				<item id="title"><![CDATA[文章页广告(下)(1)]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adviewd]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="81">
+				<item id="displayorder"><![CDATA[82]]></item>
+				<item id="title"><![CDATA[文章页广告(下)(1)所在频道]]></item>
+				<item id="description"><![CDATA[填写频道ID,多个id请用半角逗号隔开, 如(1,2,3)]]></item>
+				<item id="variable"><![CDATA[adviewidd]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="82">
+				<item id="displayorder"><![CDATA[83]]></item>
+				<item id="title"><![CDATA[文章页广告(下)(2)]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adviewe]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="83">
+				<item id="displayorder"><![CDATA[84]]></item>
+				<item id="title"><![CDATA[文章页广告(下)(2)所在频道]]></item>
+				<item id="description"><![CDATA[填写频道ID,多个id请用半角逗号隔开, 如(1,2,3)]]></item>
+				<item id="variable"><![CDATA[adviewide]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="84">
+				<item id="displayorder"><![CDATA[85]]></item>
+				<item id="title"><![CDATA[文章页广告(下)(3)]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adviewf]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="85">
+				<item id="displayorder"><![CDATA[86]]></item>
+				<item id="title"><![CDATA[文章页广告(下)(3)所在频道]]></item>
+				<item id="description"><![CDATA[填写频道ID,多个id请用半角逗号隔开, 如(1,2,3)]]></item>
+				<item id="variable"><![CDATA[adviewidf]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="86">
+				<item id="displayorder"><![CDATA[87]]></item>
+				<item id="title"><![CDATA[页眉广告]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adheader]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="87">
+				<item id="displayorder"><![CDATA[88]]></item>
+				<item id="title"><![CDATA[页脚广告]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adfooter]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="88">
+				<item id="displayorder"><![CDATA[89]]></item>
+				<item id="title"><![CDATA[搜索页广告]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adsearch]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="89">
+				<item id="displayorder"><![CDATA[90]]></item>
+				<item id="title"><![CDATA[导读页广告]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adguide]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="90">
+				<item id="displayorder"><![CDATA[91]]></item>
+				<item id="title"><![CDATA[标签页广告]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adtag]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="91">
+				<item id="displayorder"><![CDATA[92]]></item>
+				<item id="title"><![CDATA[家园页广告]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adhome]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="92">
+				<item id="displayorder"><![CDATA[93]]></item>
+				<item id="title"><![CDATA[图文主题广告]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adthread]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="93">
+				<item id="displayorder"><![CDATA[94]]></item>
+				<item id="title"><![CDATA[图文主题广告所在主题]]></item>
+				<item id="description"><![CDATA[设置在第几个主题下面显示广告]]></item>
+				<item id="variable"><![CDATA[adthreadth]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="94">
+				<item id="displayorder"><![CDATA[95]]></item>
+				<item id="title"><![CDATA[图片墙广告]]></item>
+				<item id="description"><![CDATA[在此填入广告代码]]></item>
+				<item id="variable"><![CDATA[adphoto]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="95">
+				<item id="displayorder"><![CDATA[96]]></item>
+				<item id="title"><![CDATA[图片墙广告所在主题]]></item>
+				<item id="description"><![CDATA[设置在第几个主题下面显示广告 (请填写偶数)]]></item>
+				<item id="variable"><![CDATA[adphototh]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="96">
+				<item id="displayorder"><![CDATA[97]]></item>
+				<item id="title"><![CDATA[扩展内容(1)]]></item>
+				<item id="description"><![CDATA[在此填入自定义代码]]></item>
+				<item id="variable"><![CDATA[tplplusa]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="97">
+				<item id="displayorder"><![CDATA[98]]></item>
+				<item id="title"><![CDATA[扩展内容(2)]]></item>
+				<item id="description"><![CDATA[在此填入自定义代码]]></item>
+				<item id="variable"><![CDATA[tplplusb]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="98">
+				<item id="displayorder"><![CDATA[99]]></item>
+				<item id="title"><![CDATA[扩展内容(3)]]></item>
+				<item id="description"><![CDATA[在此填入自定义代码]]></item>
+				<item id="variable"><![CDATA[tplplusc]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+		</item>
+		<item id="intro"><![CDATA[使用此插件表示您同意作者免责协议。否则请停止使用此插件。]]></item>
+		<item id="installfile"><![CDATA[install.php]]></item>
+		<item id="uninstallfile"><![CDATA[uninstall.php]]></item>
+	</item>
+</root>

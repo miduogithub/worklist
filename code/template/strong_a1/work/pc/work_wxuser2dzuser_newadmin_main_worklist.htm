@@ -1,0 +1,118 @@
+    
+	
+<style>
+.wrapper {
+	margin-top: 0px;
+}
+</style>
+          <section class="wrapper">
+              <!-- page start-->
+
+
+              <div class="row">
+                  <div class="col-lg-12">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              日志列表
+                          </header>
+                          <table class="table table-striped table-advance table-hover">
+                              <thead>
+                              <tr>
+                                  <th class="hidden-phone"><i class="icon-bookmark"></i> 姓名</th>
+                                  <th class="hidden-phone"><i class="icon-bookmark"></i> 时间</th>
+                                  <th><i class="icon-bookmark"></i> 任务</th>
+                                  <th> 状态</th>
+                                  <th><i class=" icon-edit"></i></th>
+                              </tr>
+                              </thead>
+                              <tbody>
+
+								  <!--{loop $threadlist $list}-->
+
+
+
+									  <!--{if $_GET['action'] == 'edit' && $_GET['workid'] == $list[workid]}-->
+
+											<!--{template work/pc/work_loglist_newadmin_main_worklist_edit}-->
+
+									  <!--{else}-->
+										  <tr>
+											  <td class="hidden-phone"><a href="work.php?mod=worklist&check=incomplete&editorid={$list[editorid]}" target="_blank">{$list[editor]}</a></td>
+											  <td class="hidden-phone"><!--{date($list[dateline], 'Y-m-d H:i:s')}-->{if $_GET[check] == 'incomplete'}（周<!--{eval echo $weekarray[date(w,$list[dateline])]}-->）{/if}</td>
+											  <td ><span style="font-size: 14px; {if $list[status] == '1'} text-decoration:line-through; color: #D0D0D0;{/if}">$list[message] </span></td>
+
+												<!--{if $list[status] == '0'}-->
+													<td>
+														<a href="work.php?mod=workcp&ac=loglist&op=loglist&action=finish&workid=$list[workid]{if $_GET[check]}&check=incomplete{/if}{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}" >
+															<span class="label label-success label-mini">未完</span>
+														</a>
+													</td>
+												<!--{else}-->
+
+													<td>
+														<a href="work.php?mod=workcp&ac=loglist&op=loglist&action=unfinish&workid=$list[workid]{if $_GET[check]}&check=incomplete{/if}{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}" >
+															<span class="label label-danger label-mini">完成</span>
+														</a>
+													</td>
+												<!--{/if}-->
+											  <td>
+
+												<!--{if $list[dateline] > $todaydateline && $list[status] == '0'}-->
+													<a href="work.php?mod=workcp&ac=loglist&op=loglist&action=pushtop&workid=$list[workid]{if $dateline}&submitdateline=$dateline{/if}" alt="提升">
+														<button class="btn btn-success btn-xs" >
+															<i class="icon-upload-alt"></i>
+														</button>
+													</a>
+												<!--{/if}-->
+
+
+												<!--{if $_G['timestamp'] - $list[dateline] < 3600 * 24 * 2 && $list[status] == '0'}-->
+												  <a href="work.php?mod=worklist&workid=$list[workid]&action=edit{if $dateline}&dateline=$dateline{/if}"><button class="btn btn-primary btn-xs" alt="编辑">
+													<i class="icon-pencil"></i></button>
+												  </a>
+												  <a href="work.php?mod=workcp&ac=loglist&op=loglist&action=delete&workid=$list[workid]{if $dateline}&dateline=$dateline{/if}" alt="删除">
+													<button class="btn btn-danger btn-xs"><i class="icon-trash "></i></button>
+													</a>
+												<!--{/if}-->
+
+
+											  </td>
+										  </tr>
+									  <!--{/if}-->
+								  <!--{/loop}-->
+
+
+
+
+
+
+                              </tbody>
+                          </table>
+
+
+						
+						<!-- template work/pc/work_loglist_newadmin_main_worklist_multi -->
+
+
+
+
+
+
+
+
+
+                      </section>
+                  </div>
+              </div>
+              <!-- page end-->
+
+		<!--{if $_GET['action']!='edit' && $_G['timestamp'] - $dateline < 3600 * 720}-->
+
+			<!--{template work/pc/work_loglist_newadmin_main_worklist_form}-->
+
+		<!--{/if}-->
+
+
+
+
+          </section>

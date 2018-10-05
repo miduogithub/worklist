@@ -1,0 +1,145 @@
+      <!--main content start-->
+      <section id="main-content">
+		
+ <section class="wrapper ">
+
+
+
+<!--{if !$projectid}-->
+
+
+<!--{if $_G['adminid'] == '1'}-->
+	<!--{template work/pc/work_project_taskbar_newadmin_main_editorlist}-->
+<!--{/if}-->
+
+
+<!--{template work/pc/work_project_taskbar_newadmin_main_editorlist}-->
+
+<!--{/if}-->
+
+              <div class="row">
+                  <div class="col-lg-12">
+                      <!--breadcrumbs start -->
+                      <ul class="breadcrumb">
+                          <li><a href="work.php?mod=project&view=mission&vieworder=alleditoronlystatus1"><i class="icon-foursquare"></i> 项目</a></li>
+						  <li><a href="work.php?mod=project&view=mission&projectid={$_GET['projectid']}&vieworder=alleditor">{eval echo cutstr($projectlist[$_GET['projectid']][projectname], 19);}</a></li>
+						
+						<li style="float: right;"><a href="javascript:void(0)" onclick="window.history.go(-1);"><i class="icon-mail-reply (alias)"></i></a></li>
+							<li >
+							  <div class="btn-group">
+								  <button data-toggle="dropdown" class="btn btn-success dropdown-toggle btn-xs" type="button">{if $_GET['editorid']}$project_memberlist[$_GET['editorid']]['username']{else}全部{/if} <span class="caret"></span></button>
+								  <ul role="menu" class="dropdown-menu">
+
+									<!--{loop $project_memberlist $pmlist}-->
+										{if $_GET['editorid'] == $pmlist['uid']}{eval continue;}{/if}
+										<li>
+											<a href="work.php?mod=taskbar&view=mission&projectid={$_GET['projectid']}&editorid=$pmlist['uid']">$pmlist['username']</a>
+
+										</li>
+									<!--{/loop}-->
+										<li class="divider"></li>
+										<li>
+											<a href="work.php?mod=taskbar&view=mission&projectid={$_GET['projectid']}&vieworder=alleditor">全部</a>
+										</li>
+
+										<li class="divider"></li>
+
+
+										<li>
+											<a href="work.php?mod=workcp&ac=project_to_excel&editorid=$editorid&projectid={$_GET[projectid]}&view=ing">
+												导出进行中
+											</a>
+										</li>
+										<li>
+											<a href="work.php?mod=workcp&ac=project_to_excel&editorid=$editorid&projectid={$_GET[projectid]}&view=all">
+												导出全部
+											</a>
+										</li>	
+								  </ul>
+							  </div><!-- /btn-group -->	
+						  </li>
+
+					 
+
+
+                      </ul>
+                      <!--breadcrumbs end -->
+                  </div>
+              </div>
+
+
+
+
+
+
+
+<style>
+.msg-time-chat:first-child:before {
+     margin-left: -55px;
+}
+.msg-time-chat:before {
+     margin-left: -55px;
+}
+.timeline-messages:before {
+    margin-left: -50px;
+}
+.msg-time-chat .msg-in .text {
+    margin-left: -50px;
+}
+
+
+</style>
+
+
+  <!-- page start-->
+              <!-- <div class="row" style="width: 6000px;"> dragscroll || overflow-x: hidden; -->
+
+<!-- <div style="overflow:hidden"> -->
+			  <div class="row " style="display:block; white-space:nowrap; overflow:auto;height:100%;margin-left:5px;overflow-y: scroll;" id="wrapper_row">
+
+<!--{loop $threadlist $list}-->
+	<!--{template work/pc/work_project_taskbar_newadmin_main_tasklist}-->
+<!--{/loop}-->
+<!--{template work/pc/work_project_taskbar_newadmin_main_tasklist_form}-->
+
+              </div>
+			 <!--  </div> -->
+
+              <!-- page end-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
+      </section>
+      <!--main content end-->

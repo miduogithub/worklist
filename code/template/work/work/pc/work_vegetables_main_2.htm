@@ -1,0 +1,174 @@
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+              <!-- page start-->
+              <div class="row">
+                  <div class="col-lg-12">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              丹河小铺（丹河北路店）菜价生成器
+                          </header>
+                          <div class="panel-body">
+                              <div class="stepy-tab">
+                                  <ul id="default-titles" class="stepy-titles clearfix">
+                                      <li id="default-title-0" class="">
+                                          <div>第一步</div>
+                                      </li>
+                                      <li id="default-title-1" class="current-step">
+                                          <div>第二步</div>
+                                      </li>
+                                      <li id="default-title-2" class="">
+                                          <div>第三步</div>
+                                      </li>
+                                  </ul>
+                              </div>
+                              <form class="form-horizontal" id="default" action="work.php?mod=vegetables" method="post">
+                                  <fieldset title="Step1" class="step" id="default-step-0">
+                                      <legend> </legend>
+                                      <div class="form-group">
+                                          <label class="col-lg-2 control-label">Address</label>
+                                          <div class="col-lg-10">
+                                              <textarea class="form-control" cols="60" rows="5" id='val' value="欢迎光临丹河小铺便利店，{$newtext}" name="newtext">欢迎光临丹河小铺便利店，{$newtext}</textarea>
+                                          </div>
+                                      </div>
+                                  </fieldset>
+
+                                  <!-- <input type="button" class="finish btn btn-danger" value="生成语音" onclick="fun()"/> -->
+								  <input type="submit" class="finish btn btn-danger" value="生成语音" />
+								  <input type="hidden" name="step" class="finish btn btn-danger" value="3"/>
+                              </form>
+                          </div>
+                      </section>
+                  </div>
+              </div>
+              <!-- page end-->
+          </section>
+      </section>
+      <!--main content end-->
+
+
+
+
+
+
+
+<footer>
+
+    <script type="text/javascript">  
+    function  showImg(){  
+    document.getElementById("wxImg").style.display='block';  
+    }  
+    function hideImg(){  
+    document.getElementById("wxImg").style.display='none';  
+    }  
+    </script> 
+
+<style>
+.poptip{
+	position: absolute;
+	padding: 10px 10px 10px;
+	line-height: 16px;
+	color: #DB7C22;
+	font-size: 12px;
+	background-color: #FFFFFF;
+	border: solid 1px #999;
+	border-radius: 2px;
+	box-shadow: 0 0 3px #ddd;
+	/*margin-top: 30px;*/
+margin-top: -320px;
+        margin-left: -90px;
+}
+
+
+.poptip-arrow{position: absolute;overflow: hidden;font-style: normal;font-family: simsun;font-size: 12px;text-shadow:0 0 2px #ccc;}
+
+.poptip-arrow em,.poptip-arrow i{position: absolute;left:0;font-style: normal;}
+.poptip-arrow em{color: #FFBB76;}
+.poptip-arrow i{color: #FFFCEF;text-shadow:none;}
+
+.poptip-arrow-top,.poptip-arrow-bottom{height: 6px;width: 12px;left:12px;margin-left:-6px;}
+.poptip-arrow-left,.poptip-arrow-right{height: 12px;width: 6px;top: 12px;margin-top:-6px;}
+
+/*上箭头*/
+.poptip-arrow-top{top: -6px;}
+.poptip-arrow-top em{top: -1px;}
+.poptip-arrow-top i{top: 0px;}
+
+/*下箭头*/
+.poptip-arrow-bottom{bottom: -6px;}
+.poptip-arrow-bottom em{top: -8px;}
+.poptip-arrow-bottom i{top: -9px;}
+
+/*左箭头*/
+.poptip-arrow-left{left:-6px;}
+.poptip-arrow-left em{left:1px;}
+.poptip-arrow-left i{left:2px;}
+
+/*右箭头*/
+.poptip-arrow-right{right:-6px;}
+.poptip-arrow-right em{left:-6px;}
+.poptip-arrow-right i{left:-7px;}
+
+.close {
+position: absolute;
+top: 4px;
+right: 10px;
+padding-top: 15px;
+width: 15px;
+height: 0;
+background: url(static/miduo/mytubevideo/images/icon_common.png) no-repeat 4px 4px;
+overflow: hidden;
+/*z-index: 9;*/
+cursor: pointer;
+}
+</style>
+<div id="wapper"> 
+<style>
+#wapper{     
+    position: relative;   /*重要！保证footer是相对于wapper位置绝对*/     
+    height: auto;          /* 保证页面能撑开浏览器高度时显示正常*/     
+    min-height: 100%  /* IE6不支持，IE6要单独配置*/     
+}     
+#footer{     
+   position: absolute;  bottombottom: 0; /* 关键 */     
+   left:0; /* IE下一定要记得 */     
+   height: 60px;         /* footer的高度一定要是固定值*/     
+}     
+#main-content{     
+   padding-bottom: 60px; /*重要！给footer预留的空间*/     
+}  
+
+</style>
+<!--[if IE 6]->     
+<style>     
+#wapper{height:100%;} /* IE在高度不够时会自动撑开层*/     
+</style>     
+<![endif]-->   
+    <!-- 主要内容 -->     
+    <div id="main-content">     
+
+
+    </div>     
+    <!-- 页脚 -->     
+    <div id="footer" style="text-align:center;margin:auto;
+position:absolut;
+left:0;
+top:0;
+right:0;
+bottom:0">     
+		Power by <a href="javascript:void(0)" onMouseOut="hideImg()"  onmouseover="showImg()" >@mi</a>
+
+		<div id="wxImg" style="display:none;z-index: 10000;">
+			
+			<div style="margin:10px;z-index: 10000;">
+				<!-- <span class="poptip-arrow poptip-arrow-bottom" style="z-index: 10000;"><em>◆</em><i>◆</i></span> -->
+				<img src="static/miduo/work/PC/admin/img/miweixin.jpg" class="poptip" width="250px;">
+			</div>
+		</div>
+
+    </div>  
+	
+
+</div>    
+</footer>
+	  

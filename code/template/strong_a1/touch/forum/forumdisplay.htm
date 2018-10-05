@@ -1,0 +1,74 @@
+<!--{template common/header}-->
+<div class="nav">
+	<div class="nav_left"><a href="forum.php?forumlist=1"><i class="fa fa-angle-left fa-15x"></i></a></div>
+	<div class="nav_right"><a href="forum.php?mod=post&action=newthread&fid=$_G[fid]"><i class="fa fa-pencil-square-o fa-1x"></i></a></div>
+	<div class="nav_center">
+		<a href="forum.php">$_G['forum']['name']</a>
+	</div>
+</div>
+<!--{hook/forumdisplay_top_mobile}-->
+<div class="forumdisplay_type">
+	<ul class="scroll_ul">
+		<li class="{if $_GET['filter'] == NULL} a{/if}"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]">{echo $lang['mfriendall'];}</a></li>				
+		<li class="{if $_GET['filter'] == 'lastpost'} a{/if}"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]&filter=lastpost&orderby=lastpost$forumdisplayadd[lastpost]{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}" >{lang latest}</a></li>
+		<li class="{if $_GET['filter'] == 'digest'} a{/if}"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]&filter=digest&digest=1$forumdisplayadd[digest]{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}" >{lang digest_posts}</a></li>
+	<!--{if $_G['forum']['threadtypes']}-->
+		<!--{loop $_G['forum']['threadtypes']['types'] $id $name}-->
+		<!--{if $_GET['typeid'] == $id}-->
+		<li class="ontype"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{if $_GET['sortid']}&filter=sortid&sortid=$_GET['sortid']{/if}{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}"><!--{if $_G[forum][threadtypes][icons][$id] && $_G['forum']['threadtypes']['prefix'] == 2}--><img class="vm" src="$_G[forum][threadtypes][icons][$id]" alt="" /> <!--{/if}-->$name</a></li>
+		<!--{else}-->
+		<li><a href="forum.php?mod=forumdisplay&fid=$_G[fid]&filter=typeid&typeid=$id$forumdisplayadd[typeid]{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}"><!--{if $_G[forum][threadtypes][icons][$id] && $_G['forum']['threadtypes']['prefix'] == 2}--><img class="vm" src="$_G[forum][threadtypes][icons][$id]" alt="" /> <!--{/if}-->$name</a></li>
+		<!--{/if}-->
+		<!--{/loop}-->
+	<!--{/if}-->
+	<!--{if $_G['forum']['threadsorts']}-->							 
+		<!--{loop $_G['forum']['threadsorts']['types'] $id $name}-->
+		<!--{if $_GET['sortid'] == $id}-->
+			<li class="ontype"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{if $_GET['typeid']}&filter=typeid&typeid=$_GET['typeid']{/if}{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}">$name</a></li>
+		<!--{else}-->
+			<li><a href="forum.php?mod=forumdisplay&fid=$_G[fid]&filter=sortid&sortid=$id$forumdisplayadd[sortid]{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}">$name</a></li>
+		<!--{/if}-->
+		<!--{/loop}-->
+	<!--{/if}-->	
+	</ul>
+	<script>	
+		var tw = $('.ontype').outerWidth();
+		var tlp = $('.ontype').offset().left;
+		var setlp = tlp-tw;
+		$(".scroll_ul").scrollLeft(setlp);	
+	</script>
+</div>
+
+<div class="forumthreadtypes " id="forumthreadtypes">
+<!--{if ($_G['forum']['threadtypes'] && $_G['forum']['threadtypes']['listable']) || count($_G['forum']['threadsorts']['types']) > 0}-->
+    <!--{if $quicksearchlist && !$_GET['archiveid']}-->
+        <!--{subtemplate forum/search_sortoption}-->
+    <!--{/if}-->
+<!--{/if}-->
+</div>   
+<!--{if $subexists}-->
+<!--{eval $forumicon = get_forumicon();}-->
+
+<div class="forum_list fl ">
+	<div class="sub_forum_4">
+	<!--{loop $sublist $sub}-->
+	<a href="forum.php?mod=forumdisplay&fid={$sub[fid]}">						
+		<!--{if $forumicon[$sub[fid]]}-->							
+			<img src="$forumicon[$sub[fid]]"/>
+		<!--{else}-->
+			<img src="./template/strong_a1/touch/images/s_subpic.png" />
+		<!--{/if}-->		
+					
+		<em>{$sub[name]}</em>					
+	</a>
+	
+	<!--{/loop}-->
+	</div>
+</div>				
+<!--{/if}-->
+<!--{eval threadlist_format($_G['forum_threadlist']);}-->
+<!--{eval page_format($_G['forum_threadcount'],$_G['tpp'],$multipage);}-->
+<!--{hook/forumdisplay_bottom_mobile}-->
+<div class="pullrefresha" style="display:none;"></div>
+<!--{eval $nob_nav=1;}-->
+<!--{template common/footer}-->

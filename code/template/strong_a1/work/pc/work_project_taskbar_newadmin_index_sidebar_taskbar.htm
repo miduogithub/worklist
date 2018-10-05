@@ -1,0 +1,333 @@
+
+      <!--sidebar start-->
+      <aside >
+          <div id="sidebar"  class="nav-collapse " style="z-index: 999;">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu">
+
+					<!--{if $_G['adminid'] == '1'}-->
+                  <li {if $mod=='index'}class="active"{/if}>
+                      <a class="" href="index">
+                          <i class="icon-dashboard"></i>
+                          <span>今日概要</span>
+                      </a>
+                  </li>
+                  <!-- <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon-book"></i>
+                          <span>UI Elements</span>
+                          <span class="arrow"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="general.html">General</a></li>
+                          <li><a class="" href="buttons.html">Buttons</a></li>
+                          <li><a class="" href="widget.html">Widget</a></li>
+                          <li><a class="" href="slider.html">Slider</a></li>
+                          <li><a class="" href="font_awesome.html">Font Awesome</a></li>
+                      </ul>
+                  </li> -->
+				<!--{/if}-->
+
+                  <li {if $mod=='mywork'}class="active"{/if}>
+                      <a class="" href="mywork">
+                          <i class="icon-dashboard"></i>
+                          <span>我的概要</span>
+                      </a>
+                  </li>
+
+
+				<li {if $mod=='worklist' || $mod=='worklist_statistics' }class="sub-menu active open"{else}class="sub-menu"{/if}>
+                      <a href="javascript:;" class="">
+                           <i class="icon-tasks"></i>
+                          <span>日志管理</span>
+                          <span class="arrow"></span>
+                      </a>
+
+                      <ul class="sub">
+						  <li {if $mod=='worklist'}class="active"{/if}>
+							  <a class="" href="work">
+								  <span>我的日志</span>
+							  </a>
+						  </li>
+
+						  <!--{if $_G['adminid'] == '1'}-->
+						  <li {if $view=='month'}class="active"{/if}>
+							  <a class="" href="work.php?mod=worklist_statistics&view=month">
+								  <span>日志月统</span>
+							  </a>
+						  </li>
+
+						  <!--{/if}-->
+
+                      </ul>
+                  </li>
+
+				<li {if $mod=='project'}class="sub-menu active open"{else}class="sub-menu"{/if}>
+                      <a href="javascript:;" class="">
+                          <i class="icon-foursquare"></i>
+                          <span>项目管理</span>
+                          <span class="arrow"></span>
+                      </a>
+
+                      <ul class="sub">
+
+							<!--{if $_G['adminid'] == '1'}-->
+								<li {if $mod=='project' && $view=='mission' || $view=='addmission' || $view=='editmission'}class="active"{/if}>
+								  <a class="" href="work.php?mod=project&view=mission&vieworder=alleditoronlystatus1&checkyear=2017">
+									  <span>任务统计</span>
+								  </a>
+								</li>
+							<!--{else}-->
+								<li {if $mod=='project' && $view=='mission' || $view=='addmission' || $view=='editmission'}class="active"{/if}>
+								  <a class="" href="work.php?mod=project&view=mission">
+									  <span>任务统计</span>
+								  </a>
+								</li>
+							<!--{/if}-->
+						  <!--{if $_G['adminid'] == '1'}-->
+
+						  <li {if $mod=='project' && $view=='statistics' || $view=='addproject'|| $view=='editproject'}class="active"{/if}>
+							  <a class="" href="work.php?mod=project&view=statistics&vieworder=onlyproject">
+								  <span>项目统计</span>
+							  </a>
+						  </li>
+						  <li {if $mod=='project' && $view=='Organizationid'}class="active"{/if}>
+							  <a class="" href="work.php?mod=project&view=Organizationid">
+								  <span>客户管理</span>
+							  </a>
+						  </li>
+						  <li {if $mod=='project' && $view=='projecttype'}class="active"{/if}>
+							  <a class="" href="work.php?mod=project&view=projecttype">
+								  <span>任务类型</span>
+							  </a>
+						  </li>
+						  <!--{/if}-->
+
+                      </ul>
+                  </li>
+				
+<!--{if $_G['adminid'] == '1'}-->
+
+
+				<li {if $mod=='financial'}class="sub-menu active open"{else}class="sub-menu"{/if}>
+                      <a href="javascript:;" class="">
+                          <i class="icon-usd"></i>
+                          <span>财务管理</span>
+                          <span class="arrow"></span>
+                      </a>
+                      <ul class="sub">
+						  <li {if $mod=='financial' && $view=='mission' || $view=='addmission' || $view=='editmission'}class="active"{/if}>
+							  <a class="" href="work.php?mod=financial&view=mission">
+								  <span>报销项目</span>
+							  </a>
+						  </li>
+						  <li {if $mod=='financial' && $view=='statistics' || $view=='addproject'|| $view=='editproject'}class="active"{/if}>
+							  <a class="" href="work.php?mod=financial&view=statistics&vieworder=onlyproject">
+								  <span>报销记录</span>
+							  </a>
+						  </li>
+						  <li {if $mod=='..'}class="active"{/if}>
+							  <a class="" href="work.php?mod=financial">
+								  <span>部门管理</span>
+							  </a>
+						  </li>
+						  <li {if $mod=='..'}class="active"{/if}>
+							  <a class="" href="work.php?mod=financial">
+								  <span>报销科目</span>
+							  </a>
+						  </li>
+                      </ul>
+                  </li>
+<!--{/if}-->
+
+
+<!--{if $_G['adminid'] == '1'}-->
+
+				<li {if $mod=='HumanResources'}class="sub-menu active open"{else}class="sub-menu"{/if}>
+                      <a href="javascript:;" class="">
+                          <i class="icon-male"></i>
+                          <span>人力管理</span>
+                          <span class="arrow"></span>
+                      </a>
+                      <ul class="sub">
+						  <li {if $mod=='HumanResources' && $view=='checklog' || $view=='addchecklog' || $view=='editchecklog'}class="active"{/if}>
+							  <a class="" href="work.php?mod=HumanResources&view=checklog">
+								  <span>考勤管理</span>
+							  </a>
+						  </li>
+						  <li {if $mod=='HumanResources' && $view=='tmplmsglogs' || $view=='addtmplmsglogs'|| $view=='edittmplmsglogs'}class="active"{/if}>
+							  <a class="" href="work.php?mod=HumanResources&view=tmplmsglogs">
+								  <span>提醒记录</span>
+							  </a>
+						  </li>
+                      </ul>
+                  </li>
+<!--{/if}-->
+
+
+				<li {if $mod=='00' || $mod=='blank'|| $mod=='file'}class="sub-menu active open"{else}class="sub-menu"{/if}>
+                      <a href="javascript:;" class="">
+                          <i class="icon-book"></i>
+                          <span>档案管理</span>
+                          <span class="arrow"></span>
+                      </a>
+                      <ul class="sub">
+						  <li {if $mod=='file' && $fid=='42'}class="active"{/if}>
+							  <a class="" href="work.php?mod=file&fid=42">
+								  <span>公司制度</span>
+							  </a>
+						  </li>
+						  <li {if $mod=='file' && $fid=='37'}class="active"{/if}>
+							  <a class="" href="work.php?mod=file&fid=37">
+								  <span>常用手册</span>
+							  </a>
+						  </li>
+						<!--{if $_G['adminid'] == '1'}-->
+						  <li {if $mod=='file' && $fid=='38'}class="active"{/if}>
+							  <a class="" href="work.php?mod=file&fid=38">
+								  <span>帐号密码</span>
+							  </a>
+						  </li>
+						  <!--{/if}-->
+                      </ul>
+                  </li>
+
+				<li {if $mod=='profile2' || $mod=='contacts'|| $mod=='wxuser2dzuser'}class="sub-menu active open"{else}class="sub-menu"{/if}>
+                      <a href="javascript:;" class="">
+                          <i class="icon-user"></i>
+                          <span>通讯录</span>
+                          <span class="arrow"></span>
+                      </a>
+                      <ul class="sub">
+						  <li {if $mod=='contacts'}class="active"{/if}>
+							  <a class="" href="work.php?mod=contacts">
+								  <span>通讯录</span>
+							  </a>
+						  </li>
+
+						  <li {if $mod=='profile2'}class="active"{/if}>
+							  <a class="" href="work.php?mod=profile2">
+								  <span>我的资料</span>
+							  </a>
+						  </li>
+
+
+						  <li {if $mod=='wxuser2dzuser'}class="active"{/if}>
+							  <a class="" href="work.php?mod=wxuser2dzuser">
+								  <span>绑定微信</span>
+							  </a>
+						  </li>
+                      </ul>
+                  </li>
+
+
+
+				<li {if $mod=='shoplist' || $mod=='goodslist'}class="sub-menu active open"{else}class="sub-menu"{/if}>
+                      <a href="javascript:;" class="">
+                          <i class="icon-shopping-cart"></i>
+                          <span>商品管理</span>
+                          <span class="arrow"></span>
+                      </a>
+                      <ul class="sub">
+						  <li {if $mod=='goodslist'}class="active"{/if}>
+							  <a class="" href="work.php?mod=goodslist">
+								  <span>商品库上传</span>
+							  </a>
+						  </li>
+
+						  <li {if $mod=='shoplist'}class="active"{/if}>
+							  <a class="" href="work.php?mod=shoplist">
+								  <span>店铺上传</span>
+							  </a>
+						  </li>
+                      </ul>
+                  </li>
+
+				<li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon-wrench"></i>
+                          <span>常用工具</span>
+                          <span class="arrow"></span>
+                      </a>
+                      <ul class="sub">
+						  <li class="sub-menu">
+							  <a class="" href="work.php?mod=excel2mysql">
+								  <i class="icon-wrench"></i>
+								  <span>excel转mysql</span>
+							  </a>
+						  </li>
+
+						  <li class="sub-menu">
+							  <a class="" href="http://www.gantian.tv" target="_blank">
+								  <i class="icon-facetime-video"></i>
+								  <span>干天片场</span>
+							  </a>
+						  </li>
+		 
+						   <li class="sub-menu">
+							  <a class="" href="http://www.dagaoping.com" target="_blank">
+								  <i class="icon-fighter-jet"></i>
+								  <span>大高平</span>
+							  </a>
+						  </li>
+
+						  <li class="sub-menu">
+							  <a class="" href="https://translate.google.cn/" target="_blank">
+								  <i class="icon-fighter-jet"></i>
+								  <span>谷歌翻译</span>
+							  </a>
+						  </li>
+
+						  <li class="sub-menu">
+							  <a class="" href="http://link.fobshanghai.com/rmb.htm" target="_blank">
+								  <i class="icon-fighter-jet"></i>
+								  <span>数字转换大写</span>
+							  </a>
+						  </li>
+					
+						  <li class="sub-menu">
+							  <a class="" href="http://tool.chinaz.com/tools/jsformat.aspx?qq-pf-to=pcqq.c2c" target="_blank">
+								  <i class="icon-fighter-jet"></i>
+								  <span>HTML格式化</span>
+							  </a>
+						  </li>	  
+
+						  <li class="sub-menu">
+							  <a class="" href="http://tool.chinaz.com/Tools/unixtime.aspx" target="_blank">
+								  <i class="icon-fighter-jet"></i>
+								  <span>时间戳</span>
+							  </a>
+						  </li>
+
+						  <li class="sub-menu">
+							  <a class="" href="https://worktile.com/dashboard" target="_blank">
+								  <i class="icon-fighter-jet"></i>
+								  <span>WorkTile</span>
+							  </a>
+						  </li>
+
+
+
+                      </ul>
+                  </li>
+
+
+
+
+                  <li >
+                      <a class="" href="member.php?mod=logging&action=logout&formhash={FORMHASH}">
+                          <i class="icon-signout"></i>
+                          <span>退出</span>
+                      </a>
+                  </li>
+                  <!-- <li>
+                      <a class="" href="#">
+                          <i class="icon-user"></i>
+                          <span>Login Page</span>
+                      </a>
+                  </li> -->
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->

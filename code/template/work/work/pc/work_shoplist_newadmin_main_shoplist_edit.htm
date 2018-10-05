@@ -1,0 +1,72 @@
+										<form id="shopmanage" method="post" action="work.php?mod=workcp&ac=shop&op=shoplist&action=edit&goodsid=$list[goodsid]"  >
+										  <tr>
+											  <td><a href="work.php?mod=shoplist&check=incomplete&editorid={$list[editorid]}" target="_blank">{$list[editor]}</a></td>
+											  <td>
+
+												<div class="form-group">  
+													<select name="shopname"  class="ps" onchange="showbirthday();" tabindex="1">
+													<option value="">请选择</option>
+													<option value="丹河商城旗舰店" {if $list[shopname]=="丹河商城旗舰店"}selected = "selected" {/if}>丹河商城旗舰店</option></select>
+
+												 </div>
+
+												</td>
+											  <td>
+
+
+												<div class="form-group">
+													<input type="text" class="form-control" name="goodscode" id="exampleInputEmail1" value="{$list[goodscode]}">
+												</div>
+												</td>
+											  <td>
+												<div class="form-group">
+													<input type="text" class="form-control" name="goodsurl" id="exampleInputEmail1" value="{$list[goodsurl]}">
+												</div>
+
+
+												</td>
+
+												<!--{if $list[status] == '0'}-->
+													<td>
+														<a href="work.php?mod=workcp&ac=loglist&op=loglist&action=finish&workid=$list[workid]{if $dateline}&dateline=$dateline{/if}" target="_balnk">
+															<span class="label label-success label-mini">审核中</span>
+														</a>
+													</td>
+												<!--{elseif $list[status] == '1'}-->
+
+													<td>
+														<a href="work.php?mod=workcp&ac=loglist&op=loglist&action=unfinish&workid=$list[workid]{if $dateline}&dateline=$dateline{/if}" target="_balnk">
+															<span class="label label-danger label-mini">通过</span>
+														</a>
+													</td>
+												<!--{elseif $list[status] == '2'}-->
+													<td>
+														<div class="form-group">
+															<input type="text" class="form-control" name="reason" id="exampleInputEmail1" value="{if $list[reason]}$list[reason]{else}未通过原因{/if}">
+														</div>
+													</td>
+												<!--{/if}-->
+											  <td>
+
+												<input  type="hidden" name="submitdateline" value="$thedatelinestart"/>
+													<button type="submit" name="checkdateline_button"  value="true" class="btn btn-shadow btn-success">保存</button>	
+													
+
+													
+													<a href="javascript:void(0)" onclick="window.history.go(-1);"><SPAN type="submit" class="btn btn-shadow btn-default">返回</SPAN></a>
+													<!-- <a href="work.php?mod=shoplist{if $dateline}&dateline=$dateline{/if}"><SPAN type="submit" class="btn btn-shadow btn-default">返回</SPAN></a> -->
+													
+												</td>
+											  </td>
+
+
+											  <td>
+
+											  </td>
+											  <td>
+
+											  </td>
+										  </tr>
+
+
+										</form>

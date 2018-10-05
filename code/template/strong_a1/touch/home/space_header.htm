@@ -1,0 +1,34 @@
+<div class="nav">
+	<div class="nav_left"><a href="<!--{if $space[self]}-->home.php?mod=space&do=profile&mycenter=1<!--{else}-->javascript:history.back();<!--{/if}-->"><i class="fa fa-angle-left fa-15x"></i></a></div>
+	<div class="nav_right"><!--{if !$space[self]}--><a href="javascript:;" onclick="space_me_menu('space_mc_top_menu_box');"><i class="fa fa-plus fa-1x"></i></a><!--{/if}--></div>
+	<div class="nav_center">
+		<a href="forum.php">
+		<!--{if $space[self]}-->
+			{echo $lang['myspace_'.$do.$viewtype];}			
+		<!--{else}-->
+			{echo cutstr(strip_tags($space[username]),12)}{echo $lang['space_'.$do.$viewtype];}
+		<!--{/if}-->
+		</a>
+	</div>
+</div>
+<!--{if !$space[self]}-->
+<div class="space_mc" onclick="space_mc_hide('space_mc_top_menu_box');" id="space_mc_top_menu_box">
+	<ul class="space_mc_top_menu">
+		<em class="angle"></em>
+		<li><a href="home.php?mod=space&uid=$space[uid]&do=friend&view=me&from=space" {if $_GET['do']=='friend'}class="a"{/if}>{echo $lang['tafriend'];}</a></li>
+		<li><a href="home.php?mod=space&uid={$space[uid]}&do=thread&view=me" {if $_GET['do']=='thread' && $_GET['type']!='reply'}class="a"{/if}>{echo $lang['taposts'];}</a></li>
+		<li><a href="home.php?mod=space&uid={$space[uid]}&do=thread&view=me&from=space&type=reply" {if $_GET['do']=='thread' && $_GET['type']=='reply'}class="a"{/if}>{echo $lang['tareply'];}</a></li>
+		<li class="b"><a href="home.php?mod=space&uid={$space[uid]}&do=profile" {if $_GET['do']=='profile'}class="a"{/if}>{echo $lang['taprofile'];}</a></li>
+	</ul>
+</div>  
+<script>
+	function space_me_menu(k){
+		$(".space_mc").fadeOut();	
+		$("#"+k).show();			 
+	}
+
+	function space_mc_hide(k){	
+		$("#"+k).fadeOut();		
+	}	
+</script>
+<!--{/if}-->

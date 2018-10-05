@@ -1,0 +1,22 @@
+
+<section class="wrapper">
+
+
+                      <!--modal start-->
+                      <section class="panel">
+                          <div class="panel-body">
+
+							<!--{loop $memberlist $user}-->
+                              <a {if $editorid == $user[uid]}class="btn btn-success"{else}class="btn btn-warning"{/if} data-toggle="modal" href="work.php?mod=index_qk&editorid={$user['uid']}
+">
+                                  $user['username']
+                              </a>
+							<!--{/loop}-->
+
+
+                          </div>
+                      </section>
+</section>
+
+
+

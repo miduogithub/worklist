@@ -1,0 +1,49 @@
+<!--{if $totalpage>$_G[page]}-->
+<script>
+var totalpage = {$totalpage};
+var cur_page = {$_G[page]};
+$(function(){
+	$(window).scroll(function(){
+		 var scrollTop = $(window).scrollTop();
+		 var owinH=$(window).height();
+		 var odocH = $(document).height();
+		 if(scrollTop + owinH >= odocH){
+			cur_page++;
+			if(totalpage<cur_page){return false;}
+			$("#loading").show();
+			$.ajax({
+				url:'{$pageurl}',
+				data:{
+					page:cur_page
+				}
+			})
+			.success(function(l) {
+				$("#loading").hide();
+				$("#ajaxlist").append(l.substring(l.indexOf("<!-- more pagelist start -->"), l.indexOf("<!-- more pagelist end -->")));
+				imgdelay();
+				if($('.popup').length > 0) {
+					popup.init();
+				}
+				if(totalpage<=cur_page){
+				$("#ajaxlist").append('<div class="loadingend">{$lang[loadingend]}</div>');
+				}
+			})
+			.error(function() {
+				
+			});
+			return false;
+		}
+
+	});
+});
+
+
+
+</script>
+<div id="loading" style="display:none;">
+	<div class="box">
+		<img src="{STRONGDIR}/touch/images/page_load.gif">
+		<span>{echo $lang[loading]}</span>
+	</div>	
+</div>
+<!--{/if}-->

@@ -1,0 +1,31 @@
+
+
+												<div class="btn-group">
+
+
+													<!--{if $list[status] == '0'}-->
+														<button data-toggle="dropdown" class="btn label-success dropdown-toggle btn-sm" type="button">
+															<span class="label label-success label-mini">进行中</span>
+															<span class="caret"></span>
+														</button>
+													<!--{elseif $list[status] == '1'}-->
+														<button data-toggle="dropdown" class="btn label-default dropdown-toggle btn-sm" type="button">
+															<span class="label label-default label-mini">已完成</span>
+															<span class="caret"></span>
+														</button>
+														
+													<!--{elseif $list[status] == '2'}-->
+														<button data-toggle="dropdown" class="btn btn-danger dropdown-toggle btn-sm" type="button">
+															<span class="label label-danger label-mini">未通过</span>
+															<span class="caret"></span>
+														</button>
+													<!--{/if}-->
+
+														<!--{template work/pc/work_project_missionlist_newadmin_main_missionlist_status_2_missionstatus_setlist}-->
+														
+
+													
+												</div>
+
+
+

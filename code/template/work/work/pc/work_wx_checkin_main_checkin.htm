@@ -1,0 +1,66 @@
+								  
+								<form id="shopmanage" method="post" action="wx.php?mod=wxcp&ac=checkin"  >
+										
+									<!--{if $ip_checkin_weixin==$ip_checkin_winfi}-->
+										<div class="alert alert-success alert-block fade in">
+											<button data-dismiss="alert" class="close close-sm" type="button">
+												<i class="icon-remove"></i>
+											</button>
+											<h4>
+												<i class="icon-ok-sign"></i>
+												已进入公司签到范围
+											</h4>
+											<p>请点击【确认{$thischeckaction}】按钮进行{$thischeckaction}</p>
+										</div>
+
+										<div class="panel panel-default">
+											<div class="panel-heading">
+												<h4 class="panel-title">
+												{$thischeckaction}时间：
+												<a class="accordion-toggle" >
+												<!--{date($_G[timestamp], 'Y年m月d日 H:i:s')}-->
+												
+												</a>
+												</h4>
+											</div>
+										</div>
+
+										<div class="panel panel-default">
+											<div class="panel-heading">
+												<h4 class="panel-title">
+												{$thischeckaction}地点：
+												<a class="accordion-toggle" >
+												公司
+												</a>
+												</h4>
+											</div>
+										</div>
+
+										<div class="panel panel-default">
+											<div class="panel-heading">
+												<h4 class="panel-title">
+												{$thischeckaction}用户：
+												<a class="accordion-toggle" >
+												{$_G[username]}
+												</a>
+												</h4>
+											</div>
+										</div>
+
+										<p class="text-center">
+											<button class="btn {if $thischeckaction_value}btn-warning{else}btn-success{/if} " type="submit" value="true">确认{$thischeckaction}</button>
+											<input type="hidden" name="ip_checkin_weixin" value="{$ip_checkin_weixin}">
+											<input type="hidden" name="thischeckaction_value" value="{$thischeckaction_value}">
+										</p>
+									<!--{else}-->
+										<div class="alert alert-block alert-danger fade in">
+											<button data-dismiss="alert" class="close close-sm" type="button">
+												<i class="icon-remove"></i>
+											</button>
+											<h4><strong>sorry，您不在公司签到范围，无法使用公司{$thischeckaction}。</strong></h4>
+											<p>公司{$thischeckaction}WIFI，名称：【mi1签到】，密码：【dagaoping】</p>
+										</div>	
+									<!--{/if}-->
+
+												
+								</form>

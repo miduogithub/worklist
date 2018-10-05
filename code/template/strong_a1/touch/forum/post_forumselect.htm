@@ -1,0 +1,18 @@
+<!--{template common/header}-->
+ <div class="nav">
+	<div class="nav_center">
+		<a href="forum.php">{echo $lang['selectforum'];}</a>
+	</div>
+</div>
+<div class="forumselect">
+	<ul>
+	<!--{loop dunserialize($strongset[forumselect]) $forum}-->
+		<!--{if $_G[cache][forums][$forum][name]}-->
+		<li><a href="forum.php?mod=post&action=newthread&fid=$forum">$_G[cache][forums][$forum][name]</a></li>
+		<!--{/if}-->
+	<!--{/loop}-->
+	</ul>
+</div>
+
+<!--{eval $nofooter=1}-->
+<!--{template common/footer}-->

@@ -1,0 +1,110 @@
+                          <table class="table table-striped table-advance table-hover">
+                              <thead>
+                              <tr>
+								<th class="hidden-phone"><i class="icon-sort-by-order"></i></th>
+								  <th class="hidden-phone"><i class="icon-bookmark"></i> 任务类型</th>
+
+								<th><i class="icon-bookmark"></i> 名称</th>
+
+								  <th class="hidden-phone"><i class="icon-user"></i>&nbsp;负责人</th>
+								  <th class="hidden-phone"><i class="icon-time"></i>&nbsp;时间</th>
+								  
+                                  <th class="hidden-phone"><i class=" icon-bookmark"></i>&nbsp;状态</th>
+
+								  <th ><i class=" icon-edit"></i></th>
+                              </tr>
+                              </thead>
+                              <tbody>
+									<!--{eval $i = '0';}-->
+								  <!--{loop $threadlist $list}-->
+										
+
+
+									  <!--{if $_GET['action'] == 'edit' && $_GET['goodsid'] == $list[goodsid]}-->
+
+											<!--{template work/pc/work_goodslist_newadmin_main_shoplist_edit}-->	
+
+									  <!--{else}-->
+										  <tr>
+											<td class="hidden-phone"> </td>		
+											  										  
+											  <td class="hidden-phone"><span style="font-size: 14px;color:green;font-weight: bold; ">创建项目</span></td>
+
+												<td ><span style="font-size: 14px;font-weight: bold; "><!-- 项目： -->{$list[projectname]} </span></td>
+											  
+											  <td class="hidden-phone"><a href="work.php?mod=goodslist&check=incomplete&editorid={$list[editorid]}" target="_blank">{$list[editor]}</a></td>	
+												<td class="hidden-phone"><a href="{$list[goodsurl]}" target="_blank"><span style="{if $list[status] == '1'} text-decoration:line-through; color: #D0D0D0;{/if}">{date($list[projectstarttimeline],Y年m月d日)} </span></a></td>
+<td class="hidden-phone">
+	<!--{template work/pc/work_project_newadmin_main_projectlist_projectstatus}-->
+</td>
+
+
+
+<td >
+
+													<!--{if $_G[adminid] == '1'}-->
+												  <a href="work.php?mod=project&view=editproject&projectid=$list[projectid]"><button class="btn btn-primary btn-xs" alt="编辑">
+													<i class="icon-pencil"></i></button>
+												  </a>
+												  <!--{/if}-->
+
+</td>
+
+
+										  </tr>
+									  <!--{/if}-->
+
+
+
+
+	<!--{if $list[missionlist]}-->
+		<!--{template work/pc/work_project_missionlist_newadmin_main_missionlist_status_0_project_mlist}-->
+	<!--{else}-->
+	<tr>
+	<td class="hidden-phone"></td>
+	<td class="hidden-phone"></td>
+	<td >暂无进行中任务</td>
+	<td class="hidden-phone"></td>
+	<td class="hidden-phone"></td>
+	<td></td>
+	<td ></td>
+	</tr>
+	<!--{/if}-->
+
+
+
+
+
+
+<!-- </tbody>
+</table>
+
+<table class="table table-striped table-advance table-hover">
+                              <thead>
+                              <tr>
+								<th style="    width: 10%;"><i class="icon-bookmark"></i> 项目序号</th>
+                                  <th ><i class="icon-bookmark"></i> 甲方单位</th>								  
+								  <th ><i class="icon-bookmark"></i> 项目类型</th>
+
+								<th style="    width: 35%;"><i class="icon-bookmark"></i> 项目名称</th>
+
+								  <th style="    width: 10%;"><i class="icon-bookmark"></i> 项目负责人</th>
+								  <th><i class="icon-bookmark"></i> 项目时间</th>
+								  
+                                  <th><i class=" icon-bookmark"></i> 项目状态</th>
+								  <th><i class=" icon-bookmark"></i> 项目价格</th>
+								  <th><i class=" icon-edit"></i> 操作</th>
+                              </tr>
+                              </thead> -->
+
+
+
+								  <!--{/loop}-->
+
+
+
+
+
+
+                              </tbody>
+                          </table>

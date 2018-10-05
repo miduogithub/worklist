@@ -1,0 +1,208 @@
+<link href="static/miduo/Countdownprogressbar/css/jquery-ui-1.8.16.custom_for_work.css" rel="stylesheet" type="text/css"/>
+<link href="static/miduo/Countdownprogressbar/css/main_for_work.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="static/miduo/Countdownprogressbar/js/jquery-ui-1.8.16.custom.min.js"></script> 
+<!-- <script type="text/javascript" src="static/miduo/Countdownprogressbar/js/script.js"></script> -->
+
+
+
+
+<script type="text/javascript" >
+$(document).ready(function(){
+    jQuery.fn.anim_progressbar = function (aOptions) {
+        // def values
+        var iCms = 1000;
+        var iMms = 60 * iCms;
+        var iHms = 3600 * iCms;
+        var iDms = 24 * 3600 * iCms;
+
+        // def options
+        var aDefOpts = {
+            start: new Date(), // now
+            finish: new Date().setTime(new Date().getTime() + 60 * iCms), // now + 60 sec
+            interval: 100
+        }
+
+        var aOpts = jQuery.extend(aDefOpts, aOptions);
+        var vPb = this;
+
+        // each progress bar
+        return this.each(
+            function() {
+                var iDuration = aOpts.finish - aOpts.start;
+
+                // calling original progressbar
+                $(vPb).children('.pbar').progressbar();
+
+                // looping process
+                var vInterval = setInterval(
+                    function(){
+                        var iLeftMs = aOpts.finish - new Date(); // left time in MS
+                        var iElapsedMs = new Date() - aOpts.start, // elapsed time in MS
+                            iDays = parseInt(iLeftMs / iDms), // elapsed days
+                            iHours = parseInt((iLeftMs - (iDays * iDms)) / iHms), // elapsed hours
+                            iMin = parseInt((iLeftMs - (iDays * iDms) - (iHours * iHms)) / iMms), // elapsed minutes
+                            iSec = parseInt((iLeftMs - (iDays * iDms) - (iMin * iMms) - (iHours * iHms)) / iCms), // elapsed seconds
+                            iPerc = (iElapsedMs > 0) ? iElapsedMs / iDuration * 100 : 0; // percentages
+
+                        // display current positions and progress
+                        $(vPb).children('.percent').html('<b>'+iPerc.toFixed(1)+'%</b>');
+                        $(vPb).children('.elapsed').html(iDays+' 天 '+iHours+'小时:'+iMin+'分钟:'+iSec+'秒</b>');
+                        $(vPb).children('.pbar').children('.ui-progressbar-value').css('width', iPerc+'%');
+
+                        // in case of Finish
+                        if (iPerc >= 100) {
+                            clearInterval(vInterval);
+                            $(vPb).children('.percent').html('<b>100%</b>');
+                            $(vPb).children('.elapsed').html('Finished');
+                        }
+                    } ,aOpts.interval
+                );
+            }
+        );
+    }
+
+
+
+    // from second #5 till 15
+
+
+
+    var iNow = new Date().setTime(new Date().getTime() - 600 * 1000); // now plus 5 secs
+    var iEnd = new Date().setTime(new Date().getTime() + 60 * 1000); // now plus 15 secs
+    $('#progress').anim_progressbar({start: iNow, finish: iEnd, interval: 100});
+
+<!--{eval $daoshijilist = get_daojishi_list($editorid);}-->
+<!--{loop $daoshijilist $dlist}-->
+{eval $startjstime = $_G[timestamp] - $dlist[starttimedateline];$endtjstime = $dlist[endtimedateline] - $_G[timestamp];}
+    var iNow{$dlist[workid]} = new Date().setTime(new Date().getTime() - {$startjstime} * 1000); // now plus 5 secs
+    var iEnd{$dlist[workid]} = new Date().setTime(new Date().getTime() + {$endtjstime} * 1000); // now plus 15 secs
+    $('#progress{$dlist[workid]}').anim_progressbar({start: iNow{$dlist[workid]}, finish: iEnd{$dlist[workid]}, interval: 100});
+	
+<!--{/loop}-->
+
+});
+
+
+
+
+
+
+</script>
+
+
+
+
+
+					  
+					  <section class="panel">
+                          <header class="panel-heading">
+                              Basic Progress Bars
+                          </header>
+                          <div class="panel-body">
+        <div id="progress">
+                              <p class="text-muted">
+                                 $dlist[message]
+                              </p>
+            <div class="percent"></div>
+
+            <div class="pbar"></div>
+
+            <div class="elapsed"></div>
+
+        </div>
+<!--{loop $daoshijilist $dlist}-->
+        <div id="progress{$dlist[workid]}">
+                              <p class="text-muted">
+                                 $dlist[message]
+                              </p>
+            <div class="percent"></div>
+
+            <div class="pbar"></div>
+
+            <div class="elapsed"></div>
+
+        </div>
+<!--{/loop}-->
+
+</section>
+
+
+
+<section class="panel">
+
+                              <div class="progress progress-xs">
+                                  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                      <span class="sr-only">60% Complete</span>
+                                  </div>
+                              </div>
+                              <div class="progress progress-xs">
+                                  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                      <span class="sr-only">40% Complete (success)</span>
+                                  </div>
+                              </div>
+                              <div class="progress progress-xs">
+                                  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                      <span class="sr-only">20% Complete</span>
+                                  </div>
+                              </div>
+                              <div class="progress progress-xs">
+                                  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                      <span class="sr-only">60% Complete (warning)</span>
+                                  </div>
+                              </div>
+                              <div class="progress progress-xs">
+                                  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                      <span class="sr-only">80% Complete</span>
+                                  </div>
+                              </div>
+                              <p class="text-muted">
+                                  Stacked Progress Bars
+                              </p>
+                              <div class="progress progress-sm">
+                                  <div class="progress-bar progress-bar-success" style="width: 35%">
+                                      <span class="sr-only">35% Complete (success)</span>
+                                  </div>
+                                  <div class="progress-bar progress-bar-warning" style="width: 20%">
+                                      <span class="sr-only">20% Complete (warning)</span>
+                                  </div>
+                                  <div class="progress-bar progress-bar-danger" style="width: 10%">
+                                      <span class="sr-only">10% Complete (danger)</span>
+                                  </div>
+                              </div>
+                          </div>
+                      </section>
+                      <section class="panel">
+                          <header class="panel-heading">
+                              Striped Progress Bars
+                          </header>
+                          <div class="panel-body">
+                              <div class="progress progress-striped progress-sm">
+                                  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                      <span class="sr-only">40% Complete (success)</span>
+                                  </div>
+                              </div>
+                              <div class="progress progress-striped progress-sm">
+                                  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                      <span class="sr-only">20% Complete</span>
+                                  </div>
+                              </div>
+                              <div class="progress progress-striped progress-sm">
+                                  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                      <span class="sr-only">60% Complete (warning)</span>
+                                  </div>
+                              </div>
+                              <div class="progress progress-striped progress-sm">
+                                  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                      <span class="sr-only">80% Complete (danger)</span>
+                                  </div>
+                              </div>
+                              <p class="text-muted">
+                                 米一网络服务器倒计时
+                              </p>
+                              <div class="progress progress-striped active progress-sm">
+                                  <div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                                      <span class="sr-only">45% Complete</span>
+                                  </div>
+                              </div>
+                          </div>
+                      </section>

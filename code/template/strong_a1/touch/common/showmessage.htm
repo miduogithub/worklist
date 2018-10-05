@@ -1,0 +1,70 @@
+<!--{if $param['login']}-->
+	<!--{if $_G['inajax']}-->
+	<!--{eval dheader('Location:member.php?mod=logging&action=login&inajax=1&infloat=1');exit;}-->
+	<!--{else}-->
+	<!--{eval dheader('Location:member.php?mod=logging&action=login');exit;}-->
+	<!--{/if}-->
+<!--{/if}-->
+<!--{template common/header}-->
+<!--{if $_G['inajax']}-->
+<div class="tip" style="height:150px;">
+<!--{eval}-->
+    $language = 'language.'.currentlang().'.php';
+    include ("./template/strong_a1/".$language);
+<!--{/eval}-->
+	<dt id="messagetext">
+		<p>$show_message</p>
+        <!--{if $_G['forcemobilemessage']}-->
+        	<p>
+            	<a href="{$_G['setting']['mobile']['pageurl']}" class="mtn">{lang continue}</a><br />
+                <a href="javascript:history.back();">{lang goback}</a>
+            </p>
+        <!--{/if}-->
+	</dt>
+	
+	<!--{if $url_forward && !$_GET['loc']}-->
+		<!--{if $_GET['sortid'] and $_GET['mod']='post' and strstr($show_message,$lang['sorry'])}-->			
+		<!--{else}-->
+		<!--<p><a class="grey" href="$url_forward">{lang message_forward_mobile}</a></p>-->
+		<script type="text/javascript">
+			setTimeout(function() {
+				window.location.href = '$url_forward';
+			}, '1000');
+		</script>
+		<!--{/if}-->
+	<!--{elseif $allowreturn}-->
+	<dd>
+		<input type="button" class="button2" onclick="popup.close();"   value="{lang close}">
+	</dd>	
+	<!--{/if}-->
+	
+</div>
+<!--{else}-->
+
+<!-- header start -->
+ 
+
+<!-- header end -->
+<!-- main jump start -->
+<style>
+.footer{position: absolute;bottom: 0;}
+</style>
+<div class="jump_c">
+	<p>$show_message</p>
+    <!--{if $_G['forcemobilemessage']}-->
+		<p>
+            <a href="{$_G['setting']['mobile']['pageurl']}" class="mtn">{lang continue}</a><br />
+            <a href="javascript:history.back();">{lang goback}</a>
+        </p>
+    <!--{/if}-->
+	<!--{if $url_forward}-->
+		<p><a class="grey" href="$url_forward">{lang message_forward_mobile}</a></p>
+	<!--{elseif $allowreturn}-->
+		<p><a class="grey" href="javascript:history.back();">{lang message_go_back}</a></p>
+	<!--{/if}-->
+</div>
+<!-- main jump end -->
+
+<!--{/if}-->
+<!--{template common/footer}-->
+

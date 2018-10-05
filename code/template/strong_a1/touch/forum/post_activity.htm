@@ -1,0 +1,213 @@
+    <script src="./template/strong_a1/touch/mobiledate/dev/js/mobiscroll.core-2.6.2.js" type="text/javascript"></script>
+	<script src="./template/strong_a1/touch/mobiledate/dev/js/mobiscroll.core-2.6.2-zh.js" type="text/javascript"></script>
+	<link href="./template/strong_a1/touch/mobiledate/dev/css/mobiscroll.core-2.6.2.css" rel="stylesheet" type="text/css" />
+	<link href="./template/strong_a1/touch/mobiledate/dev/css/mobiscroll.animation-2.6.2.css" rel="stylesheet" type="text/css" />
+	<script src="./template/strong_a1/touch/mobiledate/dev/js/mobiscroll.datetime-2.6.2.js" type="text/javascript"></script>
+	<script src="./template/strong_a1/touch/mobiledate/dev/js/mobiscroll.android-2.6.2.js" type="text/javascript"></script>
+	<link href="./template/strong_a1/touch/mobiledate/dev/css/mobiscroll.android-2.6.2.css" rel="stylesheet" type="text/css" />
+<div class="activity cl">
+	<div class="activitytime">
+		<label for="activitytime">
+			<input type="checkbox" id="activitytime" name="activitytime" class="pc" onclick="if(this.checked) {$('#certainstarttime').hide();$('#uncertainstarttime').show();} else {$('#certainstarttime').show();$('#uncertainstarttime').hide();}" value="1" {if $activity['starttimeto']}checked{/if} tabindex="1" />
+			<i class="fa fa-check-square-o fa-1x"></i>{lang activity_starttime_endtime}
+		</label>
+	</div>
+	<div id="certainstarttime" {if $activity['starttimeto']}style="display: none"{/if}>
+		<div class="activity_time flexbox">
+			<div class="title-flex">{lang post_event_time}:</div>
+			<div class="input-flex flex">
+				<input type="text" name="starttimefrom[0]" id="starttimefrom_0" class="pxs datetime" onclick="showcalendar(event, this, true)" autocomplete="off" value="$activity[starttimefrom]" tabindex="1"  readonly="readonly" />
+			</div>
+		</div>
+	</div>
+	<div id="uncertainstarttime" {if !$activity['starttimeto']}style="display: none"{/if}>
+		<div class="activity_time flexbox">
+			<div class="title-flex">{lang post_event_time}:</div>
+			<div class="input-flex flex">	
+				<input type="text" name="starttimefrom[1]" id="starttimefrom_1" class="pxs datetime" onclick="showcalendar(event, this, true)" autocomplete="off" value="$activity[starttimefrom]" tabindex="1" readonly="readonly"/>
+			</div>
+		</div>
+		<div class="activity_time flexbox">
+		<div class="title-flex">{echo $lang['activity_endtime'];}:</div>
+			<div class="input-flex flex">	
+				<input onclick="showcalendar(event, this, true)" type="text" autocomplete="off" id="starttimeto" name="starttimeto" class="pxs datetime" value="{if $activity['starttimeto']}$activity[starttimeto]{/if}" tabindex="1" readonly="readonly"/>
+			</div>
+		</div>
+	</div>
+	<div class="activity_space flexbox">
+		<div class="title-flex">{lang activity_space}:</div>
+		<div class="input-flex flex">	
+			<input type="text" name="activityplace" id="activityplace" class="pxs oinf" value="$activity[place]" tabindex="1" />
+		</div>	
+	</div>
+	<!--{if $_GET[action] == 'newthread'}-->
+	<div class="activity_city flexbox">		
+		<div class="title-flex">{lang activity_city}:</div>
+		<div class="input-flex flex">	
+			<input name="activitycity" id="activitycity" class="pxs" type="text" tabindex="1" />
+		</div>	
+	</div>
+	<!--{/if}-->
+	<div class="activiy_sort flexbox">
+		<div class="title-flex">{lang activiy_sort}:</div>
+		<div class="input-flex flex">
+			<input type="text" id="activityclass" name="activityclass" class="pxs" value="$activity[class]" tabindex="1" />
+			<a href="javascript:;" class="grey" onclick="$('#activitytypelist').fadeToggle();$('#activitytypelist_mcbox').show();" ><i class="fa fa-sort-desc fa-15x "></i></a>
+            <!--{if $activitytypelist}-->
+                <div  id="activitytypelist" style="display: none">
+					<ul >
+					<!--{loop $activitytypelist $k $type}-->
+						<li onclick="activitytype(this);">$type</li>
+					<!--{/loop}-->
+					</ul>
+                </div>    
+			<!--{/if}-->
+		</div>
+	</div>
+	<div class="activity_member flexbox">
+		<div class="title-flex">{lang activity_need_member}:</div>
+		<div class="input-flex flex">
+			<input type="number" name="activitynumber" id="activitynumber" class="pxs " onkeyup="checkvalue(this.value, 'activitynumbermessage')" value="$activity[number]" tabindex="1" />
+			<select name="gender" id="gender" width="38" class="ps select nom">
+				<option value="0" {if !$activity['gender']}selected="selected"{/if}>{lang unlimited}</option>
+				<option value="1" {if $activity['gender'] == 1}selected="selected"{/if}>{lang male}</option>
+				<option value="2" {if $activity['gender'] == 2}selected="selected"{/if}>{lang female}</option>
+			</select>
+			<i class="fa fa-sort-desc fa-15x "></i>
+			<span id="activitynumbermessage" class="display:none;" style="color: #c1c1c1; display: block;"></span>
+		</div>
+		
+	</div>
+	<!--{if $_G['setting']['activityfield']}-->
+	<div class="optional_data flexbox">
+		<div class="title-flex">{lang optional_data}:</div>
+		<div class="rightbox">			
+			<ul>
+				<!--{loop $_G['setting']['activityfield'] $key $val}-->
+				<li>
+				<label for="userfield_$key">
+					<input type="checkbox" name="userfield[]" id="userfield_$key" class="pc" value="$key"{if $activity['ufield']['userfield'] && in_array($key, $activity['ufield']['userfield'])} checked="checked"{/if} />
+					<i class="fa fa-check-square-o fa-1x"></i>$val
+				</label>
+				</li>
+				<!--{/loop}-->
+			</ul>
+		</div>		
+	</div>		
+	<!--{/if}-->
+	
+			
+	<!--{if $_G['setting']['activityextnum']}-->
+	<div class="other_data">
+		<textarea name="extfield" placeholder="{lang other_data}" id="extfield" class="pt" cols="50"><!--{if $activity['ufield']['extfield']}-->$activity[ufield][extfield]<!--{/if}--></textarea>
+		<p>{lang post_activity_message} $_G['setting']['activityextnum'] {lang post_option}</p>
+		
+	</div>
+	<!--{/if}-->
+	
+	<!--{if $_G['setting']['activitycredit']}-->
+	<div class="consumption_credit flexbox">
+		<div class="title-flex">{lang consumption_credit}:</div>
+		<div class="input-flex flex">
+			<input type="number" name="activitycredit" id="activitycredit" class="pxs" value="$activity[credit]" />
+			<em class="unit">{$_G['setting']['extcredits'][$_G['setting']['activitycredit']][title]}</em>				
+		</div>
+	</div>
+	<!--{/if}-->
+	
+	<div class="activity_payment flexbox">
+		<div class="title-flex">{lang activity_payment}:</div>
+		<div class="input-flex flex">
+			<input type="number" name="cost" id="cost" class="pxs" onkeyup="checkvalue(this.value, 'costmessage')" value="$activity[cost]" tabindex="1" />
+			<em class="unit">{lang payment_unit}</em>	
+			<span id="costmessage" style="display:none;"></span>		
+		</div>
+	</div>
+	
+	<div class="post_closing flexbox">
+		<div class="title-flex">{lang post_closing}:</div>
+		<div class="input-flex flex">
+			<input type="text" name="activityexpiration" id="activityexpiration" class="pxs datetime" readonly="readonly"  onclick="showcalendar(event, this, true)" autocomplete="off" value="$activity[expiration]" tabindex="1" />
+		</div>
+	</div>
+	<!--{if $allowpostimg}-->
+	<div class="post_topic_image flexbox">
+		<div class="title-flex">{lang post_topic_image}:</div>
+		<div class="rightbox flex">			
+			<div id="activityattach_image" class="activity_image">
+				<!--{if $activityattach[attachment]}-->
+				<a href="$activityattach[url]/$activityattach[attachment]" target="_blank"><img class="spimg" src="$activityattach[url]/{if $activityattach['thumb']}{eval echo getimgthumbname($activityattach['attachment']);}{else}$activityattach[attachment]{/if}" alt="" /></a>
+				<!--{/if}-->
+			</div>
+			<p><button type="button" class="g_button" onclick="uploadWindow($_G['fid'],function (aid, url){activityaid_upload(aid, url)})"><span><!--{if $activityattach[attachment]}-->{lang update}<!--{else}-->{lang upload}<!--{/if}--></span></button></p>
+			<input type="hidden" name="activityaid" id="activityaid" {if $activityattach[attachment]}value="$activityattach[aid]" {/if}/>
+			<input type="hidden" name="activityaid_url" id="activityaid_url" />
+			<span class="hint">
+			<!--{if $activityattach[attachment]}-->
+				{lang post_click_message_1}
+			<!--{else}-->
+				{lang post_click_message_2}
+			<!--{/if}-->
+			</span>
+		</div>		
+	</div>			
+	<!--{/if}-->
+	<!--{hook/post_activity_extra}-->		
+</div>
+<div class="g_mcbox" style="display:none;" id="activitytypelist_mcbox" onclick="activitytypelist_mcbox('activitytypelist_mcbox');"></div>
+<script type="text/javascript" reload="1">
+	function activitytypelist_mcbox(k){
+		
+			$("#activitytypelist_mcbox").hide();
+			$("#activitytypelist").hide();
+		
+		
+		}
+	function activitytype(k){
+			$("#activityclass").val($(k).text());
+			activitytypelist_mcbox('activitytypelist_mcbox');
+		}
+
+
+         $(function () {
+            var curr = new Date().getFullYear();
+            var opt = {
+            }
+            opt.date = {preset : 'datetime'};
+			$('.datetime').scroller($.extend(opt['date'], { theme: 'android', mode: 'scroller', display: 'modal', lang: 'zh'}));
+           
+		
+
+        });
+
+//simulateSelect('gender');
+function checkvalue(value, message){
+	if(!value.search(/^\d+$/)) {
+		s_setid(message).innerHTML = '';
+	} else {
+		s_setid(message).innerHTML = '<b>{lang input_invalid}</b>';
+	}
+}
+/*
+EXTRAFUNC['validator']['special'] = 'validateextra';
+function validateextra() {
+	if(s_setid('postform').starttimefrom_0.value == '' && s_setid('postform').starttimefrom_1.value == '') {
+		showDialog('{lang post_error_message_1}', 'alert', '', function () { if(s_setid('activitytime').checked) {s_setid('postform').starttimefrom_1.focus();} else {s_setid('postform').starttimefrom_0.focus();} });
+		return false;
+	}
+	if(s_setid('postform').activityplace.value == '') {
+		showDialog('{lang post_error_message_2}', 'alert', '', function () { s_setid('postform').activityplace.focus() });
+		return false;
+	}
+	if(s_setid('postform').activityclass.value == '') {
+		showDialog('{lang post_error_message_3}', 'alert', '', function () { s_setid('postform').activityclass.focus() });
+		return false;
+	}
+	return true;
+}
+*/
+function activityaid_upload(aid, url) {
+	s_setid('activityaid_url').value = url;
+	updateactivityattach(aid, url, '{$_G['setting']['attachurl']}forum');
+}
+</script>

@@ -1,0 +1,86 @@
+														<ul role="menu" class="dropdown-menu">
+
+
+															<!--{if empty($_GET['projectid'])}-->
+
+																<li>
+																	<a href="work.php?mod=project&view=mission&projectid=$list[projectid]&vieworder=alleditor">
+																		进入项目
+																	</a>
+																</li>
+
+															<!--{else}-->
+
+																<li>
+																	<a href="work.php?mod=project&view=editproject&projectid={$list[projectid]}">
+																		编辑项目
+																	</a>
+																</li>	
+																
+															<!--{/if}-->
+															
+															<!--{if $_G[adminid] == '1'}-->
+
+																<li class="divider"></li>
+
+																<!--{if $list[status] != '0'}-->
+																<li>
+																	<a href="work.php?mod=workcp&ac=project&op=goodslist&action=unfinish&projectid=$list[projectid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}">
+																		进行中
+																	</a>
+																</li>
+																<!--{/if}-->
+
+																<!--{if $list[status] != '1'}-->
+																<li>
+																	<a href="work.php?mod=workcp&ac=project&op=goodslist&action=finish1&projectid=$list[projectid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}">
+																		结算中
+																	</a>
+																</li>
+																<!--{/if}-->
+																
+																<!--{if $list[status] != '9'}-->
+																<li>
+																	<a href="work.php?mod=workcp&ac=project&op=goodslist&action=finish9&projectid=$list[projectid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}">
+																		已结算
+																	</a>
+																</li>
+																<!--{/if}-->
+																
+																<!--{if $list[status] != '99'}-->
+																<li class="divider"></li>
+
+																	<!--{if $list[favicon]=='1'}-->
+																		<li>
+																			<a href="work.php?mod=workcp&ac=project&op=goodslist&action=favicon0&projectid=$list[projectid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}">
+																				取消加急
+																			</a>
+																		</li>
+																	<!--{else}-->
+																		<li>
+																			<a href="work.php?mod=workcp&ac=project&op=goodslist&action=favicon1&projectid={$list[projectid]}{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}">
+																				加急
+																			</a>
+																		</li>
+
+																	<!--{/if}-->
+																<li>
+																	<a href="work.php?mod=workcp&ac=project&op=goodslist&action=finish99&projectid=$list[projectid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}">
+																		难产
+																	</a>
+																</li>
+																<!--{/if}-->
+															<!--{/if}-->
+
+															<li class="divider"></li>
+															<li>
+																<a href="work.php?mod=workcp&ac=project_to_excel&editorid=$editorid&projectid={$list[projectid]}&view=ing">
+																	导出进行中
+																</a>
+															</li>
+															<li>
+																<a href="work.php?mod=workcp&ac=project_to_excel&editorid=$editorid&projectid={$list[projectid]}&view=all">
+																	导出全部
+																</a>
+															</li>														
+														</ul>

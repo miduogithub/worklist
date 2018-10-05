@@ -1,0 +1,149 @@
+<!--{if $_G['cache']['plugin']['strong_a1'] && $_GET['forumlist'] != 1 &&  $_GET['gid'] < 1}-->
+<!--{eval require_once './source/plugin/strong_a1/function/func.php';}-->
+	<!--{if $strongset['homeset'] == "1"}-->
+    	<!--{eval dheader('Location:portal.php?mod=index');exit;}-->
+	<!--{elseif $strongset['homeset']  == "2"}-->
+		<!--{eval dheader('Location:forum.php?mod=guide&view=newthread');exit;}-->      
+	<!--{/if}-->
+<!--{/if}-->
+<!--{template common/header}-->
+
+<div class="nav">
+	<div class="nav_right"><a href="search.php?mod=forum"><i class="fa fa-search fa-1x"></i></a></div>
+	<div class="nav_center">
+		<a href="forum.php"><!--{eval echo showlogo('forum');}--></a>
+	</div>
+</div>
+
+<!--{hook/index_top_mobile}-->
+<!-- main forumlist start -->
+<div class="wp  clear " id="wp">
+<!--{if $announcements!= '' && $_GET['gid'] < 1}-->
+<div class="wei_gg_box">
+<div class="wei_gg">
+	<div class="wei_gg_pic">
+    	<span>{echo $lang['gonggao'];}</span>
+    </div>
+    <div id="scrollDiv">
+        <ul id="ancl">$announcements</ul>
+    </div>
+</div>
+</div>
+<!--{/if}-->
+	<!--{eval $returnforumstyle = returnforumstyle();}-->
+	<!--{eval $forumicon = get_forumicon();}-->
+
+	<!--{loop $catlist $key $cat}-->	
+		<div class="forum_list fl ">
+		<div class="subforumshow bm_h cl" href="#sub_forum_$cat[fid]">
+			<span class="o"><i class="fa <!--{if $openforum==1}-->fa-angle-up<!--{else}-->fa-angle-down<!--{/if}--> fa-2x "></i></span>
+		<h2><a href="javascript:;">$cat[name]</a></h2>
+		</div>
+		<!--{if in_array($cat[fid],$returnforumstyle[style4])}-->
+		<div id="sub_forum_$cat[fid]" class="sub_forum_4 <!--{if $_G["cookie"]["#sub_forum_".$cat[fid]]}-->none<!--{/if}-->">
+			
+				<!--{loop $cat[forums] $forumid}-->
+				<!--{eval $forum=$forumlist[$forumid];}-->
+				<a href="forum.php?mod=forumdisplay&fid={$forum['fid']}&mobile=2">						
+						
+						<!--{if $forumicon[$forum[fid]]}-->							
+							<img src="$forumicon[$forum[fid]]"/>
+						<!--{else}-->
+							<img src="./template/strong_a1/touch/images/s_subpic.png" />
+						<!--{/if}-->		
+					
+						<em>{$forum[name]}</em>
+					
+				</a>
+				<!--{/loop}-->
+			
+		</div>
+		<!--{elseif in_array($cat[fid],$returnforumstyle[style2])}-->
+		<div id="sub_forum_$cat[fid]" class="sub_forum_2 <!--{if $_G["cookie"]["#sub_forum_".$cat[fid]]}-->none<!--{/if}-->">
+
+				<!--{loop $cat[forums] $forumid}-->
+				<!--{eval $forum=$forumlist[$forumid];}-->
+				<a href="forum.php?mod=forumdisplay&fid={$forum['fid']}&mobile=2">						
+						
+						<!--{if $forumicon[$forum[fid]]}-->							
+							<img src="$forumicon[$forum[fid]]"/>
+						<!--{else}-->
+							<img src="./template/strong_a1/touch/images/s_subpic.png" />
+						<!--{/if}-->		
+					
+						<em>{$forum[name]}</em>
+					
+				</a>
+				<!--{/loop}-->
+
+		</div>		
+		<!--{else}-->	
+		<div id="sub_forum_$cat[fid]" class="sub_forum <!--{if $_G["cookie"]["#sub_forum_".$cat[fid]]}-->none<!--{/if}-->">
+			<ul>
+				<!--{loop $cat[forums] $forumid}-->
+				<!--{eval $forum=$forumlist[$forumid];}-->
+				<li><a href="forum.php?mod=forumdisplay&fid={$forum['fid']}&mobile=2">
+					<div class="sub_img">
+						<!--{if $forumicon[$forum[fid]]}-->							
+							<img src="$forumicon[$forum[fid]]"/>
+						<!--{else}-->
+							<img src="./template/strong_a1/touch/images/s_subpic.png" />
+						<!--{/if}-->	
+					</div>
+					<div class="sub_forumpost" >
+							<h4>{$forum[name]}
+								<!--{if $forum[todayposts] != 0}--><em>$forum[todayposts]</em><!--{/if}-->								
+							</h4>
+							<p><!--{echo dnumber($forum[threads])}-->/<!--{echo dnumber($forum[posts])}-->&nbsp;&nbsp;
+								<!--{if is_array($forum['lastpost'])}-->$forum[lastpost][dateline]<!--{/if}-->
+							</p>
+					</div>
+					</a>
+				</li>
+
+				<!--{/loop}-->
+			</ul>
+		</div>
+		<!--{/if}-->
+	</div>
+	<!--{/loop}-->
+</div>
+<!-- main forumlist end -->
+<!--{hook/index_middle_mobile}-->
+<script type="text/javascript">
+	(function() {
+		$('.subforumshow').on('click', function() {
+			var obj = $(this);
+			var subobj = $(obj.attr('href'));
+			if(subobj.css('display') == 'none') {
+				subobj.css('display', 'block');
+				obj.find('i').addClass('fa-angle-up');
+				obj.find('i').removeClass('fa-angle-down');
+				setcookie(obj.attr('href'),0);
+			} else {
+				subobj.css('display', 'none');
+				obj.find('i').addClass('fa-angle-down');
+				obj.find('i').removeClass('fa-angle-up');
+				setcookie(obj.attr('href'),1,'31622400');
+			}
+		});
+	 })();
+	 
+</script>
+<!--{if $announcements!= '' && $_GET['gid'] < 1}-->
+<script>	 
+	 	function AutoScroll(obj){ 
+		$(obj).find("ul:first").animate({ 
+		marginTop:"-25px" 
+		},2000,function(){ 
+		$(this).css({marginTop:"0px"}).find("li:first").appendTo(this); 
+		}); 
+		} 
+		$(document).ready(function(){ 
+		setInterval('AutoScroll("#scrollDiv")',3000) 
+	}); 
+</script>
+<!--{/if}-->
+
+<!--{template common/footer}-->
+

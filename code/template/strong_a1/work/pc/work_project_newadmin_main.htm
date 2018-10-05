@@ -1,0 +1,69 @@
+
+	  <!--main content start-->
+      <section id="main-content">
+		
+
+
+          <header class="tab-head">
+              <ul class="nav nav-tabs">
+
+
+					<!--{loop $yearsarr $year}-->
+
+
+                  <li {if $checkyear == $year}class="active"{/if}>
+                      <a href="work.php?mod=project&view=statistics{if $organizationid}&organizationid=$organizationid{/if}{if $vieworder=='onlyproject'}&vieworder=$vieworder{/if}&checkyear=$year">$year</a>
+                  </li>
+				  <!--{/loop}-->
+
+              </ul>
+          </header>
+
+
+<!--{if $thedatelinestart < $todaydateline || $thedatelinestart > $todaydateline + 86399  || $_GET[check] == 'incomplete'}-->
+
+
+
+<div style="margin-top: 10px;margin-right: 10px;float: right;">
+<form id="shopmanage" method="post" action="work.php?mod=workcp&ac=shop&op=goodslist&action=backtoday"  >
+		
+
+				<button class="btn btn-shadow btn-danger" type="submit" value="true">返回今天</button>
+
+
+</form>
+
+	</div>
+<!--{/if}-->
+
+<!--{template work/pc/work_project_newadmin_main_wrapper}-->
+
+
+
+<!--{if $_G[adminid] == '1'}-->
+<a href="work.php?mod=project&view=addproject">
+	<div class="bm bw0 pgs cl" style="margin-top: 10px;margin-right: 5px;float: right;">
+
+					<button class="btn btn-shadow btn-primary" type="submit" value="true">添加项目</button>
+	</div>
+</a>
+<!--{/if}-->
+
+
+
+<!--{template work/pc/work_project_newadmin_main_order}-->
+
+
+<!--{if $view == 'addproject'}-->
+	<!--{template work/pc/work_project_newadmin_main_projectlist_form}-->
+<!--{else}-->
+	<!--{template work/pc/work_project_newadmin_main_projectlist}-->
+<!--{/if}-->
+	
+
+
+
+
+
+      </section>
+      <!--main content end-->

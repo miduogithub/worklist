@@ -1,0 +1,69 @@
+
+					<!--{eval $followlist = get_project_followlist($_GET['projectid']);}-->
+                      <section class="panel">
+                         <!--  <header class="panel-heading">
+                              加入记录
+                          </header> -->
+                              <div class="timeline-messages">
+                                  <!-- Comment -->
+
+								  <!--{loop $followlist $list}-->
+                                  <div class="msg-time-chat">
+                                      <a href="#" class="message-img">
+
+										<!--{if $list['weixinmemberinfo']['headimgurl']}-->
+										  <img class="avatar" src="{$list['weixinmemberinfo']['headimgurl']}" alt="">
+										  <!--{else}-->
+											<img class="avatar" alt="" src="<!--{avatar($list[uid], middle, true)}-->">
+										  <!--{/if}-->
+										
+										</a>
+                                      <div class="message-body msg-in">
+                                          <span class="arrow"></span>
+                                          <div class="text">
+                                              <p class="attribution"><a href="#">$list[username]</a> {date($list[dateline],'u')}</p>
+                                              <p>加入项目</p>
+                                          </div>
+
+										<div class="pull-right chat-features" style="    margin-top: -20px;">			
+											<a href="work.php?mod=workcp&ac=project&op=project&action=deletefollow&projectid={$_GET[projectid]}&followuid={$list[uid]}">
+												<i class="icon-remove" ></i>
+											</a>			  
+										</div> 
+                                      </div>
+
+
+                                  </div>
+								  <!--{/loop}-->
+                                  <!-- /comment -->
+
+                              </div>
+
+
+							<!-- <form name="project_editorid_name" class="cmxform form-horizontal tasi-form" id="commentForm" method="post" action="work.php?mod=workcp&ac=project&op=project&action=addfollow" > -->
+                              <div class="chat-form">
+                                  <div class="input-cont ">
+										<select name="project_editorid" id="birthyear" class="form-control col-lg-12" tabindex="1" >
+											<option value="">请选择</option>
+
+												<option value="{$_G['uid']}" selected = "selected">$_G['username'] </option>
+												<!--{loop $memberlist $mlist}-->
+												{if $mlist['uid'] == $_G['uid']}{eval continue;}{/if}
+												<option value="{$mlist['uid']}" {if $mission[editorid] == $mlist['uid']}selected = "selected"{/if}>$mlist['username'] </option>
+												<!--{/loop}-->
+										</select> 
+                                  </div>
+<!--                                   <div class="form-group">
+                                      <div class="pull-right chat-features">
+    
+                                          <input name="project_editorid_submit" type="submit" class="btn btn-danger"  value="添加">
+                                      </div>
+                                  </div> -->
+
+                              </div>
+
+							  <!-- </form> -->
+
+
+
+                      </section>

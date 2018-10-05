@@ -1,0 +1,178 @@
+
+	
+	  <script type="text/javascript" src="static/miduo/work/PC/admin/js/jquery.form.js"></script>
+
+        <script type="text/javascript">
+
+
+            $.fn.ctrlEnter = function(btns, fn) {
+                var thiz = $(this);
+                btns = $(btns);
+
+                function performAction(e) {
+                    fn.call(thiz, e);
+                }
+                thiz.bind("keydown", function(e) {
+                    if (e.keyCode === 13 && e.ctrlKey) {
+                        performAction(e);
+                        e.preventDefault();
+                    }
+                });
+                btns.bind("click", performAction);
+            }
+
+
+/*
+				$("#agreementSub").on("click",function(){
+					
+					$('#commentForm').ajaxSubmit( //ajax方式提交表单
+					  {
+						url:'work.php?mod=workcp&ac=loglist_addworklist_ajax&action=add',
+						type: 'post',
+						 data:$("#commentForm").serialize(),
+						dataType: 'json',
+						beforeSubmit: function () {},
+						success: function (data) {
+						  //alert(data.Msg);
+						  //setTimeout("javascript:location.href='wx.php?mod=shizhangxinxiang&view=maillist'", 0);
+						  
+						},
+						clearForm: false,//禁止清楚表单
+						resetForm: false //禁止重置表单
+					  });
+					  return false; 
+				});
+*/
+
+            $("#commentForm").ctrlEnter("button", function() {
+
+
+
+
+				var message = "";
+				var editorid = "";
+				//var message = this.val();
+
+
+
+
+
+				<!--{if $dateline < $todaydateline}-->
+					var submitdateline = {eval echo $thedatelinestart+86399};
+				<!--{/if}-->
+
+				<!--{if $dateline >= $next1daydateline}-->
+					var submitdateline = {$thedatelinestart};
+				<!--{/if}-->
+
+			
+				
+
+
+
+				$(document).ready(function () {
+
+
+					$('#commentForm').ajaxSubmit({
+
+						url:'work.php?mod=workcp&ac=loglist_addworklist_ajax&action=add',
+						type: 'post',
+						data:$("#commentForm").serialize(),
+						dataType: 'json',
+						beforeSubmit: function () {},
+						success: function (data) {
+
+
+							var message = $("#message").val();
+
+							var editorid = {$_G[uid]};
+
+							var newworkid = data.newworkid;
+							//setTimeout("javascript:location.href='wx.php?mod=shizhangxinxiang&view=maillist'", 0);
+
+
+
+
+
+
+
+							//获取当前时间 start
+
+							function p(s) {
+								return s < 10 ? '0' + s: s;
+							}
+
+							var myDate = new Date();
+
+							//获取当前年
+							var year = myDate.getFullYear();
+
+							//获取当前月
+							var month = myDate.getMonth()+1;
+
+							//获取当前日
+							var date = myDate.getDate(); 
+
+							var h = myDate.getHours();       //获取当前小时数(0-23)
+
+							var m = myDate.getMinutes();     //获取当前分钟数(0-59)
+
+							var s = myDate.getSeconds();  
+
+							//var inputdatetime = year+'-'+p(month)+"-"+p(date)+" "+p(h)+':'+p(m)+":"+p(s); //时间输出格式：2018-10-01 17:32:45
+
+							var inputdatetime = year+'-'+p(month)+"-"+p(date)+" "+p(h)+':'+p(m);//时间输出格式：2018-10-01 17:32
+
+							//获取当前时间 END
+
+
+							var workurl = $("#get_url_input_workurl").val();
+
+							if(workurl) {
+								var workmessage_url = "<a href='"+ workurl +"' target='_blank'><i class='icon-plane' style='font-size: 12px;'></i></a>";
+
+								$("#get_url_input_workurl").val("");
+
+								var message = message + workmessage_url;
+							}
+							
+
+							var workmessage = "<td class='hidden-phone'>{$_G[username]}</td><td class='hidden-phone'>" + inputdatetime + "</td><td >" + message +"</td><td class=''><div class='btn-group'><span data-toggle='dropdown' class='btn btn-success dropdown-toggle btn-xs' type='button'>新日志<span class='caret'></span></span><ul role='menu' class='dropdown-menu'><li><a href='work.php?mod=workcp&ac=loglist&op=loglist&action=finish&workid="+newworkid+"'>完成</a></li><li class='divider'></li><li><a href='work.php?mod=worklist&workid="+newworkid+"&action=edit{if $dateline}&dateline=$dateline{/if}' >编辑</a></li><li><a href='work.php?mod=workcp&ac=loglist&op=loglist&action=delete&workid="+newworkid+"{if $dateline}&dateline=$dateline{/if}' >删除</a></li><li class='divider'></li><li><a href='work.php?mod=project&view=addmission_worklist&workid="+newworkid+"' target='_blank'><span class='hidden-phone'>关联</span>项目</a></li><li><a href='work.php?mod=project&view=addmission&message="+message+"&dateline={$list[dateline]}' target='_blank'><span class='hidden-phone'>推送</span>任务</a></li><li><a href='work.php?mod=financial&view=addmission&message="+message+"&dateline={$list[dateline]}' target='_blank'><span class='hidden-phone'>推送</span>报销</a></li></ul></div></td>";
+								
+
+
+								
+							$("<tr></tr>").append(workmessage.replace(/\n/g, "<br/>")).fadeIn('slow').appendTo("#rs");
+
+
+							//$("<p class='post'></p>").append(this.val().replace(/\n/g, "<br/>")).fadeIn('slow').appendTo("#rs");
+							//this.val("");
+							$("#message").val("");
+
+
+
+
+
+
+						},
+						clearForm: false,//禁止清楚表单
+						resetForm: false //禁止重置表单
+
+					});
+					return false; 
+
+
+					
+				
+					
+
+
+						})
+
+
+
+					
+            });
+
+
+        </script>

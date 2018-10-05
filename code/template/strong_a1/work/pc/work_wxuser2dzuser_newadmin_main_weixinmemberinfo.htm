@@ -1,0 +1,99 @@
+      <!--main content start-->
+      <section id="main-content">
+          <header class="tab-head">
+              <ul class="nav nav-tabs">
+
+
+
+              </ul>
+          </header>
+
+
+
+
+
+
+
+
+
+
+		<section class="wrapper">
+					  <!-- page start-->
+
+					  <div class="row">
+						  <div class="col-lg-6" style="width: 100%;">
+							  <section class="panel">
+								  <header class="panel-heading">
+									   work_wxuser2dzuser_newadmin_main_weixinmemberinfo
+								  </header>
+								  <div class="panel-body">
+										<form enctype="multipart/form-data" method="POST" role="form" NAME="debugFORM">  
+
+										  <div class="form-group">
+		<p class="help-block" style="font-size:14px;color:red">
+		该帐号已经成功绑定微信！
+		</p>
+		以下为该帐号所绑定微信的资料：<br />
+		帐号ID：{$weixinmemberinfo['openid']}<br />
+		帐号名称：{$weixinmemberinfo['nickname']}<br />
+		性别：{$weixinmemberinfo['sex']}<br />
+		语言：{$weixinmemberinfo['language']}<br />
+		国家：{$weixinmemberinfo['country']}<br />
+		省份：{$weixinmemberinfo['province']}<br />
+		城市：{$weixinmemberinfo['city']}<br />
+		头像地址：<div class="form-group" style="font-size:14px;color:red;width: 120px;"><img  src="{$weixinmemberinfo['headimgurl']}" style="font-size:14px;color:red;width: 120px;"><br /></div>
+		状态：{$weixinmemberinfo['status']}<br />
+		注册ip：{$weixinmemberinfo['regip']}<br />
+		注册时间：{date('Y-m-d H:i:s',$weixinmemberinfo['regdateline'])}<br />
+		微信已授权成功！请扫描下面二维码进行关注<br />
+
+
+
+
+											  <p class="help-block" style="font-size:14px;color:red;width: 220px;">
+											 
+													<img src="static/miduo/work/PC/admin/img/qrcode_for_taihangyun_1280.jpg" style="width: 200px;">
+												</p>
+										  </div>
+										  <!-- <div class="checkbox">
+											  <label>
+												  <input type="checkbox"> Check me out
+											  </label>
+										  </div> -->
+										 <a href="work.php?mod=wxuser2dzuser&action=remove2wxuser"> <button type="button" class="btn btn-danger">解绑</button></a>
+										  <input type="hidden" name="debugsubmit" value="1">
+									  </form>
+
+								  </div>
+							  </section>
+						  </div>
+
+					  </div>
+
+					  <!-- page end-->
+				  </section>
+
+
+
+
+
+      </section>
+	<!-- template work/pc/work_wxuser2dzuser_newadmin_main_worklist -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </section>
+      <!--main content end-->

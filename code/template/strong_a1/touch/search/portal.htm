@@ -1,0 +1,35 @@
+<!--{template common/header}-->
+<div class="nav">
+	<div class="nav_left"><a href="javascript:history.back();" id="ddd"><i class="fa fa-angle-left fa-15x"></i></a></div>
+	<div class="nav_right"></div>
+	<div class="nav_center" style="position: relative;">
+		<a href="javascript:;">{echo $lang[search];}<i class="fa fa-caret-down fa-1x" style="margin-left:7px;"></i></a>
+		<select id="search_select" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0;">
+			<option value="portal" <!--{if $_GET['mod']=='portal'}-->selected<!--{/if}-->>{echo $lang['search_portal'];}</option>
+			<option value="forum"  <!--{if $_GET['mod']=='forum'}-->selected<!--{/if}-->>{echo $lang['search_forum'];}</option>
+		</select>
+		<script>
+			$('#search_select').on('change', function() {
+				var href = 'search.php?mod=';
+				window.location.href = href+$(this).val();
+			});			
+		</script>
+	</div>
+</div>
+<div id="ct" class="w">
+	<form class="searchform" method="post" autocomplete="off" action="search.php?mod=portal" onsubmit="if($('scform_srchtxt')) searchFocus($('scform_srchtxt'));">
+		<input type="hidden" name="formhash" value="{FORMHASH}" />
+
+		<!--{subtemplate search/pubsearch}-->
+		<!--{hook/portal_top}-->
+
+	</form>
+	<!--{if !empty($searchid) && submitcheck('searchsubmit', 1)}-->
+	<!--{subtemplate search/portal_list}-->
+	<!--{/if}-->
+
+</div>
+<!--{hook/portal_bottom}-->
+<style>.bg{background:#fff;}</style>
+<!--{eval $nob_nav=1;}-->
+<!--{template common/footer}-->

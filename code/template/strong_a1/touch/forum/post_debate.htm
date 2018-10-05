@@ -1,0 +1,77 @@
+
+    <script src="./template/strong_a1/touch/mobiledate/dev/js/mobiscroll.core-2.6.2.js" type="text/javascript"></script>
+	<script src="./template/strong_a1/touch/mobiledate/dev/js/mobiscroll.core-2.6.2-zh.js" type="text/javascript"></script>
+	<link href="./template/strong_a1/touch/mobiledate/dev/css/mobiscroll.core-2.6.2.css" rel="stylesheet" type="text/css" />
+	<link href="./template/strong_a1/touch/mobiledate/dev/css/mobiscroll.animation-2.6.2.css" rel="stylesheet" type="text/css" />
+	<script src="./template/strong_a1/touch/mobiledate/dev/js/mobiscroll.datetime-2.6.2.js" type="text/javascript"></script>
+	<script src="./template/strong_a1/touch/mobiledate/dev/js/mobiscroll.android-2.6.2.js" type="text/javascript"></script>
+	<link href="./template/strong_a1/touch/mobiledate/dev/css/mobiscroll.android-2.6.2.css" rel="stylesheet" type="text/css" />
+<div class="debate cl"> 
+	<div class="viewpoint">
+		<dl>
+			<dd><textarea name="affirmpoint" id="affirmpoint" class="s_txt" placeholder="{lang debate_square_point}" tabindex="1" style="height:70px;">$debate[affirmpoint]</textarea></dd>
+			<dd><textarea name="negapoint" id="negapoint" class="s_txt" placeholder="{lang debate_opponent_point}" tabindex="1" style="height:70px;">$debate[negapoint]</textarea></dd>
+		</dl>
+	</div>
+	<div class="endtime flexbox">
+		<div class="title-flex">{lang endtime}:</div>
+		<div class="input-flex flex">
+			<input type="text" name="endtime" id="endtime" class="pxs" readonly="readonly" onclick="showcalendar(event, this, true)" autocomplete="off" value="$debate[endtime]" tabindex="1" />
+		</div>	
+	</div>
+	
+	<div class="umpire flexbox">
+		<div class="title-flex">{lang debate_umpire}:</div>
+		<div class="input-flex flex">
+			<input type="text" name="umpire" id="umpire" class="pxs" onblur="checkuserexists(this.value, 'checkuserinfo')" value="$debate[umpire]" tabindex="1" /><span id="checkuserinfo"></span></p>
+		</div>	
+		
+		
+	</div>
+	<!--{hook/post_debate_extra}-->		
+</div>
+
+<script type="text/javascript" reload="1">
+
+ 
+       
+        $(function () {
+            var curr = new Date().getFullYear();
+            var opt = {
+            }
+            opt.date = {preset : 'datetime'};
+			$('#endtime').scroller($.extend(opt['date'], { theme: 'android', mode: 'scroller', display: 'modal', lang: 'zh'}));
+           
+		
+
+        });
+
+ /*
+
+function checkuserexists(username, objname) {
+	if(!username) {
+		$(objname).innerHTML = '';
+		return;
+	}
+	var x = new Ajax();
+	username = BROWSER.ie && document.charset == 'utf-8' ? encodeURIComponent(username) : username;
+	x.get('forum.php?mod=ajax&inajax=1&action=checkuserexists&username=' + username, function(s){
+		var obj = $(objname);
+		obj.innerHTML = s;
+	});
+}
+
+EXTRAFUNC['validator']['special'] = 'validateextra';
+function validateextra() {
+	if($('postform').affirmpoint.value == '') {
+		showDialog('{lang post_debate_message_1}', 'alert', '', function () { $('postform').affirmpoint.focus() });
+		return false;
+	}
+	if($('postform').negapoint.value == '') {
+		showDialog('{lang post_debate_message_2}', 'alert', '', function () { $('postform').negapoint.focus() });
+		return false;
+	}
+	return true;
+}
+*/
+</script>

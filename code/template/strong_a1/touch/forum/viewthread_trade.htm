@@ -1,0 +1,26 @@
+ 
+ 
+<!--{if $tradenum}-->
+	<!--{if $trades}-->
+		<div class="xs1 cl">
+			<!--{loop $trades $key $trade}-->
+			<!--{if $tradepostlist[$trade[pid]]['invisible'] != 0}-->
+				<div class="trdb">{lang post_trade_removed}</div>
+			<!--{else}-->
+				<div class="trdb">					
+					<div id="tradeinfo$trade[pid]"></div>
+                    <script>
+						$('#tradeinfo$trade[pid]').load('forum.php?mod=viewthread&do=tradeinfo&tid=$_G[tid]&pid=$trade[pid]{if !empty($_GET[modthreadkey])}&modthreadkey=$_GET[modthreadkey]{/if}');			
+					</script>
+				</div>
+			<!--{/if}-->
+		 
+			<!--{/loop}-->
+		</div>
+	<!--{/if}-->
+
+<div id="postmessage_$post[pid]">$post[counterdesc]</div>
+<!--{else}-->
+	<div class="locked">{lang trade_nogoods}</div>
+<!--{/if}-->
+

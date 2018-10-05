@@ -1,0 +1,63 @@
+
+<style>
+ .index_list_fenlan {
+
+	position:relative; 
+	height:500px; 
+	width: 100%;
+	overflow:auto;
+ }
+</style>
+<div class="col-lg-6">
+                      <!--tab nav start-->
+                      <section class="panel">
+                          <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
+                              <ul class="nav nav-tabs pull-right">
+
+
+
+
+                                  <li class="active">
+                                      <a data-toggle="tab" href="#home-3">
+                                          <span style="color:red;font-weight: bold;"><i class=" icon-star "></i></span>
+										  <span style="color:red;font-weight: bold;">加急中</span>
+										  <span class="badge bg-important ">{$Projectcountstatus0_favicon_1}</span>
+                                      </a>
+                                  </li>
+                                  <li class="">
+                                      <a data-toggle="tab" href="#Countdown-3">
+                                          <i class=" icon-time hidden-phone"></i>
+                                          倒计时
+                                      </a>
+                                  </li>
+                              </ul>
+								<div class="btn-group">
+									<span  data-toggle="dropdown"  class="hidden-sm wht-color hidden-phone" >
+										重要且紧急&nbsp;<i class="icon-share" style="margin-right: -10px;"></i>
+									</span>
+									<ul role="menu" class="dropdown-menu">
+										<li><a href="work.php?mod=workcp&ac=quickproject_to_excel&editorid=$editorid">导出excel</a></li>
+									</ul>
+								</div>
+                          </header>
+                          <div class="panel-body index_list_fenlan">
+                              <div class="tab-content">
+                                  <div id="home-3" class="tab-pane active">
+									  <!--{template work/pc/work_index_qk_project_newadmin_main_wrapper_Righttab_Projectcountstatus_0_list_favicon_1_chats}-->
+                                  </div>
+
+                                  <div id="Countdown-3" class="tab-pane">
+								   <!--{template work/pc/work_index_qk_project_newadmin_main_wrapper_Righttab_Projectcountstatus_0_list_daojishi}-->
+								  
+								</div>
+                              </div>
+                          </div>
+                      </section>
+                      <!--tab nav start-->
+
+
+
+
+
+
+ </div>

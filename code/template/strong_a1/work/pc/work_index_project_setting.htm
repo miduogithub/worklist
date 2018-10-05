@@ -1,0 +1,37 @@
+<script type="text/javascript"> 
+
+	function set_project_visit_setting(projectid,nomal) {
+				  
+		//Ajax调用处理
+		$.ajax({
+		   type: "POST",
+		   url: "work.php",
+		   data: "mod=workcp&ac=project_setting&action=opendclosed_projectfavicon&projectid="+projectid+"&nomal="+nomal+"",
+		   dataType: "json",
+		   success: function(data){
+				if(data.flag == '0') {
+						//
+					
+				} else {
+					//
+				}
+			
+			  }
+		});
+	}
+
+
+	function open_close_tasklist_folder(missionid) {
+
+		var p_class = $("#p_m_tasklist_folder_switch_missionid_"+missionid+"").attr("class");
+
+		if(p_class == 'icon-folder-open') {
+			$("#p_m_tasklist_folder_switch_missionid_"+missionid+"").attr("class", "icon-folder-close");
+
+		} else{
+			$("#p_m_tasklist_folder_switch_missionid_"+missionid+"").attr("class", "icon-folder-open");
+		}
+		
+
+	}
+</script> 

@@ -1,0 +1,73 @@
+									{eval $j = '0';}
+									<!--{loop $list[missionlist] $mlist}-->
+									{eval $j++;}
+									{eval $i++;}
+									<tr>
+									 <td class="hidden-phone"><span style="font-size: 14px;color:green;font-weight: bold;">$i</span></td>
+<td class="hidden-phone"><!-- $j. --><span >$typelist[$mlist[projecttypeid]][typename] </span></td>
+<td >
+	<span style="{if $mlist[status] == '1'}  color: #a1a1a1;{elseif $mlist[status] == '2'}text-decoration:line-through;color: #D0D0D0;{else}color: green;{/if}">
+		┗　{$mlist[missionname]} 
+		<!--{template work/pc/work_index_qk_project_newadmin_main_wrapper_Righttab_Projectcountstatus_0_list_favicon_1_chats_missioncount1_tasklist}-->
+	</span>
+</td>
+<td class="hidden-phone"><span style="{if $mlist[status] == '1'} text-decoration:line-through; color: #D0D0D0;{/if}">$mlist[editor] </span></td>
+<td class="hidden-phone"><span style="{if $mlist[status] == '1'} text-decoration:line-through; color: #D0D0D0;{/if}">{date($mlist[missionstarttimeline],Y年m月d日)} </span></td>
+
+<!-- label label-danger label-mini	红色
+label label-default label-mini	灰色
+label label-success label-mini	绿色
+									 -->
+
+
+<!--{if $_G['adminid'] == '1'}-->
+											<td class="hidden-phone">
+												<!--{template work/pc/work_project_missionlist_newadmin_main_missionlist_missionstatus}-->
+
+											</td >
+<!--{else}-->
+
+	<td class="hidden-phone">
+												<!--{if $mlist[status] == '0'}-->
+													
+														<!-- <a href="work.php?mod=workcp&ac=mission&op=goodslist&action=finish&missionid=$mlist[missionid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}" > -->
+															<span class="label label-success label-mini">进行中</span>
+														<!-- </a> -->
+												<!--{elseif $mlist[status] == '1'}-->
+														<!-- <a href="work.php?mod=workcp&ac=mission&op=goodslist&action=status2&missionid=$mlist[missionid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}" > -->
+															<span class="label label-default label-mini">已完成</span>
+														<!-- </a> -->
+												<!--{elseif $mlist[status] == '2'}-->
+
+														<!-- <a href="work.php?mod=workcp&ac=mission&op=goodslist&action=unfinish&missionid=$mlist[missionid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}" > -->
+															<span class="label label-default label-mini">未通过</span>
+														<!-- </a> -->
+													
+												<!--{/if}-->
+	</td>
+<!--{/if}-->
+
+
+
+
+
+
+<td >
+												<!--{if $mlist[status] == '0'}-->
+
+													<!--{if $_G['adminid'] == '1' || $_G['uid'] == $mlist[editorid]}-->
+													  <a href="work.php?mod=project&view=editmission&missionid=$mlist[missionid]&editorid={$mlist[editorid]}"><button class="btn btn-primary btn-xs" alt="编辑">
+														<i class="icon-pencil"></i></button>
+													  </a>
+
+													  <a href="work.php?mod=workcp&ac=mission&op=goodslist&missionid={$mlist[missionid]}&action=delete&editorid={$list[editorid]}" alt="删除">
+														<button class="btn btn-danger btn-xs"><i class="icon-trash "></i></button>
+														</a>
+													<!--{/if}-->
+
+												<!--{else}-->
+
+												<!--{/if}-->
+</td>
+</tr>
+									<!--{/loop}-->

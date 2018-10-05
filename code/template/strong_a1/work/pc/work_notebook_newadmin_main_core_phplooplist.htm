@@ -1,0 +1,11 @@
+							<!--{loop $threadlist $tlist}-->
+							<li class="list-group-item hover"> 
+								<div class="view" id="note-{$tlist[workid]}"> 
+									<button class="destroy close hover-action">×</button> 
+									<div class="note-name"> <strong> <!--{echo dhtmlspecialchars(cutstr($tlist[message], 30))}--> </strong></div>
+								<!-- <div class="note-desc"> $tlist[message] </div>  -->
+									<span class="text-xs text-muted"><!--{date($tlist[dateline], 'Y-m-d H:i:s')}--></span> 
+									<span class="text-xs text-muted">By {$tlist[editor]}</span> 
+								</div> 
+							</li>
+							<!--{/loop}-->

@@ -1,0 +1,50 @@
+														<ul role="menu" class="dropdown-menu">
+															<li>
+																<a href="work.php?mod=financial&view=mission&projectid=$list[projectid]&vieworder=alleditor">
+																	进入项目
+																</a>
+															</li>
+															<li class="divider"></li>
+															<!--{if $_G[adminid] == '1'}-->
+																<!--{if $list[status] != '0'}-->
+																<li>
+																	<a href="work.php?mod=workcp&ac=financial&op=goodslist&action=unfinish&projectid=$list[projectid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}">
+																		进行中
+																	</a>
+																</li>
+																<!--{/if}-->
+
+																<!--{if $list[status] != '1'}-->
+																<li>
+																	<a href="work.php?mod=workcp&ac=financial&op=goodslist&action=finish1&projectid=$list[projectid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}">
+																		结算中
+																	</a>
+																</li>
+																<!--{/if}-->
+																
+																<!--{if $list[status] != '9'}-->
+																<li>
+																	<a href="work.php?mod=workcp&ac=financial&op=goodslist&action=finish9&projectid=$list[projectid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}">
+																		已结算
+																	</a>
+																</li>
+																<!--{/if}-->
+																
+
+															<!--{/if}-->
+															<li class="divider"></li>
+
+															<!--{if !$editorid}-->
+																{eval $editorid = $_G['uid'];}
+															<!--{/if}-->
+															<li>
+																<a href="work.php?mod=workcp&ac=financial_project_to_excel&editorid=$editorid&projectid={$list[projectid]}&view=ing">
+																	导出进行中
+																</a>
+															</li>
+															<li>
+																<a href="work.php?mod=workcp&ac=financial_project_to_excel&editorid=$editorid&projectid={$list[projectid]}&view=all">
+																	导出全部
+																</a>
+															</li>														
+														</ul>

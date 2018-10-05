@@ -1,0 +1,36 @@
+														<ul role="menu" class="dropdown-menu">
+
+															
+															<!--{if $list[status] != '0'}-->
+															<li>
+																<a href="work.php?mod=workcp&ac=daojishi&op=loglist&action=unfinish&workid=$list[workid]{if $_GET[check]}&check=incomplete{/if}{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}">
+																	进行中
+																</a>
+															</li>
+															<!--{/if}-->
+
+															<!--{if $list[status] != '1'}-->
+															<li>
+																<a href="work.php?mod=workcp&ac=daojishi&op=loglist&action=finish&workid=$list[workid]{if $_GET[check]}&check=incomplete{/if}{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}">
+																	完成
+																</a>
+															</li>
+															<!--{/if}-->
+															
+															
+															<li class="divider"></li>
+
+															<li>
+																<a href="work.php?mod=project&view=addmission&message={$list[message]}&dateline={$list[dateline]}" target="_blank">
+																	推送到项目
+																</a>
+															</li>
+
+															<li>
+																<a href="work.php?mod=financial&view=addmission&message={$list[message]}&dateline={$list[dateline]}" target="_blank">
+																	推送到报销
+																</a>
+															</li>
+
+
+														</ul>

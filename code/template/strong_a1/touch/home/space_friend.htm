@@ -1,0 +1,120 @@
+<!--{template common/header}-->
+<!--{template home/space_header}-->
+<!--{if $space[self]}-->
+	<div class="friend_type">
+			<a {$a_actives[me]}  href="home.php?mod=space&do=friend">
+            <span><i class="fa fa-users fa-2x "></i></span>
+            <em>{echo $lang['haoyouliebiao'];}</em>
+            </a>
+			<!--{if empty($_G['setting']['sessionclose'])}-->
+			<a {$a_actives[onlinefriend]} href="home.php?mod=space&do=friend&view=online&type=friend">
+            <span><i class="fa fa-mars-stroke-v fa-2x "></i></span>
+            <em>{echo $lang['zaixiandehaoyou'];}</em>
+            </a>
+            <a {$a_actives[onlinemember]} href="home.php?mod=space&do=friend&view=online&type=member">
+            <span><i class="fa fa-tint fa-2x "></i></span>
+            <em>{echo $lang['zaixianyonghu'];}</em>
+            
+            </a>
+			<!--{/if}-->
+ 			<a   href="home.php?mod=spacecp&ac=friend&op=request">
+            <span><i class="fa fa-user-plus fa-2x "></i></span>
+            <em>{echo $lang['haoyouqingqiu'];}</em>
+            </a>
+	</div>
+<!--{/if}-->
+
+ 
+			<!--{if $space[self]}-->
+ 			<p class="tbmu">{lang count_member}</p>
+						<!--{if $list}--> 
+							<div id="friend_ul">
+								<ul class="buddy cl">
+
+								<!--{loop $list $key $value}-->
+									<li  onclick="space_me_menu('friend_me_{$value[uid]}');">
+									<!--{if $value[username] == ''}-->
+										<div class="avt"><img src="{STATICURL}image/magic/hidden.gif" alt="{lang anonymity}" /></div>
+										<h4>{lang anonymity}</h4>
+									<!--{else}-->
+										<div class="avt">
+																		 
+												<!--{avatar($value[uid],middle)}-->  
+											
+										</div>
+										<h4>
+					 
+											$value[username]<!--{if $ols[$value[uid]]}--><font class="ols">{echo $lang['zaixian'];}</font><!--{/if}-->
+								  
+										</h4>
+										<p class="maxh">$value[recentnote]</p>
+									<!--{/if}-->
+                                    <div class="space_mc" id="friend_me_{$value[uid]}" style="display:none;" onclick="space_mc_hide('friend_me_{$value[uid]}');">
+                                        <ul class="space_mc_menu">
+                                          								
+                                            <!--{if !$value[isfriend] && $value[username] != ''}-->
+                                            	<li>	
+													<a href="home.php?mod=spacecp&ac=friend&op=add&uid=$value[uid]&handlekey=adduserhk_{$value[uid]}" class="dialog">{lang add_friend}</a>						 			</li>
+											<!--{/if}-->
+                                       
+                                            <!--{if $value[uid] != $_G['uid'] && $value[username] != ''}-->
+										 
+											<li><a href="home.php?mod=spacecp&ac=pm&handlekey=showmsg_$value[uid]&touid=$value[uid]&pmid=0&daterange=2" id="a_sendpm_$key" class="dialog" title="{lang send_pm}">{lang send_pm}</a></li>
+ 											
+                                            <!--{elseif $value[uid] == $_G['uid'] && $value[username] != ''}-->
+                                            <li><a href="home.php?mod=space&uid=$_G[uid]&do=friend&view=me&from=space" {if $_GET['do']=='friend'}class="a"{/if}>{echo $lang['mfriend'];}</a></li>
+            								<li><a href="home.php?mod=space&uid={$_G[uid]}&do=favorite&view=me&type=thread" {if $_GET['do']=='favorite'}class="a"{/if}>{echo $lang['shoucang'];}</a></li>
+          									<li> <a href="home.php?mod=space&uid={$_G[uid]}&do=thread&view=me" {if $_GET['do']=='thread'}class="a"{/if}>{echo $lang['posts'];}</a></li>
+                                            
+                                            <!--{/if}-->  
+                                            <!--{if $value[isfriend] && !in_array($_GET['view'], array('blacklist', 'visitor', 'trace', 'online'))}-->
+												<li><a href="home.php?mod=spacecp&ac=friend&op=ignore&uid=$value[uid]&handlekey=delfriendhk_{$value[uid]}" onclick="showWindow(this.id, this.href, 'get', 0);" title="{lang delete}" class="dialog">{echo $lang[shanchuhaoyou];}</a></li>								
+											<!--{/if}-->    
+                                                                         
+                                            <li class="b"><a href="home.php?mod=space&uid=$value[uid]&do=profile"   title="{lang view_profile}">{echo $lang[mfriendprofile];}</a></li>
+                                               
+											<!--{hook/space_interaction_extra}-->
+									
+										
+                                        </ul>
+                                    </div>
+                                    
+   
+                                        
+
+									</li>
+                                    
+								<!--{/loop}-->
+								</ul>
+							</div>
+                            
+             
+                            <script>
+						 
+									function space_me_menu(k){
+										
+											$(".space_mc").fadeOut();	
+											$("#"+k).show();									 
+											
+										}
+									function space_mc_hide(k){
+											
+											$("#"+k).fadeOut();			 
+									 
+										}										
+                            </script>
+							<!--{if $multi}--><div class="pgs cl mtm">$multi</div><!--{/if}-->
+						<!--{else}--> 
+		                	
+								<div class="emp" style="min-height:150px;">{lang no_friend_list}</div>
+		                  
+						<!--{/if}-->
+		 
+	 
+			<!--{else}-->
+				<p class="tbmu mtm">{lang count_member}</p>
+				<!--{template home/space_list}-->
+			<!--{/if}-->
+<!--{eval $nob_nav=1;}-->
+<!--{template common/footer}-->
+

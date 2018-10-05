@@ -1,0 +1,202 @@
+<script type="text/javascript">
+function submitForm(formName){
+    if(window.event.ctrlKey&&window.event.keyCode==13){
+       document.getElementById(fastpostmessage).submit();
+    }
+}
+</script>
+
+<style>
+.tl .by {
+width: 105px;
+line-height: 20px;
+}
+</style>
+<div class="bm bw0 pgs cl">
+
+	$multi
+
+</div>
+
+<div id="threadlist" class="tl bm bmw" style="position: relative;">
+	<div class="th">
+		<table cellspacing="0" cellpadding="0">
+			<tbody>
+				<tr>
+
+					<td class="by" style="    width: 20px;">人物</td>
+					<td class="by" style="    width: 60px;">时间</td>
+					
+					<td class="by">任务</td>
+
+					<td class="by">操作</td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="bm_c">
+		<div id="forumnew" style="display:none"></div>
+
+
+	<table summary="forum_16" cellspacing="0" cellpadding="0" id="threadlisttableid">
+
+
+
+<!--{loop $threadlist $list}-->
+
+	<!--{if $_GET['action'] == 'edit' && $_GET['workid'] == $list[workid]}-->
+													
+		<form id="shopmanage" method="post" action="work.php?mod=workcp&ac=loglist&op=loglist&action=edit&workid=$list[workid]"  >
+				
+			<tbody id="normalthread_35">
+				<tr>
+					<td class="by" style="    width: 20px;">
+						{$list[editor]}
+						
+					</td>
+					<td class="by" style="    width: 60px;">
+						<!--{date($list[dateline], 'Y-m-d H:i:s')}-->
+						
+					</td>
+
+
+					<td class="by">
+						<textarea rows="6" cols="70" name="message" id="fastpostmessage" onKeyDown="submitForm(this.form.name)" tabindex="12" class="pt">{$list[message]}</textarea>
+					</td>
+
+
+	
+
+					<td class="by">
+					<input  type="hidden" name="submitdateline" value="$thedatelinestart"/>
+						<button type="submit" name="checkdateline_button"  value="true" >
+							<strong>保存</strong>
+						</button>			
+					 |  
+						<a href="work.php?mod=loglist{if $dateline}&dateline=$dateline{/if}">返回</a>
+					</td>
+
+				</tr>
+
+			</tbody>
+
+			<input type="hidden" name="id" value="{$maclist[id]}">
+		</form>
+	<!--{else}-->
+		<tbody id="normalthread_35">
+			<tr>
+				<td class="by" style="    width: 20px;">
+					<a href="work.php?mod=worklist&check=incomplete&editorid={$list[editorid]}" target="_blank">{$list[editor]}</a>
+				</td>
+				<td class="by" style="    width: 60px;">
+					<!--{date($list[dateline], 'Y-m-d H:i:s')}-->{if $_GET[check] == 'incomplete'}（周<!--{eval echo $weekarray[date(w,$list[dateline])]}-->）{/if}
+				</td>
+
+				<td class="by">
+					<span style="font-size: 14px; {if $list[status] == '1'} text-decoration:line-through; color: #D0D0D0;{/if}">$list[message]</span>
+					
+				</td>
+
+				<td class="by">																										
+					<a href="work.php?mod=loglist&workid=$list[workid]&action=edit{if $dateline}&dateline=$dateline{/if}">编辑</a>
+
+					<!--{if $list[status] == '0'}-->
+
+						<!--{if $list[dateline] < $todaydateline}-->
+
+						|  
+						<a href="work.php?mod=workcp&ac=loglist&op=loglist&action=pushtoday&workid=$list[workid]{if $dateline}&dateline=$dateline{/if}">推今</a>
+						<!--{elseif $list[dateline] > $todaydateline && $list[status] == '0'}-->
+							|  
+							<a href="work.php?mod=workcp&ac=loglist&op=loglist&action=pushtop&workid=$list[workid]{if $dateline}&submitdateline=$dateline{/if}" >提升</a>
+						<!--{/if}-->
+
+					|  
+					<a href="work.php?mod=workcp&ac=loglist&op=loglist&action=finish&workid=$list[workid]{if $dateline}&dateline=$dateline{/if}">完成</a>
+
+					<!--{else}-->
+					|  
+					<a href="work.php?mod=workcp&ac=loglist&op=loglist&action=unfinish&workid=$list[workid]{if $dateline}&dateline=$dateline{/if}">未完</a>
+
+					<!--{/if}-->
+					|  
+					<a href="work.php?mod=workcp&ac=loglist&op=loglist&action=delete&workid=$list[workid]{if $dateline}&dateline=$dateline{/if}">删除</a>
+				</td>
+				
+					
+			</tr>
+
+		</tbody>
+	<!--{/if}-->
+<!--{/loop}-->
+
+<!-- if $dateline >= $todaydateline -->
+<form id="shopmanage" method="post" action="work.php?mod=workcp&ac=loglist&op=loglist&action=add"  >
+		
+
+	
+	<tbody id="normalthread_35">
+		<tr>
+
+			<td class="by" style="    width: 20px;">
+				{$list[editor]}
+				
+			</td>
+			<td class="by" style="    width: 60px;">
+				<!--{date($_G[timestamp], 'Y-m-d H:i:s')}-->
+			</td>
+
+			<td class="by">
+				<textarea rows="6" cols="70" name="message" id="fastpostmessage" onKeyDown="submitForm(this.form.name)" tabindex="12" class="pt"></textarea>
+			</td>
+
+
+
+
+			<td class="by">
+			
+				
+				<button type="submit" name="vote_button"  value="true" >
+					<strong>现在添加</strong>
+				</button>	
+				
+				<!--{if $dateline < $todaydateline}-->
+				<input  type="hidden" name="submitdateline" value="{eval echo $thedatelinestart+86399}"/>
+				<!--{/if}-->
+
+				<!--{if $dateline >= $next1daydateline}-->
+				<input  type="hidden" name="submitdateline" value="$thedatelinestart"/>
+				<!--{/if}-->
+			</td>
+		</tr>
+
+
+	</tbody>
+
+
+</form>
+<!-- /if -->
+
+
+
+
+
+
+
+
+
+</table>
+
+
+
+
+<div class="bm bw0 pgs cl">
+
+	$multi
+
+</div>
+
+
+</div>
+</div>

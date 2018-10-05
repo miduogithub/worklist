@@ -1,0 +1,43 @@
+									<!--{eval $i = '0';}-->
+								  <!--{loop $Projectcountstatus0_threadlist $list}-->
+										<!--{eval $i++;}-->
+
+				  <div class="col-lg-4">
+                      <!--work progress start-->
+                      <section class="panel">
+                          <div class="panel-body progress-panel">
+                              <div class="task-progress">
+                                  <h1>{$i}.{eval echo cutstr($list[projectname], 40);}</h1>
+                                  <p>Anjelina Joli</p>
+                              </div>
+                              <div class="task-option">
+                                  <select class="styled">
+                                      <option>进行中</option>
+                                      <option>已完成</option>
+									  <option>全部</option>
+                                  </select>
+                              </div>
+                          </div>
+                          <table class="table table-hover personal-task">
+                              <tbody>
+							  <!--{loop $list[missionlist] $mlist}-->
+                              <tr>
+                                  <td>1</td>
+                                  <td>
+                                      $mlist[missionname]
+                                  </td>
+                                  <td>
+                                      <span class="badge bg-important">75%</span>
+                                  </td>
+                                  <!-- <td>
+                                    <div id="work-progress1"></div>
+                                  </td> -->
+                              </tr>
+							  <!--{/loop}-->
+                              </tbody>
+                          </table>
+                      </section>
+                      <!--work progress end-->
+                  </div>
+
+								  <!--{/loop}-->

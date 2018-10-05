@@ -1,0 +1,23 @@
+                  <aside class="profile-nav col-lg-3">
+                      <section class="panel">
+                          <div class="user-heading round">
+                              <a href="#">
+                                  <img src="<!--{avatar($_G[uid], middle, true)}-->" alt="">
+                              </a>
+							<!--{if $member['realname']}-->
+								<h1>$member[realname]</h1>
+							<!--{else}-->
+								<h1>$_G[username]</h1>
+							<!--{/if}-->
+                              
+                              <p>$_G[email]</p>
+                          </div>
+
+                          <ul class="nav nav-pills nav-stacked">
+                              <li><a href="work.php?mod=profile"> <i class="icon-user"></i> Profile</a></li>
+                              <li><a href="profile-activity.html"> <i class="icon-calendar"></i> Recent Activity <span class="label label-danger pull-right r-activity">9</span></a></li>
+                              <li  class="active"><a href="work.php?mod=profile&view=edit"> <i class="icon-edit"></i> Edit profile</a></li>
+                          </ul>
+
+                      </section>
+                  </aside>

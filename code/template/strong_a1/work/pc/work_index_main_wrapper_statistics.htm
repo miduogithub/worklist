@@ -1,0 +1,95 @@
+
+			  <!--state overview start-->
+              <div class="row state-overview">
+
+
+
+                  <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol " style="background: #468847;">
+                              <i class="icon-folder-open-alt"></i>
+                          </div>
+                          <div class="value">
+                              <h1><span style="font-size:14px;">$projectstatus9count/$Projectcountstatus0/</span>$projectcount</h1>
+                              <p>已结算 /进行中/ 项目总数</p>
+                          </div>
+                      </section>
+                  </div>
+
+
+                  <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol yellow"">
+                              <i class="icon-dollar"></i>
+                          </div>
+                          <div class="value">
+                              <h1><span style="font-size:14px;">$Projectpricestatus9count/{eval echo $incomecount-$Projectpricestatus9count;}/</span>$incomecount</h1>
+                              <p>已结算 /进行中/ 项目收入</p>
+                          </div>
+                      </section>
+                  </div>
+
+                  <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol yellow">
+                              <i class="icon-dollar"></i>
+                          </div>
+                          <div class="value">
+                              <h1><span style="font-size:14px;">{eval echo intval($Financial_Projectpricestatus9count)}/</span>{eval echo intval($Financial_incomecount)}</h1>
+                              <p>已报销 / 报销金额</p>
+                          </div>
+                      </section>
+                  </div>
+
+
+                  <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol red">
+                              <i class="icon-dollar"></i>
+                          </div>
+                          <div class="value">
+                              <h1><span style="font-size:14px;">{eval echo $Projectpricestatus9count - intval($Financial_Projectpricestatus9count)}/</span>{eval echo $incomecount - intval($Financial_incomecount)}</h1>
+                              <p>实际利润 / 预计利润</p>
+                          </div>
+                      </section>
+                  </div>
+
+
+
+
+                  <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol terques">
+                              <i class="icon-user"></i>
+                          </div>
+                          <div class="value">
+                              <h1>$membercount</h1>
+                              <p>员工总数</p>
+                          </div>
+                      </section>
+                  </div>
+                 <!--  <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol red">
+                              <i class="icon-tags"></i>
+                          </div>
+                          <div class="value">
+                              <h1>140</h1>
+                              <p>任务总数</p>
+                          </div>
+                      </section>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol yellow">
+                              <i class="icon-shopping-cart"></i>
+                          </div>
+                          <div class="value">
+                              <h1>345</h1>
+                              <p>完成任务</p>
+                          </div>
+                      </section>
+                  </div>
+ -->
+              </div>
+              <!--state overview end-->

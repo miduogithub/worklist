@@ -1,0 +1,37 @@
+<div class="threadlist3">
+<!--{if $list}-->
+<ul>	<!-- more pagelist start -->
+    	<!--{loop $list $key $thread}-->
+        <!--{if !$thread['forumstick'] && $thread['closed'] > 1 && ($thread['isgroup'] == 1 || $thread['fid'] != $_G['fid'])}-->
+			<!--{eval $thread[tid]=$thread[closed];}-->
+		<!--{/if}-->
+        <li>
+            <a href="forum.php?mod=viewthread&tid=$thread[tid]&fromguid=hot&{if $_GET['archiveid']}archiveid={$_GET['archiveid']}&{/if}extra=$extra">
+				<div class="avatar"><img src="<!--{avatar($thread[authorid], small, true)}-->"></div>
+				<div class="right">
+					<h3>{$thread[subject]}</h3>
+					<p>
+						<!--{if $thread['authorid'] && $thread['author']}-->
+							<span class="username">$thread[author]</span>
+						<!--{else}-->
+							<span class="username">$_G[setting][anonymoustext]</span>
+						<!--{/if}-->
+						<span class="replies">
+							<i class="fa fa-comments-o fa-1x "></i>  {$thread[replies]}<i class="fa fa-eye fa-1x mbl10"></i>  {$thread[views]} 
+						</span>                                                       
+					</p>
+				</div>
+			</a>
+		</li>
+		
+							
+		<!--{/loop}-->	
+		<!-- more pagelist end -->	
+        <div id="ajaxlist"></div>		
+	</ul>			
+
+<!--{else}-->
+	<p class="no_data">{lang guide_nothreads}</p>
+<!--{/if}-->
+</div>
+$multipage

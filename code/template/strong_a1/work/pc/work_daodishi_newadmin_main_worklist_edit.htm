@@ -1,0 +1,54 @@
+										<form id="shopmanage" method="post" action="work.php?mod=workcp&ac=daojishi&op=loglist&action=edit&workid=$list[workid]"  >
+										  <tr>
+
+
+
+
+
+
+											  <td class="hidden-phone"><a href="work.php?mod=daojishi&check=incomplete&editorid={$list[editorid]}" target="_blank">{$list[editor]}</a></td>
+
+											  <td>
+
+												<textarea class="form-control " id="ccomment" name="message" required="" style="    height: 50px;">{$list[message]}</textarea>
+
+
+												</td>
+
+											  <td class="hidden-phone"><!--{date($list[starttimedateline], 'Y-m-d H:i:s')}--></td>
+											  <td class="hidden-phone"><!--{date($list[endtimedateline], 'Y-m-d H:i:s')}--></td>
+
+
+
+
+
+												<!--{if $list[status] == '0'}-->
+													<td class="hidden-phone">
+														<a href="work.php?mod=workcp&ac=daojishi&op=loglist&action=finish&workid=$list[workid]{if $dateline}&dateline=$dateline{/if}" target="_balnk">
+															<span class="label label-success label-mini">未完</span>
+														</a>
+													</td>
+												<!--{else}-->
+
+													<td class="hidden-phone">
+														<a href="work.php?mod=workcp&ac=daojishi&op=loglist&action=unfinish&workid=$list[workid]{if $dateline}&dateline=$dateline{/if}" target="_balnk">
+															<span class="label label-danger label-mini">完成</span>
+														</a>
+													</td>
+												<!--{/if}-->
+											  <td>
+
+												<input  type="hidden" name="submitdateline" value="$thedatelinestart"/>
+													<button type="submit" name="checkdateline_button"  value="true" class="btn btn-shadow btn-success">保存</button>	
+													
+													
+												 <span  class="hidden-phone">|  </span>
+													<a href="work.php?mod=loglist{if $dateline}&dateline=$dateline{/if}"><button type="submit" class="btn btn-shadow btn-default">返回</button></a>
+													
+												</td>
+											  </td>
+										  </tr>
+
+
+											<input type="hidden" name="id" value="{$maclist[id]}">
+										</form>

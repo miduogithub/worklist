@@ -1,0 +1,40 @@
+<!--{if $threadlist}-->
+											<!--{loop $threadlist $list}-->
+
+												<!--{if $list[checktype]=='1'}-->
+													{eval $checklogtype = '外出';}
+												<!--{else}-->
+													{eval $checklogtype = '公司';}
+												<!--{/if}-->
+
+												<!--{if $list[checkaction]=='1'}-->
+													{eval $checklogaction = '签退';}
+												<!--{else}-->
+													{eval $checklogaction = '签到';}
+												<!--{/if}-->
+
+												<div class="panel panel-default">
+													<div class="panel-heading">
+														<h4 class="panel-title">
+
+														<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo_{$list[checkinid]}">
+														 {date($list[dateline],'m月d日 H:i:s')} {$list['editor']} 完成 {$checklogtype} {$checklogaction}
+														</a>
+														</h4>
+													</div>
+													<div id="collapseTwo_{$list[checkinid]}" class="panel-collapse collapse">
+														<!--{if $list[message]}-->
+															<div class="panel-body">
+															$list[message]
+															</div>
+														<!--{else}-->
+															<div class="panel-body">
+															...
+															</div>
+														<!--{/if}-->
+													</div>
+												</div>
+											<!--{/loop}-->
+<!--{else}-->
+暂时没有查询到您的考勤记录，请尝试一下开始签到！
+<!--{/if}-->

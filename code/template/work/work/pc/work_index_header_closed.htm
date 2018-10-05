@@ -1,0 +1,34 @@
+<script type="text/javascript"> 
+	//初始化左边栏开启状态
+	$('#container').addClass('{$headersidebar_status}');
+    $(function(){
+        //按钮单击时执行
+        $("#opendclosed_sidebar").click(function(){
+              
+              //Ajax调用处理
+            $.ajax({
+               type: "POST",
+               url: "work.php",
+			   data: "mod=workcp&ac=herader_setting&action=opendclosed_sidebar",
+			   dataType: "json",
+               success: function(data){
+					if(data.flag == '0') {
+							$('#main-content').css({
+								'margin-left': '180px'
+							});
+							$('#sidebar > ul').show();
+							$('#sidebar').css({
+								'margin-left': '0'
+							});
+							$("#container").removeClass("sidebar-closed");
+						
+					} else {
+						$('#container').addClass('closed');
+					}
+				
+                  }
+            });
+            
+         });
+    });
+</script> 

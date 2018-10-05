@@ -1,0 +1,75 @@
+
+<style>
+ .index_list_fenlan {
+
+	position:relative; 
+	height:800px; 
+	width: 100%;
+	overflow:auto;
+ }
+</style>
+<div class="col-lg-6">
+                      <!--tab nav start-->
+                      <section class="panel">
+                          <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
+                              <ul class="nav nav-tabs pull-right">
+                                  <li class="active">
+                                      <a data-toggle="tab" href="#home-favicon-0-3">
+                                          <i class=" icon-star hidden-phone"></i>
+										  进行中
+										  <span class="badge bg-success hidden-phone">{$Projectcountstatus0_favicon_0}</span>
+                                      </a>
+                                  </li>
+                                  <li class="">
+                                      <a data-toggle="tab" href="#about-favicon-0-3">
+                                          <i class="icon-thumbs-up-alt hidden-phone"></i>
+                                          已完成
+										  <span class="badge bg-warning hidden-phone">{eval echo $projectcount-$projectstatus9count-$Projectcountstatus0;}</span>
+                                      </a>
+                                  </li>
+								  <!--{if $_G['adminid'] == '1'}-->
+                                  <li class="">
+                                      <a data-toggle="tab" href="#contact-favicon-0-3">
+                                          <i class=" icon-thumbs-down hidden-phone"></i>
+                                          报销中
+                                      </a>
+                                  </li>
+                                  <li class="">
+                                      <a data-toggle="tab" href="#checkin-favicon-0-3">
+                                          <i class="  icon-check hidden-phone"></i>
+                                          签到
+                                      </a>
+                                  </li>
+								  <!--{/if}-->
+                              </ul>
+                              <span class="hidden-sm wht-color hidden-phone">重要但不紧急</span>
+                          </header>
+                          <div class="panel-body index_list_fenlan">
+                              <div class="tab-content">
+                                  <div id="home-favicon-0-3" class="tab-pane active">
+									  <!--{template work/pc/work_index_qk_project_newadmin_main_wrapper_Righttab_Projectcountstatus_0_list_favicon_0}-->
+                                  </div>
+                                  <div id="about-favicon-0-3" class="tab-pane">
+									 <!--{template work/pc/work_index_qk_project_newadmin_main_wrapper_Righttab_Projectcountstatus_1_list}-->
+
+									</div>
+                                  <div id="contact-favicon-0-3" class="tab-pane">
+								   <!--{template work/pc/work_index_financial_project_newadmin_main_wrapper_Righttab_projectlist}-->
+								  
+								</div>
+                                  <div id="checkin-favicon-0-3" class="tab-pane">
+
+								   <!--{template work/pc/work_index_checkin_logs_newadmin_main_wrapper_Righttab_checkinloglist}-->
+								  
+								</div>
+                              </div>
+                          </div>
+                      </section>
+                      <!--tab nav start-->
+
+
+
+
+
+
+ </div>

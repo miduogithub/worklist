@@ -1,0 +1,180 @@
+    
+	
+<style>
+.wrapper {
+	margin-top: 0px;
+}
+</style>
+          <section class="wrapper">
+              <!-- page start-->
+
+
+              <div class="row">
+                  <div class="col-lg-12">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              项目列表
+                          </header>
+                          <table class="table table-striped table-advance table-hover">
+                              <thead>
+                              <tr>
+								<th ><i class="icon-bookmark"></i> 序号</th>
+                                  <th ><i class="icon-bookmark"></i> 报销部门</th>								  
+								  <th ><i class="icon-bookmark"></i> 科目</th>
+
+								<th style="    width: 35%;"><i class="icon-bookmark"></i> 名称</th>
+
+								  <th style="    width: 10%;"><i class="icon-bookmark"></i> 报销人</th>
+								  <th><i class="icon-bookmark"></i> 时间</th>
+								  
+                                  <th><i class=" icon-bookmark"></i> 状态</th>
+								  <th><i class=" icon-bookmark"></i> 收支</th>
+								  <th><i class=" icon-edit"></i> 操作</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+									<!--{eval $i = '0';}-->
+								  <!--{loop $threadlist $list}-->
+										<!--{eval $i++;}-->
+
+
+									  <!--{if $_GET['action'] == 'edit' && $_GET['goodsid'] == $list[goodsid]}-->
+
+											<!--{template work/pc/work_goodslist_newadmin_main_shoplist_edit}-->
+
+									  <!--{else}-->
+										  <tr>
+											<td>{$i}</td>		
+											  										  
+											  <td ><span style="font-size: 14px; font-weight: bold;">$organizationlist[$list[Organizationid]][Organizationname] </span></td>
+											  <td ><span >$typelist[$list[projecttypeid]][typename]</span></td>
+
+												<td ><a href="{$list[goodsurl]}" target="_blank"><span style="font-size: 14px; font-weight: bold;">$list[projectname] </span></a></td>
+											  
+											  <td><a href="work.php?mod=goodslist&check=incomplete&editorid={$list[editorid]}" target="_blank">{$list[editor]}</a></td>	
+												<td ><a href="{$list[goodsurl]}" target="_blank"><span style="font-size: 14px; font-weight: bold;">{date($list[projectstarttimeline],Y年m月d日)} </span></a></td>
+
+												<!--{if $list[status] == '0'}-->
+													<td>
+														<a href="work.php?mod=workcp&ac=project&op=goodslist&action=finish&projectid=$list[projectid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}" >
+															<span class="label label-danger label-mini">结算中</span>
+														</a>
+													</td>
+												<!--{elseif $list[status] == '1'}-->
+
+													<td>
+														<a href="work.php?mod=workcp&ac=project&op=goodslist&action=unfinish&projectid=$list[projectid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}" >
+															<span class="label label-success label-mini">已结算</span>
+														</a>
+													</td>
+												<!--{elseif $list[status] == '9'}-->
+													<td>
+														<a href="work.php?mod=workcp&ac=project&op=goodslist&action=unfinish&projectid=$list[projectid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}" >
+															<span class="label label-success label-mini">已结算</span>
+														</a>
+													</td>
+												<!--{/if}-->
+
+
+											  <td ><a href="{$list[goodsurl]}" target="_blank"><span style="font-size: 14px; font-weight: bold;color: red;{if $list[status] == '1'} text-decoration:line-through; color: #D0D0D0;{/if}">+$list[Projectprice] </span></a></td>
+
+<td >
+												<!--{if $list[status] == '0'}-->
+												  <a href="work.php?mod=project&view=editproject&projectid=$list[projectid]"><button class="btn btn-primary btn-xs" alt="编辑">
+													<i class="icon-pencil"></i></button>
+												  </a>
+
+												  <a href="work.php?mod=workcp&ac=project&op=goodslist&projectid={$list[projectid]}&action=delete" alt="删除">
+													<button class="btn btn-danger btn-xs"><i class="icon-trash "></i></button>
+													</a>
+												<!--{elseif $list[status] == '1'}-->
+													<span>$list[reason]</span>
+												  <a href="work.php?mod=goodslist&goodsid=$list[goodsid]&action=edit{if $_GET[editorid]}&editorid=$editorid{/if}{if $_GET[check]=='incomplete'}&check=incomplete{/if}{if $dateline}&dateline=$dateline{/if}">
+													<button class="btn btn-primary btn-xs" alt="编辑">
+														<i class="icon-pencil"></i>
+													</button>
+												  </a>
+												<!--{elseif $list[status] == '9'}-->
+													<td>
+												</td>
+												<!--{/if}-->
+</td>
+
+										  </tr>
+									  <!--{/if}-->
+
+<!--{if $vieworder != 'onlyproject'}-->
+									{eval $j = '0';}
+									<!--{loop $list[missionlist] $mlist}-->
+									{eval $j++;}
+<tr>
+	<td ></td>
+	<td ><span ><!-- $organizationlist[$mlist[Organizationid]][Organizationname] --> </span></td>
+	<td >$j.<span >$typelist[$mlist[projecttypeid]][typename] </span></td>
+	<td ><span >$mlist[missionname] </span></td>
+	<td ><span >$mlist[editor] </span></td>
+	<td ><span >{date($mlist[missionstarttimeline],Y年m月d日)} </span></td>
+	<td ></td>
+	<td ></td>
+	<td ></td>
+</tr>
+									<!--{/loop}-->
+
+<!--{/if}-->
+
+
+
+
+
+
+
+
+<!-- </tbody>
+</table>
+
+<table class="table table-striped table-advance table-hover">
+                              <thead>
+                              <tr>
+								<th style="    width: 10%;"><i class="icon-bookmark"></i> 项目序号</th>
+                                  <th ><i class="icon-bookmark"></i> 甲方单位</th>								  
+								  <th ><i class="icon-bookmark"></i> 项目类型</th>
+
+								<th style="    width: 35%;"><i class="icon-bookmark"></i> 项目名称</th>
+
+								  <th style="    width: 10%;"><i class="icon-bookmark"></i> 项目负责人</th>
+								  <th><i class="icon-bookmark"></i> 项目时间</th>
+								  
+                                  <th><i class=" icon-bookmark"></i> 项目状态</th>
+								  <th><i class=" icon-bookmark"></i> 项目价格</th>
+								  <th><i class=" icon-edit"></i> 操作</th>
+                              </tr>
+                              </thead> -->
+
+
+
+								  <!--{/loop}-->
+
+
+
+
+
+
+                              </tbody>
+                          </table>
+
+
+						
+						<!-- template work/pc/work_loglist_newadmin_main_worklist_multi -->
+
+
+
+
+                      </section>
+                  </div>
+              </div>
+              <!-- page end-->
+
+
+
+
+          </section>

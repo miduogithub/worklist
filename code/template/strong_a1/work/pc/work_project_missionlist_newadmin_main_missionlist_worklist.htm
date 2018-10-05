@@ -1,0 +1,104 @@
+
+					  <section class="panel">
+                          <header class="panel-heading">
+                              日志列表（{$pwcount}）
+								<a href="#">
+									<i class="icon-share" style="margin-right: -10px;"></i>
+								</a>							  
+                          </header>
+                          <div class="panel-body">
+                              <div class="timeline-messages">
+
+
+									<!--{loop $project_worklist $pwlist}-->
+
+
+
+									<script type="text/javascript">
+										$(document).ready(function() {
+											$('#task_message_show_{$pwlist[pwid]}').hover(function(){
+												$('#task_message_showInner_{$pwlist[pwid]}').show();
+											}, function(){
+												$('#task_message_showInner_{$pwlist[pwid]}').hide();
+											});
+										});
+									</script>
+
+                                  <!-- Comment -->
+                                  <div class="msg-time-chat">
+                                      <a href="#" class="message-img"><img class="avatar" src="<!--{avatar($pwlist[editorid], middle, true)}-->" alt=""></a>
+                                      <div class="message-body msg-in" id="task_message_show_{$pwlist[pwid]}">
+                                          <span class="arrow"></span>
+                                          <div class="text" >
+                                              <p class="attribution"><a href="#">$pwlist[editor]</a> <!--{date($pwlist[dateline],'Y-m-d H:i')}--></p>
+                                              <p>{eval echo check_message_number_to_Highlight($pwlist[message])}</p>
+
+												<div id="task_message_showInner_{$pwlist[pwid]}" style="display: none;">
+													<div class="pull-right chat-features" style="    margin-top: -13px;">
+														<a href="work.php?mod=worklist&dateline=$pwlist[dateline]" target="_blank">
+															<i class="icon-edit" style="margin-right: -10px;"></i>
+														</a>	
+
+
+														<a href="work.php?mod=workcp&ac=mission&op=mission&action=delete_pushworklist&workid={$pwlist[workid]}&projectid={$projectid}">
+															<i class="icon-remove" style="margin-right: -10px;"></i>
+														</a>														
+													  </div> 
+
+												</div>	
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <!-- /comment -->
+
+
+								<!--{/loop}-->
+
+                              </div>	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                              <!--{template work/pc/work_project_missionlist_newadmin_main_missionlist_worklist_form}-->
+                          </div>
+                      </section>

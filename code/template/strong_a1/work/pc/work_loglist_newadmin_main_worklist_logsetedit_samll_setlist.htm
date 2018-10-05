@@ -1,0 +1,58 @@
+														<ul role="menu" class="dropdown-menu">
+
+															
+															<!--{if $list[status] != '0'}-->
+															<li>
+																<a href="work.php?mod=workcp&ac=loglist&op=loglist&action=unfinish&workid=$list[workid]{if $_GET[check]}&check=incomplete{/if}{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}">
+																	未完
+																</a>
+															</li>
+															<!--{/if}-->
+
+															<!--{if $list[status] != '1'}-->
+															<li>
+																<a href="work.php?mod=workcp&ac=loglist&op=loglist&action=finish&workid=$list[workid]{if $_GET[check]}&check=incomplete{/if}{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}">
+																	完成
+																</a>
+															</li>
+															<!--{/if}-->
+
+															<!--{if $_G['timestamp'] - $list[dateline] < 3600 * 24 * 2 && $list[status] == '0'}-->
+															<li class="divider"></li>
+															<li>
+																<a href="work.php?mod=workcp&ac=loglist&op=loglist&action=pushtop&workid=$list[workid]{if $dateline}&submitdateline=$dateline{/if}" >
+																	提升
+																</a>
+															</li>
+															<li>
+																<a href="work.php?mod=worklist&workid=$list[workid]&action=edit{if $dateline}&dateline=$dateline{/if}" >
+																	编辑
+																</a>
+															</li>
+															<li>
+																<a href="work.php?mod=workcp&ac=loglist&op=loglist&action=delete&workid=$list[workid]{if $dateline}&dateline=$dateline{/if}" >
+																	删除
+																</a>
+															</li>
+															<!--{/if}-->
+
+															<li class="divider"></li>
+															<li>
+																<a href="work.php?mod=project&view=addmission_worklist&workid={$list[workid]}" target="_blank">
+																	<span class="hidden-phone">关联</span>项目
+																</a>
+															</li>
+
+															<li>
+																<a href="work.php?mod=project&view=addmission&message={$list[message]}&dateline={$list[dateline]}" target="_blank">
+																	<span class="hidden-phone">推送</span>任务
+																</a>
+															</li>
+
+															<li>
+																<a href="work.php?mod=financial&view=addmission&message={$list[message]}&dateline={$list[dateline]}" target="_blank">
+																	<span class="hidden-phone">推送</span>报销
+																</a>
+															</li>
+
+														</ul>

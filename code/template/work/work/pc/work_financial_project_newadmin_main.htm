@@ -1,0 +1,77 @@
+      <!--main content start-->
+      <section id="main-content">
+		
+
+
+          <header class="tab-head">
+              <ul class="nav nav-tabs">
+
+
+					<!--{loop $yearsarr $year}-->
+
+
+                  <li {if $checkyear == $year}class="active"{/if}>
+                      <a href="work.php?mod=financial&view=statistics{if $vieworder=='onlyproject'}&vieworder=$vieworder{/if}&checkyear=$year">$year</a>
+                  </li>
+				  <!--{/loop}-->
+
+              </ul>
+          </header>
+
+
+
+
+
+<!--{if $view == 'statistics'}-->
+
+	<!--{template work/pc/work_financial_project_newadmin_main_wrapper}-->
+
+<!--{/if}-->
+
+
+
+<!--{if $_G[adminid] == '1'}-->
+	<!--{if $_GET[projectid] || $view == addproject}-->
+
+		<a href="javascript:history.go(-1);">
+			<div class="bm bw0 pgs cl" style="margin-top: 10px;margin-right: 5px;float: right;">
+
+							<button class="btn btn-shadow btn-primary" type="submit" value="true">返回</button>
+			</div>
+		</a>
+
+		<a href="work.php?mod=financial&view=mission&projectid={$_GET[projectid]}&vieworder=alleditor">
+			<div class="bm bw0 pgs cl" style="margin-top: 10px;margin-right: 5px;float: right;">
+
+							<button class="btn btn-shadow btn-primary" type="submit" value="true">进入项目</button>
+			</div>
+		</a>
+	<!--{else}-->
+		<a href="work.php?mod=financial&view=addproject">
+			<div class="bm bw0 pgs cl" style="margin-top: 10px;margin-right: 5px;float: right;">
+
+							<button class="btn btn-shadow btn-primary" type="submit" value="true">添加项目</button>
+			</div>
+		</a>
+	<!--{template work/pc/work_financial_project_newadmin_main_order}-->
+	<!--{/if}-->
+	
+<!--{/if}-->
+
+
+
+
+
+<!--{if $view == 'addproject' || $view == 'editproject'}-->
+	<!--{template work/pc/work_financial_project_newadmin_main_addproject_form}-->
+<!--{else}-->
+	<!--{template work/pc/work_financial_project_newadmin_main_projectlist}-->
+<!--{/if}-->
+	
+
+
+
+
+
+      </section>
+      <!--main content end-->

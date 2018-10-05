@@ -1,0 +1,66 @@
+<div class="s_postpoll">
+    <input type="hidden" name="polls" value="yes" />
+    <input type="hidden" name="fid" value="$_G[fid]" />
+	<div class="polloptions">
+    <!--{if $_GET[action] == 'newthread'}-->
+        <input type="hidden" name="tpolloption" value="2" />
+        <p>{lang post_poll_options}:{lang post_poll_comment}</p>
+        <textarea name="polloptions" class="s_txt" placeholder="{lang post_poll_comment_s}" rows="9" /></textarea>
+        <p class="s_mcolor"></p>
+    <!--{else}-->
+        <!--{loop $poll['polloption'] $key $option}-->
+            <p>
+                <input type="hidden" name="polloptionid[{$poll[polloptionid][$key]}]" value="$poll[polloptionid][$key]" />
+                <input type="text" name="displayorder[{$poll[polloptionid][$key]}]" class="s_txt" autocomplete="off"  value="$poll[displayorder][$key]" />
+                <input type="text" name="polloption[{$poll[polloptionid][$key]}]" class="s_txt" autocomplete="off" style="width:290px;"  value="$option"{if !$_G['group']['alloweditpoll']} readonly="readonly"{/if} />
+            </p>
+        <!--{/loop}-->
+    <!--{/if}-->
+	</div>
+
+    <div class="option1"">
+        <p class="">
+            <label for="maxchoices">{lang post_poll_allowmultiple}</label>
+            <input type="number" name="maxchoices" id="maxchoices" class="px pxs"  style="width:80px;" value="{if $_GET[action] == 'edit' && $poll[maxchoices]}$poll[maxchoices]{else}1{/if}"  /> {lang post_option}
+        </p>
+        <p class="">
+            <label for="polldatas">{lang post_poll_expiration}</label>
+            <input type="number" name="expiration" id="polldatas" class="px pxs" style="width:80px; "  value="{if $_GET[action] == 'edit'}{if !$poll[expiration]}0{elseif $poll[expiration] < 0}{lang poll_close}{elseif $poll[expiration] < TIMESTAMP}{lang poll_finish}{else}{echo (round(($poll[expiration] - TIMESTAMP) / 86400))}{/if}{/if}"  /> {lang days}
+        </p>
+	</div>
+	    
+        
+	<div class="option2">	
+        <div class="checkbox">
+            <em for="visibilitypoll">{lang poll_after_result}</em>        
+			<div class="option {if $_GET[action] == 'edit' && !$poll[visible]}on{else}off{/if} ">
+				<input type="hidden" name="visibilitypoll" id="visibilitypoll" class="pc" value="{if $poll[visible]}0{else}1{/if}"/>
+				<span></span>
+			</div>
+        </div>
+        <div class="checkbox">
+            <em for="overt">{lang post_poll_overt}</em>
+			<div class="option  {if $_GET[action] == 'edit' && $poll[overt]}on{else}off{/if}  ">
+				<input type="hidden" name="overt" id="overt" class="pc" value="$poll[overt]"/>
+				<span></span>
+			</div>
+        </div>
+    </div>
+</div>
+<script>
+	$('.option').on('click',function(){
+		//$(this).children('input').val('2')
+		//alert($(this).children().data('default'));
+		
+		if($(this).hasClass('on')){	
+			$(this).removeClass('on');
+			$(this).addClass('off');
+			$(this).children('input').val('0')		
+		}else{
+			$(this).removeClass('off');
+			$(this).addClass('on');
+			$(this).children('input').val('1')	
+		}
+	});
+
+</script>

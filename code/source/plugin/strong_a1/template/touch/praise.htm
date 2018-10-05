@@ -1,0 +1,30 @@
+<!--{template common/header}-->
+<div class="nav">
+	<div class="nav_left"><a href="forum.php?mod=viewthread&tid=$tid"><i class="fa fa-angle-left fa-15x"></i></a></div>
+	<div class="nav_center">
+		<a href="javascript:;">赞</a>
+	</div>
+</div>
+<div id="friend_ul">
+	<ul class="buddy cl">
+	<!-- more pagelist start -->
+	<!--{loop $praiselist $key $value}-->
+		<li>
+		<a href="home.php?mod=space&uid=$value[recommenduid]" style="display: block; height: 65px;">
+			<div class="avt"><!--{avatar($value[recommenduid],small)}--></div>
+			<h4>$value[profile][username]<font class="ols">$_G[cache][usergroups][$value[profile][groupid]][grouptitle]</font></h4>
+			<p class="maxh">$value[dateline]&nbsp;&nbsp;</p>
+			<i class="fa fa-angle-right fa-2x right"></i>
+		</a>	
+		</li>
+	<!--{/loop}-->
+	<!-- more pagelist end -->	
+	<div id="ajaxlist"></div>	
+	</ul>
+</div>
+
+
+<!--{eval page_format($count,$perpage,$multis,'praise');}-->
+<div class="pullrefresh" style="display:none;"></div>
+<!--{eval $nob_nav=1;}-->
+<!--{template common/footer}-->

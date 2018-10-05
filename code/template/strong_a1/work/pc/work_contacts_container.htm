@@ -1,0 +1,89 @@
+
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+              <!-- page start-->
+              <div class="row">
+			  <!--{loop $userlist $ulist}-->
+                  <div class="col-lg-4">
+
+
+
+                      <!--widget start-->
+
+					  
+                      <aside class="profile-nav alt green-border">
+                          <section class="panel">
+                              <div class="user-heading alt green-bg">
+
+
+                                  <a href="#">
+									<!--{eval $wxuserinfo = get_wx_userinfo_by_uid($ulist[uid]);}-->
+									<!--{if $wxuserinfo[headimgurl]}-->
+										<img src="{$wxuserinfo[headimgurl]}">
+									<!--{else}-->
+										<!--{avatar($missionlist[userinfo][uid],middle)}-->
+									<!--{/if}-->
+                                  </a>
+								  <!--{if $ulist[realname]}-->
+									<h1>$ulist[realname]</h1>
+								  <!--{else}-->
+									<h1>$ulist[username]</h1>
+								  <!--{/if}-->
+                                  
+                                  <p>
+									<!--{if $ulist[bio]}-->
+									 $ulist[bio]
+									 <!--{else}-->
+									 这家伙很懒，什么都没有留下
+								   <!--{/if}-->
+								  </p>
+                              </div>
+
+                              <ul class="nav nav-pills nav-stacked">
+
+
+								<!--{if $ulist[mobile]}-->
+                                  <li><a href="tel:{$ulist[mobile]}"> <i class="icon-star"></i> 手机：<span class="label label-primary pull-right r-activity">$ulist[mobile]</span></a></li>
+								  <li><a href="sms:{$ulist[mobile]}"> <i class="icon-star"></i> 短信：<span class="label label-primary pull-right r-activity">$ulist[mobile]</span></a></li>
+								  <!--{/if}-->
+
+									<!--{if $ulist[email]}-->
+								  <li><a href="mailto:{$ulist[email]}"> <i class="icon-star"></i> 邮箱：<span class="label label-primary pull-right r-activity">$ulist[email]</span></a></li>
+								   <!--{/if}-->
+
+
+									<!--{if $ulist[qq]}-->
+								  <li><a href="javascript:;"> <i class="icon-star"></i> QQ：<span class="label label-primary pull-right r-activity">$ulist[qq]</span></a></li>
+								   <!--{/if}-->
+
+									<!--{if $ulist[msn]}-->
+								  <li><a href="javascript:;"> <i class="icon-star"></i> 微信：<span class="label label-primary pull-right r-activity">$ulist[msn]</span></a></li>
+								   <!--{/if}-->
+
+									<!--{if $ulist[telephone]}-->
+								  <li><a href="javascript:;"> <i class="icon-star"></i> 固定电话：<span class="label label-primary pull-right r-activity">$ulist[telephone]</span></a></li>
+								   <!--{/if}-->
+
+
+                                  <!-- <li><a href="javascript:;"> <i class="icon-calendar"></i> Recent Activity <span class="label label-info pull-right r-activity">11</span></a></li>
+                                  <li><a href="javascript:;"> <i class="icon-bell-alt"></i> Notification <span class="label label-warning pull-right r-activity">03</span></a></li>
+                                  <li><a href="javascript:;"> <i class="icon-envelope-alt"></i> Message <span class="label label-success pull-right r-activity">10</span></a></li> -->
+                              </ul>
+
+                          </section>
+                      </aside>
+					  
+                      <!--widget end-->
+
+                  </div>
+				  <!--{/loop}-->
+
+
+              </div>
+
+
+              <!-- page end-->
+          </section>
+      </section>
+      <!--main content end-->

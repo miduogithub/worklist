@@ -1,0 +1,38 @@
+<div class="threadlist2">
+<!--{if $list}-->
+<ul>	<!-- more pagelist start -->
+    	<!--{loop $list $key $thread}-->
+        <!--{if !$thread['forumstick'] && $thread['closed'] > 1 && ($thread['isgroup'] == 1 || $thread['fid'] != $_G['fid'])}-->
+			<!--{eval $thread[tid]=$thread[closed];}-->
+		<!--{/if}-->
+		<!--{eval $attachlist = get_threadpic($thread[tid],1,190,140);}-->
+        <li>
+            <a href="forum.php?mod=viewthread&tid=$thread[tid]&fromguid=hot&{if $_GET['archiveid']}archiveid={$_GET['archiveid']}&{/if}extra=$extra">
+				<!--{loop $attachlist $attach}-->
+				<img class="imgdelay" src="./template/strong_a1/touch/images/b.jpg" data="$attach">
+				<!--{/loop}-->
+				<h3>
+				{$thread[subject]}</h3>
+                <p>
+					<!--{if $thread['authorid'] && $thread['author']}-->
+                        <span class="username">$thread[author]</span>
+                    <!--{else}-->
+						<span class="username">$_G[setting][anonymoustext]</span>
+					<!--{/if}-->
+                    <span class="replies">
+                    	<i class="fa fa-comments-o fa-1x "></i>  {$thread[replies]}<i class="fa fa-eye fa-1x mbl10"></i>  {$thread[views]} 
+                    </span>                                                       
+                </p>
+			</a>
+		</li>
+		
+							
+		<!--{/loop}-->	
+		<!-- more pagelist end -->		
+        <div id="ajaxlist"></div>		
+	</ul>			
+
+<!--{else}-->
+	<p class="no_data">{lang guide_nothreads}</p>
+<!--{/if}-->
+</div>

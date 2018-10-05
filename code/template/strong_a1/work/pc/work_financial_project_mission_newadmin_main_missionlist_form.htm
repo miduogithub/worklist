@@ -1,0 +1,104 @@
+<section class="panel">
+                           <header class="panel-heading">
+                              请填写任务内容
+                          </header> 
+                          <div class="panel-body">
+                              <div class=" form">
+
+                                  <form class="cmxform form-horizontal tasi-form" id="commentForm" method="post" action="work.php?mod=workcp&ac=financial_project_mission&op=mission{if $_GET[missionid]}&action=edit{else}&action=add{/if}" >
+                                  <div class="form-group has-success">
+                                      <label class="col-lg-2 control-label">所属项目</label>
+
+									  <div class="col-sm-6" >
+
+											<input name="projectid"  type="text" value="$projectlist[$projectid][projectname]"  class="form-control" readonly="" >
+											<input type="hidden" name="projectid"  value="$projectid" >
+									  </div>
+
+                                  </div>
+
+
+                                  <div class="form-group has-success">
+                                      <label class="col-lg-2 control-label">报销科目</label>
+
+
+										<div class="col-lg-6">  
+											<!--{template work/pc/work_financial_project_mission_newadmin_main_addmission_form_select}-->
+										</div>
+
+
+
+                                  </div>
+
+
+
+                                      <div class="form-group ">
+									 
+                                          <label for="ccomment" class="control-label col-lg-2">报销名称</label>
+                                          <div class="col-lg-10">
+                                              <textarea class="form-control " id="ccomment" name="missionname" required="" style="    height: 100px;"></textarea>
+                                          </div>
+                                      </div>
+
+                                  <div class="form-group has-success">
+                                      <label class="col-lg-2 control-label">金额</label>
+                                      <div class="col-lg-10">
+                                          <input type="text" placeholder="" id="l-name" class="form-control"  name="price" value="$mission[Projectprice]">
+                                          <!-- <p class="help-block">Aha you gave a wrong info</p> -->
+                                      </div>
+                                  </div>
+
+								<!--{if $_G['adminid'] == '1'}-->
+                                  <div class="form-group has-success">
+                                      <label class="col-lg-2 control-label">负责人</label>
+										<div class="col-lg-6">  
+											<select name="project_editorid" id="birthyear" class="ps" tabindex="1" >
+												<option value="">请选择</option>
+
+												<!--{if $mission[editorid]}-->
+													<!--{loop $memberlist $mlist}-->
+													<option value="{$mlist['uid']}" {if $mission[editorid] == $mlist['uid']}selected = "selected"{/if}>$mlist['username'] </option>
+													<!--{/loop}-->
+												<!--{else}-->
+													<option value="{$_G['uid']}" selected = "selected">$_G['username'] </option>
+													<!--{loop $memberlist $mlist}-->
+													{if $mlist['uid'] == $_G['uid']}{eval continue;}{/if}
+													<option value="{$mlist['uid']}" {if $mission[editorid] == $mlist['uid']}selected = "selected"{/if}>$mlist['username'] </option>
+													<!--{/loop}-->
+												<!--{/if}-->
+											</select>  
+										</div>
+                                  </div>
+								<!--{/if}-->
+
+                                      <div class="form-group">
+                                          <div class="col-lg-offset-2 col-lg-10">
+                                              <button class="btn btn-danger" type="submit" name="vote_button"  value="true">提交任务</button>
+
+												<!--{if $dateline < $todaydateline}-->
+												<input  type="hidden" name="submitdateline" value="{eval echo $thedatelinestart+86399}"/>
+												<!--{/if}-->
+
+												<!--{if $dateline >= $next1daydateline}-->
+												<input  type="hidden" name="submitdateline" value="$thedatelinestart"/>
+												<!--{/if}-->
+
+                                              <!-- <button class="btn btn-default" type="button">Cancel</button> -->
+                                          </div>
+										  
+											<div class="col-lg-offset-2 col-lg-10" style="height: 270px;"></div>
+                                      </div>
+
+
+
+
+
+
+
+
+
+                                  </form>
+                              </div>
+
+                          </div>
+                      </section>

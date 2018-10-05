@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Style]]></item>
+	<item id="Version"><![CDATA[X3,X3.1,X3.2,X3.3]]></item>
+	<item id="Time"><![CDATA[2017-07-25 17:43]]></item>
+	<item id="From"><![CDATA[Discuz! Board (http://localhost/dz_exploit/)]]></item>
+	<item id="Data">
+		<item id="styleid"><![CDATA[19]]></item>
+		<item id="name"><![CDATA[strong_a1]]></item>
+		<item id="available"><![CDATA[1]]></item>
+		<item id="templateid"><![CDATA[19]]></item>
+		<item id="extstyle"><![CDATA[|]]></item>
+		<item id="tplname"><![CDATA[A1手机模板]]></item>
+		<item id="directory"><![CDATA[./template/strong_a1]]></item>
+		<item id="copyright"><![CDATA[strong QQ:695023684]]></item>
+		<item id="style">
+			<item id="available"><![CDATA[]]></item>
+			<item id="boardimg"><![CDATA[]]></item>
+			<item id="imgdir"><![CDATA[]]></item>
+			<item id="styleimgdir"><![CDATA[]]></item>
+			<item id="stypeid"><![CDATA[2]]></item>
+			<item id="headerbgcolor"><![CDATA[]]></item>
+			<item id="bgcolor"><![CDATA[]]></item>
+			<item id="sidebgcolor"><![CDATA[]]></item>
+			<item id="titlebgcolor"><![CDATA[]]></item>
+			<item id="headerborder"><![CDATA[]]></item>
+			<item id="headertext"><![CDATA[]]></item>
+			<item id="footertext"><![CDATA[]]></item>
+			<item id="font"><![CDATA[]]></item>
+			<item id="fontsize"><![CDATA[]]></item>
+			<item id="threadtitlefont"><![CDATA[]]></item>
+			<item id="threadtitlefontsize"><![CDATA[]]></item>
+			<item id="smfont"><![CDATA[]]></item>
+			<item id="smfontsize"><![CDATA[]]></item>
+			<item id="tabletext"><![CDATA[]]></item>
+			<item id="midtext"><![CDATA[]]></item>
+			<item id="lighttext"><![CDATA[]]></item>
+			<item id="link"><![CDATA[]]></item>
+			<item id="highlightlink"><![CDATA[]]></item>
+			<item id="lightlink"><![CDATA[]]></item>
+			<item id="wrapbg"><![CDATA[]]></item>
+			<item id="wrapbordercolor"><![CDATA[]]></item>
+			<item id="msgfontsize"><![CDATA[]]></item>
+			<item id="contentwidth"><![CDATA[]]></item>
+			<item id="contentseparate"><![CDATA[]]></item>
+			<item id="menubgcolor"><![CDATA[]]></item>
+			<item id="menutext"><![CDATA[]]></item>
+			<item id="menuhoverbgcolor"><![CDATA[]]></item>
+			<item id="menuhovertext"><![CDATA[]]></item>
+			<item id="inputborder"><![CDATA[]]></item>
+			<item id="inputborderdarkcolor"><![CDATA[]]></item>
+			<item id="inputbg"><![CDATA[]]></item>
+			<item id="dropmenuborder"><![CDATA[]]></item>
+			<item id="dropmenubgcolor"><![CDATA[]]></item>
+			<item id="floatbgcolor"><![CDATA[]]></item>
+			<item id="floatmaskbgcolor"><![CDATA[]]></item>
+			<item id="commonborder"><![CDATA[]]></item>
+			<item id="commonbg"><![CDATA[]]></item>
+			<item id="specialborder"><![CDATA[]]></item>
+			<item id="specialbg"><![CDATA[]]></item>
+			<item id="noticetext"><![CDATA[]]></item>
+		</item>
+		<item id="version"><![CDATA[X3,X3.1,X3.2,X3.3]]></item>
+	</item>
+</root>

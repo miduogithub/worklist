@@ -1,0 +1,77 @@
+<style>
+.task-thumb img{
+	width: 90px;
+}
+</style>
+					<!--{loop $membermissioninfo $missionlist}-->
+					
+
+                  <div class="col-lg-4">
+                      <!--user info table start-->
+                      <section class="panel">
+                          <div class="panel-body">
+							 
+                              <a href="work.php?mod=project&view=mission&editorid={$missionlist[userinfo][uid]}" class="task-thumb">
+										<!--{eval $missionuserinfo = get_wx_userinfo_by_uid($missionlist[userinfo][uid]);}-->
+										<!--{if $missionuserinfo[headimgurl]}-->
+											<img src="{$missionuserinfo[headimgurl]}">
+										<!--{else}-->
+											<!--{avatar($missionlist[userinfo][uid],middle)}-->
+										<!--{/if}-->
+                              </a>
+                              <div class="task-thumb-details">
+                                  <h1><a href="work.php?mod=project&view=mission&editorid={$missionlist[userinfo][uid]}">$missionlist[userinfo][username]</a></h1>
+                                  <p>今天有{$missionlist['missionstatus1count']}个待办任务（<a href="work.php?mod=project&view=mission&editorid={$missionlist[userinfo][uid]}" target="_blank">查看全部</a>）</p>
+                              </div>
+                          </div>
+                          <table class="table table-hover personal-task">
+                              <tbody>
+								<!--{eval $umi = '0';}-->
+								<!--{loop $missionlist[missionlist] $missioninfo}-->
+								<!--{eval $umi++;}-->
+                                <tr>
+                                    <td>
+                                        <i class=" icon-tasks"></i>
+                                    </td>
+                                    <td> <span style=" {if $missioninfo[favicon] == '1'} color: red;{/if}{if $missioninfo[status] == '1'} text-decoration:line-through; color: #D0D0D0;{/if}">{$umi}.$missioninfo[missionname] <!-- echo cutstr($missioninfo[message], 95) --></span>
+
+										<!--{eval $tasklist = get_mission_tasklist_by_missionid($missioninfo[missionid]);}-->
+										<!--{if $tasklist}-->
+										<span style="letter-spacing:0px;">
+											<!-- <i class="icon-folder-open" style="font-size: 16px;"></i> -->
+											<a href="work.php?mod=taskbar&view=mission&projectid={$missioninfo[projectid]}&vieworder=alleditor"><i class="icon-file-text" style="font-size: 16px;"></i></a>
+										</span>
+										<!--{/if}-->
+									</td>
+
+												<!--{if $missioninfo[status] == '0'}-->
+													<td>
+														<a href="work.php?mod=workcp&ac=mission&op=goodslist&action=finish&missionid=$missioninfo[missionid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}" >
+															<span class="label label-success label-mini">进行中</span>
+														</a>
+													</td>
+												<!--{elseif $missioninfo[status] == '1'}-->
+													<td>
+														<a href="work.php?mod=workcp&ac=mission&op=goodslist&action=status2&missionid=$missioninfo[missionid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}" >
+															<span class="label label-default label-mini">已完成</span>
+														</a>
+													</td>
+												<!--{elseif $missioninfo[status] == '2'}-->
+
+													<td>
+														<a href="work.php?mod=workcp&ac=mission&op=goodslist&action=unfinish&missionid=$missioninfo[missionid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}" >
+															<span class="label label-default label-mini">未通过</span>
+														</a>
+													</td>
+												<!--{/if}-->
+
+
+                                </tr>
+								<!--{/loop}-->
+
+                              </tbody>
+                          </table>
+                      </section>
+                      <!--user info table end-->
+                  </div>
+					<!--{/loop}-->

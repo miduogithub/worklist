@@ -1,0 +1,86 @@
+   <select id="province" name="c" style="height: 30px;"> 
+
+   </select> 
+   <select id="city" class="city" name="projectid" style="height: 30px;"> 
+   		<option value="">选择项目</option> 
+   </select> 
+
+
+<script>
+  window.onload = function () {
+    // 创建两个下拉列表
+   // var sel1 = document.createElement("select");
+    //var sel2 = document.createElement("select");
+    // 添加到body中
+    //document.body.appendChild(sel1);
+    //document.body.appendChild(sel2);
+
+
+	var city1 = ["选择单位","c"];
+    var arr =  [
+				"选择单位",
+				"c",
+				<!--{loop $projectlist_select['Organizationlist'] $Organizationnfup}-->
+				"$Organizationnfup[Organizationname]",
+				"c",
+				<!--{/loop}-->
+			];
+	<!--{eval $i = '0';}-->
+	<!--{loop $projectlist_select['projectlist'] $selectprojectlist}-->
+	<!--{eval $i++;}-->
+
+    var arr$i = [
+
+				<!--{loop $selectprojectlist $sproject}-->
+					"$sproject[projectname]",
+					"$sproject['projectid']",
+				<!--{/loop}-->
+
+				];
+	<!--{/loop}-->
+
+ 
+    function addChild(abj, arr) {
+      for (var i = 0; i < arr.length; i=i+2) {
+        // 循环创建opt元素
+        var opt = document.createElement("option");
+        // 设置option元素的内容，内容为传入的数组内容
+        opt.innerText = arr[i];
+		opt.value = arr[i+1];
+        // 把option添加到select中
+        abj.appendChild(opt);
+      }
+    }
+
+    // 给第一个下拉列表添加数据
+    addChild(province, arr);
+	
+    // 给第一个下拉列表添加改变值得方法
+    province.onchange = function () {
+      remoOpt();
+//      console.log(sel1.selectedIndex)
+      switch (province.selectedIndex){
+		case 0:
+			addChild(city,city1);
+			break;
+
+		<!--{eval $j = '0';}-->
+		<!--{loop $projectlist_select['Organizationlist'] $Organizationnfup}-->
+		<!--{eval $j++;}-->
+        case $j:
+          addChild(city,arr$j);
+          break;
+		<!--{/loop}-->
+
+
+
+      }
+    };
+    //删除函数
+    function remoOpt() {
+      for(var i = city.children.length-1;i>=0;i--){
+        city.children[i].remove();
+      }
+    }
+  }
+</script>

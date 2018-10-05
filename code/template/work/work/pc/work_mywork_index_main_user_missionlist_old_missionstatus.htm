@@ -1,0 +1,20 @@
+												<!--{if $missioninfo[status] == '0'}-->
+													<td>
+														<a href="work.php?mod=workcp&ac=mission&op=goodslist&action=finish&missionid=$missioninfo[missionid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}" >
+															<span class="label label-success label-mini">进行中</span>
+														</a>
+													</td>
+												<!--{elseif $missioninfo[status] == '1'}-->
+													<td>
+														<a href="work.php?mod=workcp&ac=mission&op=goodslist&action=status2&missionid=$missioninfo[missionid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}" >
+															<span class="label label-default label-mini">已完成</span>
+														</a>
+													</td>
+												<!--{elseif $missioninfo[status] == '2'}-->
+
+													<td>
+														<a href="work.php?mod=workcp&ac=mission&op=goodslist&action=unfinish&missionid=$missioninfo[missionid]{if $_GET[editorid]}&editorid=$_GET[editorid]{/if}{if $dateline}&dateline=$dateline{/if}" >
+															<span class="label label-default label-mini">未通过</span>
+														</a>
+													</td>
+												<!--{/if}-->

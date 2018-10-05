@@ -1,0 +1,48 @@
+      <!--main content start-->
+      <section id="main-content">
+          <header class="tab-head">
+              <ul class="nav nav-tabs">
+
+
+
+					<!--{loop $monthsarr $month}-->
+
+
+                  <li {if $checkmontime == $month}class="active"{/if}>
+                      <a href="work.php?mod=humanresources&view=checklog&checkmonth={eval echo strtotime($month);}">$month</a>
+                  </li>
+				  <!--{/loop}-->
+              </ul>
+          </header>
+
+
+<!--{if $thedatelinestart < $todaydateline || $thedatelinestart > $todaydateline + 86399  || $_GET[check] == 'incomplete'}-->
+
+
+
+<div style="margin-top: 10px;margin-right: 10px;float: right;">
+<form id="shopmanage" method="post" action="work.php?mod=humanresources&view=checklog"  >
+		
+
+				<button class="btn btn-shadow btn-danger" type="submit" value="true">返回本月</button>
+
+
+</form>
+
+	</div>
+<!--{/if}-->
+
+
+
+<!--{if $_G['adminid'] == '1'}-->
+	<!--{template work/pc/work_HumanResources_checklog_newadmin_main_editorlist}-->
+<!--{/if}-->
+
+
+
+	<!--{template work/pc/work_HumanResources_checklog_newadmin_main_loglist}-->
+
+
+
+      </section>
+      <!--main content end-->

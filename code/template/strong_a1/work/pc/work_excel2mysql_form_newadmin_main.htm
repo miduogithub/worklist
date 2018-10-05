@@ -1,0 +1,53 @@
+      <!--main content start-->
+      <section id="main-content">
+		
+
+
+		<section class="wrapper">
+					  <!-- page start-->
+
+					  <div class="row">
+						  <div class="col-lg-6" style="width: 100%;">
+							  <section class="panel">
+								  <header class="panel-heading">
+									   光伏项目登记查错表
+								  </header>
+								  <div class="panel-body">
+										<form enctype="multipart/form-data" action="work.php?mod=workcp&ac=excel2mysql" method="POST" role="form" NAME="debugFORM">  
+
+										  <div class="form-group">
+											  <label for="exampleInputFile">选择文件</label>
+											  <input type="file" id="debugInputFile" NAME="exampleInputFile">
+											  <p class="help-block" style="font-size:14px;color:red">
+													<br />
+													说明：请上传需要对比查错的excel表格，导入的excel表格必须严格按照以下字段排序
+													<br />
+													<a  href="static\miduo\work\PC\admin\img/debugmuban.xlsx" target="_blank" style="font-weight: bold;">
+														光伏项目登记查错表excel模版（点击下载查看）
+													</a>
+												</p>
+										  </div>
+										  <!-- <div class="checkbox">
+											  <label>
+												  <input type="checkbox"> Check me out
+											  </label>
+										  </div> -->
+										  <button type="submit" class="btn btn-info">提交</button>
+										  <input type="hidden" name="debugsubmit" value="1">
+									  </form>
+
+								  </div>
+							  </section>
+						  </div>
+
+					  </div>
+
+					  <!-- page end-->
+				  </section>
+
+
+
+
+
+      </section>
+      <!--main content end-->

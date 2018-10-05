@@ -1,0 +1,70 @@
+
+<div class="share-box">
+	<div class="on-share share-bg"></div>	
+	<div class="share-content">
+		<div class="share-content-body">
+		<!--{if (strpos($_SERVER['HTTP_USER_AGENT'], 'UCBrowser') or strpos($_SERVER['HTTP_USER_AGENT'], 'MQQBrowser')) and !(strpos($_SERVER['HTTP_USER_AGENT'], 'Android') and strpos($_SERVER['HTTP_USER_AGENT'], 'QQ/'))}-->
+				<div id="nativeShare"></div>
+				<script src="./template/strong_a1/touch/forum/share/nativeShare.js"></script>
+				<link rel="stylesheet" type="text/css" href="./template/strong_a1/touch/forum/share/nativeShare.css" />
+				<script>
+					var config = {
+						url:'{$_G['siteurl']}forum.php?mod=viewthread&tid=$_G[tid]$fromuid',
+						title:'{$_G[forum_thread][subject]}',
+						desc:'{$_G[forum_thread][subject]}',
+						img:'',
+						img_title:'{$_G[forum_thread][subject]}',
+						from:'{$_G['setting']['bbname']}'
+					};
+					var share_obj = new nativeShare('nativeShare',config);
+				</script>
+		<!--{else}-->		
+		<!-- JiaThis Button BEGIN -->
+		<div class="jiathis_style_32x32 jiathis_share">
+			<a class="jiathis_button_tsina share tsina"></a>
+			<a class="jiathis_button_cqq share cqq"></a>
+			<a class="jiathis_button_qzone share qzone"></a>
+			<a class="share weixinFriend start-weixinshare"><span class="jtico"></span></a>
+			<a class="share weixin start-weixinshare"><span class="jtico"></span></a>
+		</div>
+		<script type="text/javascript" >
+		var jiathis_config={
+			summary:"",
+			shortUrl:false,
+			hideMore:false
+		}
+		</script>
+		<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+		<style>
+		.jiathis_share{width: 90%; margin:0 auto;}
+		.jiathis_share a.share{float: left;width: 20%; display: inline-block; text-align: center; margin: 10px 0;}
+		.jiathis_share a.share span{width: 40px; height: 40px!important; display: block; margin: 0 auto; margin-bottom: 5px;background-size: cover;}
+		.jiathis_share .jtico{float: none; padding-left: 0!important;background-position: initial;}
+		.jiathis_share .tsina span{background-image: url('template/strong_a1/touch/forum/share/icon/weibo.png');}
+		.jiathis_share .cqq span{background-image: url('template/strong_a1/touch/forum/share/icon/qq.png');}
+		.jiathis_share .qzone span{background-image: url('template/strong_a1/touch/forum/share/icon/qqzone.png');}
+		.jiathis_share .weixinFriend span{background-image: url('template/strong_a1/touch/forum/share/icon/weixin_friend.png');}
+		.jiathis_share .weixin span{background-image: url('template/strong_a1/touch/forum/share/icon/weixin.png');}
+		</style>
+		<!-- JiaThis Button END -->	
+		<!--{/if}-->		
+		</div>
+		<div class="close-share on-share">{echo $lang['cancel_share'];}</div>
+	</div>
+</div>
+<div class="weixin-share-hint">{echo $lang['weixin_share_text1'];}</div>
+<div class="weixin-share-hint-bg on-share"></div>
+<script type="text/javascript">
+	$('.on-share').on('click',function(){
+		if($('.share-box').hasClass('onshare')){
+			$('.weixin-share-hint,.weixin-share-hint-bg').hide();
+			$(".share-box").removeClass("onshare");
+		}else{
+			$(".share-box").addClass("onshare");
+		}
+	});
+	
+	$('.start-weixinshare').on('click',function(){
+		$('.weixin-share-hint,.weixin-share-hint-bg').show();
+	});
+</script>

@@ -1,0 +1,25 @@
+<!--{template common/header}-->
+
+<div id="ct" class="forum_passwd">
+	<h3 class="xs2 xi2 mbm">{lang forum_password_require}</h3>
+	<div class="o">
+		<form method="post" autocomplete="off" action="forum.php?mod=forumdisplay&fid=$_G[fid]&action=pwverify">
+			<input type="hidden" name="formhash" value="{FORMHASH}" />
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                    <tr>
+                        <td>
+                        	<input type="password" name="pw" class="" size="25" />
+                        </td>
+                        <td width="66" align="center" class="scbar_btn_td">
+                        	<button class="pn pnc vm button2" type="submit" name="loginsubmit" value="true">{lang submit}</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>          
+			
+			
+		</form>
+	</div>
+</div>
+<!--{template common/footer}-->

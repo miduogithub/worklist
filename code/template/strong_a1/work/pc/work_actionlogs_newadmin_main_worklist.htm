@@ -1,0 +1,93 @@
+    
+	
+<style>
+.wrapper {
+	margin-top: 0px;
+}
+</style>
+          <section class="wrapper">
+              <!-- page start-->
+
+
+              <div class="row">
+                  <div class="col-lg-12">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              日志列表
+                          </header>
+                          <table class="table table-striped table-advance table-hover">
+                              <thead>
+                              <tr>
+                                  
+                                  <th class="hidden-phone"><i class="icon-bookmark"></i> 时间</th>
+								  <th class="hidden-phone"><i class="icon-bookmark"></i> 姓名</th>
+								  <th><i class="icon-bookmark"></i> 动作</th>
+								  <th><i class="icon-bookmark"></i> 模块</th>
+                                  <th><i class="icon-bookmark"></i> 任务</th>
+                                  <th><i class=" icon-edit"></i></th>
+                              </tr>
+                              </thead>
+                              <tbody>
+
+								  <!--{loop $threadlist $list}-->
+
+
+
+									  <!--{if $_GET['action'] == 'edit' && $_GET['workid'] == $list[workid]}-->
+
+											<!--{template work/pc/work_loglist_newadmin_main_worklist_edit}-->
+
+									  <!--{else}-->
+										  <tr> 
+											  
+											  <td class="hidden-phone"><!--{date($list[dateline], 'Y-m-d H:i:s')}-->{if $_GET[check] == 'incomplete'}（周<!--{eval echo $weekarray[date(w,$list[dateline])]}-->）{/if}</td>
+											  <td class="hidden-phone"><a href="work.php?mod=worklist&check=incomplete&editorid={$list[editorid]}" target="_blank">{$list[editor]}</a></td>
+											  <td >$list[actionname]</td>
+											  <td >$list[actionmod]</td>
+											  <td ><span style="font-size: 14px; {if $list[status] == '1'} text-decoration:line-through; color: #D0D0D0;{/if}">$list[actionmessage] </span></td>
+
+
+											  <td>
+
+
+
+
+												  <a href="work.php?mod=workcp&ac=loglist&op=loglist&action=delete&workid=$list[workid]{if $dateline}&dateline=$dateline{/if}" alt="删除">
+													<button class="btn btn-danger btn-xs"><i class="icon-trash "></i></button>
+													</a>
+
+
+											  </td>
+										  </tr>
+									  <!--{/if}-->
+								  <!--{/loop}-->
+
+
+
+
+
+
+                              </tbody>
+                          </table>
+
+
+						
+						<!-- template work/pc/work_loglist_newadmin_main_worklist_multi -->
+
+
+
+
+
+
+
+
+
+                      </section>
+                  </div>
+              </div>
+              <!-- page end-->
+
+
+
+
+          </section>

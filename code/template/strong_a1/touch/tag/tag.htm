@@ -1,0 +1,57 @@
+<!--{template common/header}-->
+<!--{if $type != 'countitem'}-->
+<div  class="g_mbx cl">
+	<div class="z">
+		<a href="./" class="nvhm" title="{lang homepage}">{lang homepage}</a><em>&rsaquo;</em><a href="forum.php?forumlist=1&mobile=2">{$_G[setting][navs][2][navname]}</a><em>&rsaquo;</em><a href="misc.php?mod=tag">{lang tag}</a>
+	</div>
+</div>
+<div style="float:left; width:100%;">
+
+
+<form method="post" class="searchform" action="misc.php?mod=tag" >
+
+	<div class="search">
+
+			<table width="100%" cellspacing="0" cellpadding="0">
+
+				<tbody>
+
+					<tr>
+
+						<td>
+							<input type="text" name="name" class="input"  />
+
+						</td>
+
+						<td width="66" align="center" class="scbar_btn_td">
+							<button type="submit"  class="button2" ><em>{lang search}</em></button>
+
+						</td>
+
+					</tr>
+
+				</tbody>
+
+			</table>
+
+	</div>
+</form>
+
+				<!--{if $tagarray}-->
+
+					<div class="tagso">
+					<!--{loop $tagarray $tag}-->
+						<a  href="misc.php?mod=tag&id=$tag[tagid]" >$tag[tagname]</a>
+					<!--{/loop}-->
+
+					</div>
+				<!--{else}-->
+					<p style="margin: 20px auto 100px auto;text-align: center;">{lang no_tag}</p>
+
+
+				<!--{/if}-->
+</div>
+<!--{else}-->
+$num
+<!--{/if}-->
+<!--{template common/footer}-->

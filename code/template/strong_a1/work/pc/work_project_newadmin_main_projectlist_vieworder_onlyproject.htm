@@ -1,0 +1,149 @@
+                      <!--tab nav start-->
+                      <section class="panel">
+                          <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
+                              <ul class="nav nav-tabs pull-right">
+                                  <li class="active">
+                                      <a data-toggle="tab" href="#home-3">
+											<i class="icon-flag"></i>
+                                          进行中
+										  <span class="badge bg-success hidden-phone">$Projectcountstatus0</span>
+                                      </a>
+                                  </li>
+                                  <li class="">
+                                      <a data-toggle="tab" href="#about-3">
+                                          <i class="icon-jpy"></i>
+                                          结算中
+										  <span class="badge bg-important hidden-phone">$projectstatus1count</span>
+                                      </a>
+                                  </li>
+                                  <li class="">
+                                      <a data-toggle="tab" href="#about-4">
+                                          <i class="icon-thumbs-up"></i>
+                                          已结算
+										  <span class="badge bg-warning hidden-phone">$projectstatus9count</span>
+                                      </a>
+                                  </li>
+                                  <li class="">
+                                      <a data-toggle="tab" href="#contact-3">
+
+                                          <i class=" icon-thumbs-down"></i>
+                                          难产中
+										  <span class="badge bg- hidden-phone">$projectstatus99count</span>
+
+										  
+                                      </a>
+                                  </li>
+                              </ul>
+                              <span class="hidden-sm wht-color hidden-phone">项目列表</span>
+                          </header>
+                          <div class="panel-body">
+                              <div class="tab-content">
+                                  <div id="home-3" class="tab-pane active">
+
+									<!--{if $prject_status_0_list}-->
+
+									  <section class="panel">
+										  <!-- <header class="panel-heading">
+											  Dynamic Table
+										  </header> -->
+										  <table class="table table-striped border-top" id="sample_1">
+										  <thead>
+
+											<!--{template work/pc/work_project_newadmin_main_projectlist_table_thead}-->
+										  </thead>
+										  <tbody>
+
+											<!--{template work/pc/work_project_newadmin_main_projectlist_table_body_status_0}-->
+
+										  </tbody>
+										  </table>
+									  </section>
+
+									<!--{else}-->
+										暂无进行中项目，<a href="work.php?mod=project&view=addproject"><span style="color:red">点此</span></a>添加新项目……
+									<!--{/if}-->
+                                  </div>
+                                  <div id="about-3" class="tab-pane">
+
+										<!--{if $prject_status_1_list}-->
+
+										  <section class="panel">
+											  <!-- <header class="panel-heading">
+												  Dynamic Table
+											  </header> -->
+											  <table class="table table-striped border-top" id="sample_0">
+											  <thead>
+
+												<!--{template work/pc/work_project_newadmin_main_projectlist_table_thead}-->
+											  </thead>
+											  <tbody>
+
+												<!--{template work/pc/work_project_newadmin_main_projectlist_table_body_status_1}-->
+
+											  </tbody>
+											  </table>
+										  </section>
+
+										<!--{else}-->
+											暂无结算中项目……
+										<!--{/if}-->
+
+									</div>
+
+                                  <div id="about-4" class="tab-pane">
+
+										<!--{if $prject_status_9_list}-->
+
+										  <section class="panel">
+											  <!-- <header class="panel-heading">
+												  Dynamic Table
+											  </header> -->
+											  <table class="table table-striped border-top" id="sample_2">
+											  <thead>
+
+												<!--{template work/pc/work_project_newadmin_main_projectlist_table_thead}-->
+											  </thead>
+											  <tbody>
+
+												<!--{template work/pc/work_project_newadmin_main_projectlist_table_body_status_9}-->
+
+											  </tbody>
+											  </table>
+										  </section>
+
+										<!--{else}-->
+											暂无已结算项目……
+										<!--{/if}-->
+
+									</div>
+                                  <div id="contact-3" class="tab-pane">
+
+
+										<!--{if $prject_status_99_list}-->
+
+										  <section class="panel">
+											  <!-- <header class="panel-heading">
+												  Dynamic Table
+											  </header> -->
+											  <table class="table table-striped border-top" id="sample_0">
+											  <thead>
+
+												<!--{template work/pc/work_project_newadmin_main_projectlist_table_thead}-->
+											  </thead>
+											  <tbody>
+
+												<!--{template work/pc/work_project_newadmin_main_projectlist_table_body_status_99}-->
+
+											  </tbody>
+											  </table>
+										  </section>
+
+										<!--{else}-->
+											暂无难产中项目……
+										<!--{/if}-->
+
+								</div>
+                              </div>
+                          </div>
+                      </section>
+                      <!--tab nav start-->

@@ -1,0 +1,119 @@
+									<!--{eval $i = '0';}-->
+								  <!--{loop $Projectcountstatus0_threadlist $list}-->
+										<!--{eval $i++;}-->
+
+                  <div   style=" 
+margin:3px; 
+display:inline-block; vertical-align: top; width: 320px;padding-top:0px;white-space:normal; " >
+
+                      <section class="panel ">
+                          <header class="panel-heading" style="{if $mlist[status] == '1'} text-decoration:line-through; color: #D0D0D0;{/if}">
+                              {$i}、{eval echo cutstr($list[projectname], 27);}
+
+
+									<div class="pull-right chat-features">
+                                          <a href="work.php?mod=workcp&ac=tasklist&op=tasklist&action=pushmissiontop&missionid={$mlist[missionid]}">
+                                              <i class="icon-indent-left"></i>
+                                          </a>
+                                      </div>                          
+							</header>
+                          <div class="panel-body" style=" max-height: 750px;overflow-x: auto;">
+                              <div class="timeline-messages">
+
+									<!--{eval $tasklist = get_mission_tasklist_by_missionid($mlist[missionid]);}-->
+									<!--{loop $tasklist $tlist}-->
+
+
+
+                                  <div class="msg-time-chat" >
+									
+										
+									
+                                      <!-- <a href="work.php?mod=workcp&ac=tasklist&op=tasklist&action=finish&taskid={$tlist[taskid]}" class="message-img">
+										 <img class="avatar" src="{avatar($tlist[editorid], middle, true)}" alt="" >
+									</a> -->
+                                      <div class="message-body msg-in">
+                                          <span class="arrow"></span>
+											<script type="text/javascript">
+												$(document).ready(function() {
+													$('#task_message_show_{$tlist[taskid]}').hover(function(){
+														$('#task_message_showInner_{$tlist[taskid]}').show();
+													}, function(){
+														$('#task_message_showInner_{$tlist[taskid]}').hide();
+													});
+												});
+											</script>
+                                          <div class="text" style="{if $tlist[status] == '1'} text-decoration:line-through; color: #D0D0D0;{/if}" id="task_message_show_{$tlist[taskid]}">
+
+                                              <p>$tlist[taskname]</p>
+												<br />
+												<div id="task_message_showInner_{$tlist[taskid]}" style="display: none;">
+													<div class="pull-left chat-features" style="    margin-top: -13px;    margin-left: -10px;">
+														
+														<!--{if $tlist[tid]}-->
+															<a href="work.php?mod=taskpsot&fid=45&tid=$tlist[tid]&from=taskbar&taskid={$tlist[taskid]}&projectid={$_GET[projectid]}">
+																<i class="icon-file-text" style="margin-right: -10px;"></i>
+															</a>
+														<!--{else}-->
+															<a href="work.php?mod=taskpsot&action=newthread&fid=45&from=taskbar&taskid={$tlist[taskid]}&projectid={$_GET[projectid]}">
+																<i class="icon-edit" style="margin-right: -10px;"></i>
+															</a>
+														<!--{/if}-->
+														 
+														  
+													  </div> 
+													<div class="pull-right chat-features" style="    margin-top: -13px;">
+														
+														<!-- <i class="icon-pencil"></i> -->
+														
+														
+														<!--{if $tlist[status]=='0'}-->
+															<!-- <a href="#"><i class="icon-edit" style="margin-right: -10px;"></i></a> -->
+															<a href="work.php?mod=workcp&ac=tasklist&op=tasklist&action=pushtop&taskid={$tlist[taskid]}"><i class="icon-upload-alt" style="margin-right: -10px;"></i></a>
+															<a href="work.php?mod=workcp&ac=tasklist&op=tasklist&action=finish&taskid={$tlist[taskid]}"><i class="icon-ok"  style="margin-right: -10px;"></i></a>
+															
+														<!--{/if}-->
+														<!--{if $tlist[status]=='1'}-->
+														
+															<a href="work.php?mod=workcp&ac=tasklist&op=tasklist&action=unfinish&taskid={$tlist[taskid]}"><i class="icon-remove"  style="margin-right: -10px;"></i></a>
+															<a href="work.php?mod=workcp&ac=tasklist&op=tasklist&action=delete&taskid={$tlist[taskid]}"><i class="icon-trash"  style="margin-right: -10px;"></i></a>
+														<!--{/if}-->
+														 
+														  
+													  </div> 
+												</div>											  
+                                          </div>
+                                      </div>
+
+                                  </div>
+								  <!--{/loop}-->
+
+                              </div>
+
+							<form method="post" action="work.php?mod=workcp&ac=tasklist&op=tasklist&action=add" id="subform_{$mlist[missionid]}">
+                              <div class="chat-form">
+                                  <div class="input-cont ">
+                                      <input type="text" name="taskname" class="form-control col-lg-12" placeholder="">
+									  <input type="hidden" name="missionid" value="{$mlist[missionid]}">
+                                  </div>
+                                  <div class="form-group">
+                                      <div class="pull-right chat-features">
+                                          <a href="javascript:;">
+                                              <i class="icon-camera"></i>
+                                          </a>
+
+
+                                          <a href="javascript:;">
+                                              <i class="icon-link"></i>
+                                          </a>
+                                          <a class="btn btn-danger" href="#" name="submit" onclick="document.getElementById('subform_{$mlist[missionid]}').submit();return false" >保存</a>
+                                      </div>
+                                  </div>
+
+                              </div>
+							  </form>
+                          </div>
+                      </section>
+                  </div>
+
+								  <!--{/loop}-->

@@ -1,0 +1,105 @@
+      <!--main content start-->
+      <section id="main-content">
+		
+
+
+          <header class="tab-head">
+
+				<!--{if !$projectid}-->
+              <ul class="nav nav-tabs">
+
+
+				<!--{loop $yearsarr $year}-->
+
+					<li {if $checkyear == $year}class="active"{/if}>
+						<a href="work.php?mod=project&view=mission{if $vieworder=='onlyproject'}&vieworder=$vieworder{/if}&checkyear=$year">$year</a>
+					</li>
+				<!--{/loop}-->
+
+              </ul>
+			  <!--{/if}-->
+
+          </header>
+
+
+<!--{if $thedatelinestart < $todaydateline || $thedatelinestart > $todaydateline + 86399  || $_GET[check] == 'incomplete'}-->
+
+
+
+<div style="margin-top: 10px;margin-right: 10px;float: right;">
+<form id="shopmanage" method="post" action="work.php?mod=workcp&ac=shop&op=goodslist&action=backtoday"  >
+		
+
+				<button class="btn btn-shadow btn-danger" type="submit" value="true">返回今天</button>
+
+
+</form>
+
+	</div>
+<!--{/if}-->
+
+
+
+
+
+<!--{if !$projectid}-->
+
+
+<!--{if $_G['adminid'] == '1'}-->
+	<!--{template work/pc/work_project_mission_newadmin_main_editorlist}-->
+<!--{/if}-->
+
+
+<!--{template work/pc/work_project_mission_newadmin_main_wrapper}-->
+
+<!--{/if}-->
+
+
+
+<a href="work.php?mod=project&view=addmission&projectid={$projectid}">
+	<div class="bm bw0 pgs cl" style="margin-top: 10px;margin-right: 5px;float: right;">
+
+					<button class="btn btn-shadow btn-primary" type="submit" value="true">添加任务</button>
+	</div>
+</a>
+<!--{if $projectid}-->
+<a href="javascript:history.back()">
+	<div class="bm bw0 pgs cl" style="margin-top: 10px;margin-right: 5px;float: right;">
+
+					<button class="btn btn-shadow btn-primary" type="submit" value="true">返回</button>
+	</div>
+</a>
+
+	
+		<a href="work.php?mod=project&view=mission&projectid={$projectid}">
+			<div class="bm bw0 pgs cl" style="margin-top: 10px;margin-right: 5px;float: right;">
+
+							<button class="btn btn-shadow {if $_GET['vieworder'] == 'alleditor'} btn-primary {else} btn-success {/if}" type="submit" value="true">只看自己</button>
+			</div>
+		</a>
+
+	
+		<a href="work.php?mod=project&view=mission&projectid={$projectid}&vieworder=alleditor">
+			<div class="bm bw0 pgs cl" style="margin-top: 10px;margin-right: 5px;float: right;">
+
+							<button class="btn btn-shadow {if $_GET['vieworder'] == 'alleditor'} btn-success {else} btn-primary {/if}" type="submit" value="true">看所有人</button>
+			</div>
+		</a>
+	
+<!--{/if}-->
+
+
+<!--{if $view == 'addproject'}-->
+	<!--{template work/pc/work_project_mission_newadmin_main_projectlist_form}-->
+<!--{else}-->
+	<!--{template work/pc/work_project_mission_newadmin_main_missionlist}-->
+<!--{/if}-->
+	
+
+<!--{if $projectid}-->
+<!--{template work/pc/work_project_mission_newadmin_main_missionlist_form}-->
+<!--{/if}-->
+
+
+      </section>
+      <!--main content end-->

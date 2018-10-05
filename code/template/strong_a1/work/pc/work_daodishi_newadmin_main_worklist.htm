@@ -1,0 +1,149 @@
+
+
+<link rel="stylesheet" type="text/css" href="static/miduo/time/datedropper.css">
+<link rel="stylesheet" type="text/css" href="static/miduo/time/timedropper.min.css">
+
+
+<style>
+.img_sina_share{display:none; position:absolute; cursor:pointer;}
+</style>    
+	
+<style>
+.wrapper {
+	margin-top: 0px;
+}
+</style>
+          <section class="wrapper">
+              <!-- page start-->
+
+
+              <div class="row">
+                  <div class="col-lg-12" id="testContent">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              倒计时列表
+                          </header>
+                          <table class="table table-striped table-advance table-hover">
+                              <thead>
+                              <tr>
+                                  <th class="hidden-phone"><i class="icon-bookmark"></i> 作者</th>
+								  <th><i class="icon-bookmark"></i> 名称</th>
+                                  <th ><i class="icon-bookmark"></i> 开始</th>
+								  <th ><i class="icon-bookmark"></i> 结束</th>
+                                  
+                                  <th> 状态</th>
+                                  <th><i class=" icon-edit"></i></th>
+                              </tr>
+                              </thead>
+                              <tbody >
+
+								  <!--{loop $threadlist $list}-->
+
+
+
+									  <!--{if $_GET['action'] == 'edit' && $_GET['workid'] == $list[workid]}-->
+
+											<!--{template work/pc/work_daodishi_newadmin_main_worklist_edit}-->
+
+									  <!--{else}-->
+										  <tr>
+											  <td class="hidden-phone"><a href="work.php?mod=daojishi&check=incomplete&editorid={$list[editorid]}" target="_blank">{$list[editor]}</a></td>
+
+											 <td >
+												<div style="max-width: 500px;">
+													<span style="font-size: 14px; {if $list[status] == '1'} text-decoration:line-through; color: #D0D0D0;{/if}">$list[message] </span>
+												</td>
+
+											  <td class="hidden-phone"><!--{date($list[starttimedateline], 'Y-m-d H:i:s')}--></td>
+											  <td class="hidden-phone"><!--{date($list[endtimedateline], 'Y-m-d H:i:s')}--></td>
+
+
+											<td>
+
+
+												<!--{template work/pc/work_daodishi_newadmin_main_worklist_logstatus}-->
+											</td>
+
+
+
+
+
+
+
+
+
+
+											  <td>
+
+												<!--{if $list[dateline] > $todaydateline && $list[status] == '0'}-->
+													<a href="work.php?mod=workcp&ac=daojishi&op=loglist&action=pushtop&workid=$list[workid]{if $dateline}&submitdateline=$dateline{/if}" alt="提升">
+														<button class="btn btn-success btn-xs" >
+															<i class="icon-upload-alt"></i>
+														</button>
+													</a>
+												<!--{/if}-->
+
+
+												<!--{if $_G['timestamp'] - $list[dateline] < 3600 * 24 * 7 && $list[status] == '0'  || $_G['adminid'] == '1'}-->
+												  <a href="work.php?mod=daojishi&workid=$list[workid]&action=edit{if $dateline}&dateline=$dateline{/if}"><button class="btn btn-primary btn-xs" alt="编辑">
+													<i class="icon-pencil"></i></button>
+												  </a>
+												  <a href="work.php?mod=workcp&ac=daojishi&op=loglist&action=delete&workid=$list[workid]{if $dateline}&dateline=$dateline{/if}" alt="删除">
+													<button class="btn btn-danger btn-xs"><i class="icon-trash "></i></button>
+													</a>
+												<!--{/if}-->
+
+
+											  </td>
+										  </tr>
+									  <!--{/if}-->
+								  <!--{/loop}-->
+
+
+
+
+
+
+                              </tbody>
+                          </table>
+
+
+						
+						<!-- template work/pc/work_daodishi_newadmin_main_worklist_multi -->
+
+
+
+
+
+
+
+
+
+                      </section>
+                  </div>
+              </div>
+              <!-- page end-->
+
+		<!--{if $_GET['action']!='edit' && $_G['timestamp'] - $dateline < 3600 * 168 || $_G['adminid'] == '1'}-->
+
+			<!--{template work/pc/work_daodishi_newadmin_main_worklist_form}-->
+
+		<!--{/if}-->
+
+
+
+
+
+
+
+          </section>
+
+
+
+
+
+
+
+
+
+

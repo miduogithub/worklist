@@ -1,0 +1,125 @@
+      <!--main content start-->
+      <section id="main-content">
+          <header class="tab-head">
+              <ul class="nav nav-tabs">
+
+
+<!-- badge bg-warning -->
+                  <li {if $dateline == $PreviousSundaydateline}class="active"{/if}>
+                      <a href="work.php?mod=worklist&dateline={$PreviousSundaydateline}">$PreviousSunday<span class="badge badge bg-important">7</span></a>
+                  </li>
+
+                  <li {if $dateline == $Mondaydateline}class="active"{/if}>
+                      <a href="work.php?mod=worklist&dateline={$Mondaydateline}">$Monday<span class="badge {if $todaydateline == $Mondaydateline}bg-success{elseif $Mondaydateline > $todaydateline && $Mondaydateline < $nextMondaydateline}bg-success{else}bg-warning{/if}">1</span></a>
+                  </li>
+
+                  <li {if $dateline == $Tuesdaydateline}class="active"{/if}>
+                      <a href="work.php?mod=worklist&dateline={$Tuesdaydateline}">$Tuesday<span class="badge {if $todaydateline == $Tuesdaydateline}bg-success{elseif $Tuesdaydateline > $todaydateline && $Tuesdaydateline < $nextMondaydateline}bg-success{else}bg-warning{/if}">2</span></a>
+                  </li>
+
+                  <li {if $dateline == $Wednesdaydateline}class="active"{/if}>
+                      <a href="work.php?mod=worklist&dateline={$Wednesdaydateline}">$Wednesday <span class="badge {if $todaydateline == $Wednesdaydateline}bg-success{elseif $Wednesdaydateline > $todaydateline && $Wednesdaydateline < $nextMondaydateline}bg-success{else}bg-warning{/if}">3</span></a>
+                  </li>
+
+                  <li {if $dateline == $Thursdaydateline}class="active"{/if}>
+                      <a  href="work.php?mod=worklist&dateline={$Thursdaydateline}">$Thursday<span class="badge {if $todaydateline == $Thursdaydateline}bg-success{elseif $Thursdaydateline > $todaydateline && $Thursdaydateline < $nextMondaydateline}bg-success{else}bg-warning{/if}">4</span></a>
+                  </li>
+
+                  <li {if $dateline == $Fridaydateline}class="active"{/if}>
+                      <a href="work.php?mod=worklist&dateline={$Fridaydateline}">$Friday<span class="badge {if $todaydateline == $Fridaydateline}bg-success{elseif $Fridaydateline > $todaydateline && $Fridaydateline < $nextMondaydateline}bg-success{else}bg-warning{/if}">5</span></a>
+                  </li>
+
+                  <li {if $dateline == $Saturdaydateline}class="active"{/if}>
+                      <a href="work.php?mod=worklist&dateline={$Saturdaydateline}">$Saturday<span class="badge {if $todaydateline == $Saturdaydateline}bg-success{elseif $Saturdaydateline > $todaydateline && $Saturdaydateline < $nextMondaydateline}bg-success{else}bg-warning{/if}">6</span></a>
+                  </li>
+
+                  <li {if $dateline == $Sundaydateline}class="active"{/if}>
+                      <a  href="work.php?mod=worklist&dateline={$Sundaydateline}">$Sunday<span class="badge badge bg-important">7</span></a>
+                  </li>
+
+                  <li {if $dateline == $nextMondaydateline}class="active"{/if}>
+                      <a href="work.php?mod=worklist&dateline={$nextMondaydateline}">$nextMonday<span class="badge {if $todaydateline == $nextMondaydateline}bg-success{else}bg-warning{/if}">1</span></a>
+                  </li>
+              </ul>
+          </header>
+
+
+
+
+<!--{if $thedatelinestart < $todaydateline || $thedatelinestart > $todaydateline + 86399  || $_GET[check] == 'incomplete'}-->
+
+
+
+<div style="margin-top: 10px;margin-right: 10px;float: right;">
+<form id="shopmanage" method="post" action="work.php?mod=workcp&ac=loglist&op=loglist&action=backtoday"  >
+		
+
+				<button class="btn btn-shadow btn-danger" type="submit" value="true">返回今天</button>
+
+
+</form>
+
+	</div>
+<!--{/if}-->
+
+
+
+<div style="margin-top: 10px;margin-right: 10px;float: right;">
+	<form id="shopmanage" method="post" action="work.php?mod=workcp&ac=worklist_to_excel&editorid={$_G['uid']}&thedatelinestart=$thedatelinestart&thedatelineend=$thedatelineend"  >
+					<button class="btn btn-shadow btn-success" type="submit" value="true">导出excel</button>
+	</form>
+</div>
+
+
+<!--{if $_G[adminid] == '1' && $_GET['check']!='incomplete'}-->
+<a href="work.php?mod=worklist&check=incomplete"><div class="bm bw0 pgs cl" style="margin-top: 10px;margin-right: 5px;float: right;">
+
+				<button class="btn btn-shadow btn-primary" type="submit" value="true">查看全部</button>
+</div></a>
+<!--{/if}-->
+
+
+<!--{if $count}-->
+{eval $count_status1 = $count - $count_status0;}
+<div class="bm bw0 pgs cl" style="margin-top: 10px;margin-right: 5px;float: right;">
+
+				<button type="submit" class="btn btn-shadow btn-success" value="true">待办：{$count} - {$count_status1}</button>
+</div>
+<!--{/if}-->
+
+
+
+
+
+
+
+
+
+	<!--{template work/pc/work_excel2mysql_list_newadmin_main_worklist}-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </section>
+      <!--main content end-->

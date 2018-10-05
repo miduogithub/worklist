@@ -1,0 +1,70 @@
+<!--{template common/header}-->
+<div class="nav">
+	<div class="nav_left"><a href="home.php?mod=space&do=profile&mycenter=1"><i class="fa fa-angle-left fa-15x"></i></a></div>
+	<div class="nav_right"></div>
+	<div class="nav_center">
+		<a href="forum.php">{echo $lang['favorite'];}</a>
+	</div>
+</div>
+<div  class="favorite_type">
+<a href="home.php?mod=space&uid={$_G[uid]}&do=favorite&view=me&type=thread" {if $_GET['type'] == 'thread'}class="a"{/if}>{lang favthread}</a>
+<a href="home.php?mod=space&do=favorite&type=article" {if $_GET['type'] == 'article'}class="a"{/if}>{echo $lang['wenzhangshoucang'];}</a>
+<a href="home.php?mod=space&uid={$_G[uid]}&do=favorite&view=me&type=forum" {if $_GET['type'] == 'forum'}class="a"{/if}>{lang favforum}</a>
+</div>
+
+<!-- main collectlist start -->
+<!--{if $_GET['type'] == 'forum'}-->
+<div class="coll_list b_radius">
+	<ul>
+		<!--{if $list}-->
+			<!--{loop $list $k $value}-->
+
+            
+            
+			<li><a href="$value[url]">$value[title]</a></li>
+			<!--{/loop}-->
+		<!--{else}-->
+		<li class="no_data" style="line-height: inherit;">{lang no_favorite_yet}</li>
+		<!--{/if}-->
+
+	</ul>
+</div>
+<!--{else}-->
+<div class="threadlist1">
+<ul>	
+<!--{if $list}-->
+		<!-- more pagelist start -->
+    	<!--{loop $list $key $thread}-->
+        <li>
+            <a href="$thread[url]">
+				<h3>
+				{$thread[title]}</h3>            
+			</a>
+		</li>
+		
+							
+		<!--{/loop}-->	
+		<!-- more pagelist end -->		
+        <div id="ajaxlist"></div>		
+
+<!--{else}-->
+	<li class="no_data">{lang no_favorite_yet}</li>
+<!--{/if}-->
+	</ul>			
+</div>
+<!--{/if}-->
+<!-- main collectlist end -->
+$multi
+
+<script type="text/javascript">
+    function do_click(spkh) {
+			$(spkh+'id').fadeToggle();
+        }
+
+
+</script>
+
+<!--{eval $nofooter = true;}-->
+<!--{eval $nob_nav=1;}-->
+<!--{template common/footer}-->
+

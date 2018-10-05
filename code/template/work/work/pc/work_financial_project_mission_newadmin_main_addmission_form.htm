@@ -1,0 +1,157 @@
+<section class="panel">
+
+
+
+
+                           <header class="panel-heading">
+                              请填写项目资料
+                          </header> 
+                          <div class="panel-body">
+                              <div class=" form">
+
+                                  <form class="cmxform form-horizontal tasi-form" id="commentForm" method="post" action="work.php?mod=workcp&ac=financial_project_mission&op=mission{if $_GET[missionid]}&action=edit{else}&action=add{/if}" >
+
+                                  <div class="form-group has-success">
+                                      <label class="col-lg-2 control-label">所属项目</label>
+										<div class="col-lg-6">  
+											<select name="projectid" id="birthyear" class="ps" tabindex="1" style="width: 50%;">
+												<option value="">请选择</option>
+												<!--{loop $projectlist $olist}-->
+												<option value="$olist['projectid']" {if $mission[projectid] == $olist['projectid']}selected = "selected"{/if}>{$organizationlist[$olist['Organizationid']][Organizationname]}：{$olist['projectname']} </option>
+												<!--{/loop}-->
+											</select>  
+										</div>
+                                  </div>
+
+                                  <div class="form-group has-success">
+                                      <label class="col-lg-2 control-label">报销科目</label>
+
+
+								<!--{if $view=='addmission'}-->
+										<div class="col-lg-6">  
+											<!--{template work/pc/work_financial_project_mission_newadmin_main_addmission_form_select}-->
+										</div>
+
+								<!--{/if}-->
+
+
+
+								{eval $changetype = $_GET[changetype];}
+								<!--{if $view=='editmission' && !$changetype}-->
+									  <div class="col-sm-6" >
+
+											<input name="project_typeid"  type="text" value="$typelist['ttypelist'][$mission['projecttypeid']][typename]"  class="form-control" readonly="" >
+											<input type="hidden" name="project_typeid"  value="$mission['projecttypeid']" >
+											<p class="help-block"><a href="work.php?mod=financial&view=editmission&missionid=$mission[missionid]&changetype=1">修改</a></p>
+									  </div>
+								<!--{elseif $changetype && $view=='editmission'}-->
+										<div class="col-lg-6">  
+											<!--{template work/pc/work_financial_project_mission_newadmin_main_addmission_form_select}-->
+										</div>
+								<!--{/if}-->
+
+                                  </div>
+								<!--{if $_G['adminid'] == '1'}-->
+
+								<!--{/if}-->
+                                  <div class="form-group has-success">
+                                      <label class="col-lg-2 control-label">报销名称</label>
+                                      <div class="col-lg-10">
+                                          <input type="text" placeholder="" id="l-name" class="form-control"  name="missionname" value="{if $mission[missionname]}$mission[missionname]{else}$_GET['message']{/if}">
+                                          <!-- <p class="help-block">Aha you gave a wrong info</p> -->
+                                      </div>
+                                  </div>
+
+                                  <div class="form-group has-success">
+                                      <label class="col-lg-2 control-label">金额</label>
+                                      <div class="col-lg-10">
+                                          <input type="text" placeholder="" id="l-name" class="form-control"  name="price" value="$mission[Projectprice]">
+                                          <!-- <p class="help-block">Aha you gave a wrong info</p> -->
+                                      </div>
+                                  </div>
+                                          <!--date picker start-->
+
+                                         <div class="form-group">
+                                              <label class="col-lg-2 control-label">任务时间</label>
+                                              <div class="col-sm-6" data-date-format="yyyy-mm-dd">
+
+											  <!--{if $mission[missionstarttimeline]}-->
+												<input name="missionstarttime" id="dpYears" type="text" value="{date($mission[missionstarttimeline],'Y-m-d')}" size="16" class="form-control" readonly="" data-date-format="yyyy-mm-dd">
+												<!--{else}-->
+
+
+													<!--{if $_GET[dateline]}-->
+														<input name="missionstarttime" id="dpYears" type="text" value="{date($_GET[dateline],'Y-m-d')}" size="16" class="form-control" readonly="" data-date-format="yyyy-mm-dd">
+													<!--{else}-->
+														<input name="missionstarttime" id="dpYears" type="text" value="{date($_G[timestamp],'Y-m-d')}" size="16" class="form-control" readonly="" data-date-format="yyyy-mm-dd">
+													<!--{/if}-->
+
+
+
+												<!--{/if}-->
+                                                 
+                                              </div>
+                                          </div>
+                                          <!--  <div class="form-group">
+                                              <label class="col-lg-2 control-label">Starts with years view</label>
+                                              <div class="col-sm-6">
+
+
+                                                  <div class="input-append date" id="dpYears" data-date="2017-8-26" data-date-format="yyyy-mm-dd" data-date-viewmode="years">
+                                                      <input class="form-control" size="16" type="text" value="2017-8-26" readonly="">
+                                                      <span class="add-on"><i class="icon-calendar"></i></span>
+                                                  </div>
+                                              </div>
+                                          </div> -->
+
+                                          <!--date picker end-->
+
+                        
+
+
+
+
+
+
+
+
+
+
+
+                                  <!-- <div class="form-group has-success">
+                                      <label class="col-lg-2 control-label">收支</label>
+                                      <div class="col-lg-10">
+                                          <input type="text" placeholder="" id="l-name" class="form-control"  name="price" value="$mission[Projectprice]">
+                                          <p class="help-block">Aha you gave a wrong info</p>
+                                      </div>
+                                  </div> -->
+
+                                      <div class="form-group">
+                                          <div class="col-lg-offset-2 col-lg-10">
+                                              <button class="btn btn-danger" type="submit" name="vote_button"  value="true">提交</button>
+
+												<!--{if $dateline < $todaydateline}-->
+												<input  type="hidden" name="submitdateline" value="{eval echo $thedatelinestart+86399}"/>
+												<!--{/if}-->
+
+												<!--{if $dateline >= $next1daydateline}-->
+												<input  type="hidden" name="submitdateline" value="$thedatelinestart"/>
+												<!--{/if}-->
+
+                                              <!-- <button class="btn btn-default" type="button">Cancel</button> -->
+                                          </div>
+										  
+											<div class="col-lg-offset-2 col-lg-10" style="height: 270px;"></div>
+                                      </div>
+									<!--{if $_GET['missionid']}-->
+										<input type="hidden" name="missionid" value="{$_GET['missionid']}">
+									<!--{/if}-->
+                                  </form>
+                              </div>
+
+                          </div>
+                      </section>
+
+
+
+

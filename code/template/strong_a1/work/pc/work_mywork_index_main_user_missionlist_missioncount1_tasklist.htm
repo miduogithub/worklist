@@ -1,0 +1,41 @@
+		<!--{eval $tasklist = get_mission_tasklist_by_missionid($missioninfo[missionid]);}-->
+		<!--{if $tasklist}-->
+		<span style="letter-spacing:0px;">
+			<!-- <i class="icon-folder-open" style="font-size: 16px;"></i> -->
+			<!-- <a href="work.php?mod=taskbar&view=mission&projectid={$missioninfo[projectid]}&editorid=$missioninfo[editorid]"><i class="icon-folder-open" style="font-size: 16px;"></i></a> -->
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse_missionid_{$missioninfo[missionid]}"><i id="p_m_tasklist_folder_switch_missionid_{$missioninfo[missionid]}" onclick="open_close_tasklist_folder({$missioninfo[missionid]});" class="icon-folder-close" style="font-size: 16px;"></i></a>
+		</span>
+
+
+
+
+                              <div id="collapse_missionid_{$missioninfo[missionid]}" class="panel-collapse collapse">
+
+									
+
+									<div class="panel-body" style="margin-top: 15px;    padding-bottom: 0px;">
+										{eval $l='0';}
+										<!--{loop $tasklist $tlist}-->
+											{eval $l++;}
+												<div class="alert alert-info fade in" style=" margin-top: -15px;">
+													<strong>{$l}.</strong> 
+														{$tlist[taskname]}
+														<!--{if $tlist[tid]}-->
+														<a href="work.php?mod=taskpsot&fid={$tlist[fid]}&tid=$tlist[tid]&from=taskbar&taskid=$tlist[taskid]&projectid={$mlist[projectid]}" target="_blank">
+															<i class="icon-paper-clip" style="margin-right: -10px;color:#797979;"></i>
+														</a>
+														<!--{/if}-->
+														<!--{if $tlist[taskurl]}-->
+														&nbsp;
+															<a href="{$tlist[taskurl]}" target="_blank">
+																<i class="icon-plane" ></i>
+															</a>
+														<!--{/if}-->	
+												</div>   
+										<!--{/loop}-->
+									</div>
+									
+                              </div>
+
+
+		<!--{/if}-->
